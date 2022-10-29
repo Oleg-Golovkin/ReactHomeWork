@@ -1,10 +1,14 @@
 import React from 'react';
 import Header from '../header/header';
+import RandomChar from '../randomChar/RandomChar';
 function App() {
   return (
-    <div>
+    <>
       <Header/>
-    </div>
+      <main>
+        <RandomChar/>
+      </main>
+    </>
   );
 }
 
