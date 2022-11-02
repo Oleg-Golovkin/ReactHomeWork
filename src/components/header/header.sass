@@ -1,21 +1,178 @@
+
 .header
-    display: flex
-    justify-content: space-between
-    &__btn
-        text-decoration: none
-        color: inherit
-        display: inline-block
-        font-family: "Roboto Condensed", sans-serif
-        font-size: 30px
+    position: fixed
+    width: 100%
+    z-index: 10
+    background-image: url("../img/bg/header.png")
+    background-color: var(--color-ffffff)
+    background-position: center center
+    background-size: cover
+    background-repeat: no-repeat
+    height: 140px
+    top: 0
+    @media ( max-width:  767px)
+        background-position: right
+    &__main
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        width: 100%
+        padding-top: 14px
+   
+
+    &__content-ul
+        display: grid
+        grid-template-columns: repeat(3, auto)
+        grid-template-rows: 27px 27px
+        padding-left: 0
+        width: 38%
+        white-space: nowrap
+        @media ( max-width: 992px )
+            display: none
+
+        li
+            list-style: none
+            a
+                font-family: Play
+                font-size: rem(14)
+                line-height: 18px
+                font-weight: 700
+                text-decoration: underline
+                color: var(--color-ffffff)
+                opacity: 0.9
+                padding: 5px 18px
+                &:active
+                    background-color: var(--color-068292)
+                    border-radius: 100px
+    &__logo
+        width: 130px
+        @media ( max-width: 991px )
+            position: relative
+            left: 50%
+            transform: translateX(-50%)
+    &__logo-main
+        height: 33px
+        margin-top: 13px
+        font-family: Play
+        font-size: rem(48)
+        line-height: 18px
+        font-weight: 700
+        text-transform: uppercase
+        color: var(--color-ffffff)
+    &__logo-dsc
+        height: 13px
+        margin-top: 14px
+        font-size: rem(12)
+        line-height: 18px
+        font-weight: 300
+        letter-spacing: 0.05em
+        color: var(--color-ffffff)
+    &__contacts
+        width: 38%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        flex-wrap: wrap
+        @media ( max-width: 1200px  )
+            justify-content: center
+        @media ( max-width: 991px )
+            justify-content: end
+
+    &__contacts-first
+        display: flex
+        align-items: center
+        width: 186px
+        @media   ( max-width: 767px )
+            justify-content: end
+        &-img-wrapper
+            width: 19px
+            height: 25px
+            margin-right: 19px
+            @media  ( max-width: 767px )
+                display: none
+            img
+                width: 100%
+                height: 100%
+        &-city
+            font-size: rem(12)
+            line-height: 18px
+            font-weight: 300
+            color: var(--color-ffffff)
+            @media  (max-width: 767px)
+                display: none
+        &-link
+            font-size: rem(18)
+            font-weight: 900
+            text-transform: uppercase
+            color: var(--color-ffffff)
+            text-decoration: none
+            @media   ( max-width: 767px )
+                display: block
+                background: url('../icons/ikonka_5067.png') left no-repeat
+                padding-left: 10px
+                width: 19px
+                height: 25px
+                span
+                    display: none
+    &__contacts-second
+        position: relative
+        margin-right: 48px
+        border-left: 1px solid white
+        padding-left: 29px
+        @media ( max-width: 1200px  )
+            display: none
+        &-city
+            font-size: rem(12)
+            line-height: 18px
+            font-weight: 300
+            color: var(--color-ffffff)
+        &-link
+            display: inline-block
+            font-size: rem(18)
+            font-weight: 900
+            text-transform: uppercase
+            color: var(--color-ffffff)
+            text-decoration: none
+    &__secondary
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        margin-top: 6px
+        
+        @media ( max-width: 992px )
+            display: none
+
+    &__sub-secondary
+        display: flex
+        justify-content: space-between
+        align-items: center
+        flex-wrap: wrap
+        width: 450px        
+        @media ( max-width: 1200px )
+            width: 370px
+        @media ( max-width: 812px )
+            &:last-child
+                margin-top: 15px
+
+    &__sub-secondary-wrapper
+        display: flex
+        align-items: center
+        a
+            text-decoration: none
+            border-bottom: 1px dashed
+    &__sub-secondary-dsc
+        font-size: 14px
+        line-height: 18px
+        font-weight: 300
+        color: var(--color-999999)
+    &__sub-secondary-dsc_blue
+        color: var(--color-1ab9ce)
+    &__sub-secondary-dsc_gray
+        border-bottom: 1px dashed var(--color-999999)
+    &__sub-secondary-dsc_color-font
+        color: var(--color-999999)
+        font-size: 12px
+    &__sub-secondary-days
         span
-            color: #9F0013
-._container
-    position: relative
-    max-width: 1100px
-    margin: 0 auto
-    padding: 0 20px
-._reset-btn
-    border: none
-    border-radius: 0
-    background: none
-    cursor: pointer
+            font-family: Roboto
+            font-weight: 900
