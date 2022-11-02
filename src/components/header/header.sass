@@ -1,9 +1,10 @@
+@import "variables"
 
 .header
     position: fixed
     width: 100%
     z-index: 10
-    background-image: url("../img/bg/header.png")
+    background-image: url("../../img/bg/header.png")
     background-color: var(--color-ffffff)
     background-position: center center
     background-size: cover
@@ -32,7 +33,7 @@
 
         li
             list-style: none
-            a
+            a, button
                 font-family: Play
                 font-size: rem(14)
                 line-height: 18px
@@ -108,7 +109,7 @@
             text-decoration: none
             @media   ( max-width: 767px )
                 display: block
-                background: url('../icons/ikonka_5067.png') left no-repeat
+                background: url('../../icons/ikonka_5067.png') left no-repeat
                 padding-left: 10px
                 width: 19px
                 height: 25px

@@ -1,15 +1,36 @@
+@use 'sass:math'
 
-@import "libs/bootstrap-reboot.min"
-@import "libs/fonts"
+// @import "libs/bootstrap-reboot.min"
+// @import "libs/fonts"
+// @import "libs/animate.min"
+// @import "libs/swiper-bundle.min"
 
 *
     font-family: 'Roboto', 'Play', 'UniSansCaps', sans-serif
 body
+    top: 150px
     position: relative
-    padding: 100px 0px 100px 0px
+
+@import "libs/variables"
 
 .container
     position: relative
-    max-width: 1180px
+    max-width: $maxWidthContainer + px
     margin: 0 auto
     padding: 0 20px
+
+.showBlock
+    display: block
+.showInline-Block
+    display: inline-block
+.showGrid
+    display: grid
+.showFlex
+    display: flex
+.hide
+    display: none
+._btn-reset
+    border: none
+    border-radius: 0
+    background: none
+    cursor: pointer

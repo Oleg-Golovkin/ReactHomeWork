@@ -1,5 +1,11 @@
 import './header.sass'
-import ikonka_5067 from "..icons/ikonka_5067.pn"
+import ikonka_5067 from "../../icons/ikonka_5067.png"
+import ikonka_5043 from "../../icons/ikonka_5043.png"
+import ikonka_pri_navedenii_5044 from "../../icons/ikonka_pri_navedenii_5044.png"
+import ikonka_5068 from "../../icons/ikonka_5068.png"
+import ikonka_5038 from "../../icons/ikonka_5038.png"
+import ikonka_5063 from "../../icons/ikonka_5063.png"
+
 
 const Header = () => {
     return(
@@ -15,12 +21,12 @@ const Header = () => {
                 <div className="menu__background"></div>
                 <div className="header__main">
                     <ul className="header__content-ul">
-                        <li><a href="#">Бренды</a></li>
-                        <li><a href="#">Распродажа</a></li>
-                        <li><a href="#">Доставка и Сборка</a></li>
-                        <li><a href="#">Гарантия</a></li>
-                        <li><a href="#">Оплата</a></li>
-                        <li><a href="#">Контакты</a></li>
+                        <li><button className="_btn-reset" href="#">Бренды</button></li>
+                        <li><button href="#">Распродажа</button></li>
+                        <li><button href="#">Доставка и Сборка</button></li>
+                        <li><button href="#">Гарантия</button></li>
+                        <li><button href="#">Оплата</button></li>
+                        <li><button href="#">Контакты</button></li>
                     </ul>
                     <div className="header__logo">
                         <div className="header__logo-main">Logo</div>
@@ -34,14 +40,14 @@ const Header = () => {
                             </div>
                             <div className="header__contacts-first-wrapper">
                                 <div className="header__contacts-first-city">Москва</div>
-                                <a className="header__contacts-first-link"
-                                    href="tel:+84991234567"><span>8-499-123-45-67</span></a>
+                                <button className="header__contacts-first-link"
+                                    href="tel:+84991234567"><span>8-499-123-45-67</span></button>
                             </div>
                         </div>
 
                         <div className="header__contacts-second">
                             <div className="header__contacts-second-city">Бесплатно для России</div>
-                            <a className="header__contacts-second-link" href="tel:+88005550121">8-800-555-01-21</a>
+                            <button className="header__contacts-second-link" href="tel:+88005550121">8-800-555-01-21</button>
                         </div>
                     </div>
                 </div>
@@ -49,41 +55,42 @@ const Header = () => {
                     <div className="header__sub-secondary">
                         <div className="header__sub-secondary-wrapper" id="a">
                             <div className="header__sub-secondary-img">
-                                <img src="icons/ikonka_5043.png" alt=""></img>
+                                <img src={ikonka_5043}alt=""></img>
                             </div>
-                            <a href="#" className="header__sub-secondary-dsc header__sub-secondary-dsc_gray">
+                            <button href="#" className="header__sub-secondary-dsc header__sub-secondary-dsc_gray">
                                 Вход
-                            </a>
+                            </button>
                         </div>
                         <div className="header__sub-secondary-wrapper">
                             <div className="header__sub-secondary-img">
-                                <img src="icons/ikonka_pri_navedenii_5044.png" alt=""></img>
+                                <img src={ikonka_pri_navedenii_5044} alt=""></img>
                             </div>
-                            <a href="#" className="header__sub-secondary-dsc header__sub-secondary-dsc_blue">
+                            <button href="#" className="header__sub-secondary-dsc header__sub-secondary-dsc_blue">
                                 Регистрация
-                            </a>
+                            </button>
                         </div>
                         <div className="header__sub-secondary-wrapper">
                             <div className="header__sub-secondary-img">
-                                <img src="icons/ikonka_5068.png" alt=""></img>
+                                <img src={ikonka_5068} alt=""></img>
                             </div>
-                            <a href="#" className="header__sub-secondary-dsc header__sub-secondary-dsc_blue">
+                            <button href="#" className="header__sub-secondary-dsc header__sub-secondary-dsc_blue">
                                 sport@gmail.com
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div className="header__sub-secondary">
                         <div className="header__sub-secondary-wrapper">
                             <div className="header__sub-secondary-img">
-                                <img src="icons/ikonka_5038.png" alt=""></img>
+                                <img src={ikonka_5038} alt=""></img>
                             </div>
-                            <a href="#" className="header__sub-secondary-dsc header__sub-secondary-dsc_blue">
+                            <button href="#" className="header__sub-secondary-dsc header__sub-secondary-dsc_blue">
                                 Обратный звонок
-                            </a>
+                            </button>
+                            
                         </div>
                         <div className="header__sub-secondary-wrapper">
                             <div className="header__sub-secondary-img">
-                                <img src="icons/ikonka_5063.png" alt=""></img>
+                                <img src={ikonka_5063} alt=""></img>
 
                             </div>
                             <div className="header__sub-secondary-dsc header__sub-secondary-dsc_color-font">
