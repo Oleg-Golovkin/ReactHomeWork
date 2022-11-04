@@ -1,10 +1,16 @@
 .header
-    height: 75px
+    height: 1000px
     background-color: #1c242a
+
+
 
     &__wrapper
         display: flex
         justify-content: space-between
+        align-items: flex-end
+
+.header *
+    list-style: none
 
 // .header__menu
     &__menu
@@ -19,27 +25,52 @@
 
     &__img
 
+        list-style: none
 .menu-header
     display: flex
-    width: 450px
+    position: relative
+    margin: 0px 0px 0px 0px
     justify-content: space-between
-    font-family: 'PF Din Text Cond Pro'
+    align-items: flex-end
     font-size: 14px
+    width: 450px
     line-height: 21px
     font-weight: 400
     text-transform: uppercase
     letter-spacing: 0.1em
     color: #ffffff
     list-style: none
+    &__item 
+        font-family: 'PF Din Text Cond Pro'
+        
 
+    
+    &__item-submenu
+        position: relative
+        transition: 1s all
+        position: absolute
+        list-style: none        
+        display: none 
+        
+
+    &__item-sub-submenu
+        transition: 1s all
+        position: absolute
+        list-style: none
+        display: none 
+        
 .region-header
-    max-width: 137px
+    display: flex
+    justify-content: space-between
+    width: 14.5%
 
-// .region-header__earth
+    // .region-header__earth
 
     &__earth
-
-// .region-header__choice
+        width: 18px
+        height: 18px
+        border-radius: 0
+    // .region-header__choice
 
     &__choice
         font-family: 'PF Din Text Cond Pro'
