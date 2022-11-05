@@ -17,11 +17,19 @@ const Header = () => {
     let li = headerMenu.map((item, i)=> {
         return(
             <SubMenu
+                className="menu-header__item"
                 key={item} 
                 title={item}>
-                <MenuItem key="1-1">Главное</MenuItem>
-                <MenuItem key="1-2">Самое главное</MenuItem>
-                <MenuItem key="1-3">Главнее быть не может</MenuItem>
+                    <MenuItem 
+                    className="menu-header__item"
+                    key="1-1"
+                    >Главное</MenuItem>
+                    <MenuItem 
+                    className="menu-header__item"
+                    key="1-2">Самое главное</MenuItem>
+                    <MenuItem 
+                    className="menu-header__item"
+                    key="1-3">Главнее быть не может</MenuItem>
             </SubMenu> 
         )
        
@@ -38,14 +46,13 @@ const Header = () => {
                     {li}
                 </ul> */}
                 <Menu
+                    className="header__menu menu-header"
                     mode="horizontal"
-                    triggerSubMenuAction="hover"
+                    triggerSubMenuAction="click"
                     defaultActiveFirst= {false}
                     multiple={false}
-                    selectable={true}
-                    >  
-                    {li}
-                    
+                    selectable={true}>  
+                    {li}                    
                 </Menu>
                 <div class="header__region region-header">
                     <img src={iconEarth} alt= "iconEarth" class="region-header__earth"></img>
