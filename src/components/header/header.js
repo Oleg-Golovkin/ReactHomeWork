@@ -4,8 +4,11 @@ import iconEarth from '../../icons/iconEarth.png';
 import iconUser from '../../icons/iconUser.png';
 
 
-import Menu, { SubMenu, Item as MenuItem, Divider } from 'rc-menu';
+
+import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
+import './rc-menu.sass'
 import './header.sass'
+
 
 
 
@@ -13,7 +16,11 @@ const Header = () => {
     const headerMenu = useSelector(state=> state.headerSlice.headerMenu)
     let li = headerMenu.map((item, i)=> {
         return(
-            <li className="menu-header__item">{item}</li> 
+            <SubMenu key={item} title={item}>
+                <MenuItem key="1-1">Главное</MenuItem>
+                <MenuItem key="1-2">Самое главное</MenuItem>
+                <MenuItem key="1-3">Главнее быть не может</MenuItem>
+            </SubMenu> 
         )
        
     })
@@ -28,16 +35,15 @@ const Header = () => {
                 {/* <ul className="header__menu menu-header liReset">
                     {li}
                 </ul> */}
-
-                <Menu 
+                <Menu
                     mode="horizontal"
-                    openAnimation="slide-up">
-                    <MenuItem>1</MenuItem>
-                    <SubMenu title="2">
-                        <MenuItem>2-1</MenuItem>
-                    </SubMenu>
+                    triggerSubMenuAction="hover"
+                    defaultActiveFirst= {false}
+                    multiple={false}
+                    >  
+                    {li}
+                    
                 </Menu>
-
                 <div class="header__region region-header">
                     <img src={iconEarth} alt= "iconEarth" class="region-header__earth"></img>
                     <div class="region-header__choice">выбор региона</div>
