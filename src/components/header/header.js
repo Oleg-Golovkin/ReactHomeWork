@@ -4,8 +4,9 @@ import iconEarth from '../../icons/iconEarth.png';
 import iconUser from '../../icons/iconUser.png';
 
 
-import Menu, { SubMenu, MenuItem } from 'rc-menu';
+import Menu, { SubMenu, Item as MenuItem, Divider } from 'rc-menu';
 import './header.sass'
+
 
 
 const Header = () => {
@@ -24,9 +25,19 @@ const Header = () => {
                 <div className="header__lable label-header">
                     <img src={iconlabel} alt="Iconlabel" class="label-header__img"></img>
                 </div>  
-                <ul className="header__menu menu-header liReset">
+                {/* <ul className="header__menu menu-header liReset">
                     {li}
-                </ul>
+                </ul> */}
+
+                <Menu 
+                    mode="horizontal"
+                    openAnimation="slide-up">
+                    <MenuItem>1</MenuItem>
+                    <SubMenu title="2">
+                        <MenuItem>2-1</MenuItem>
+                    </SubMenu>
+                </Menu>
+
                 <div class="header__region region-header">
                     <img src={iconEarth} alt= "iconEarth" class="region-header__earth"></img>
                     <div class="region-header__choice">выбор региона</div>
