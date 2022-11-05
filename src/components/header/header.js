@@ -16,7 +16,9 @@ const Header = () => {
     const headerMenu = useSelector(state=> state.headerSlice.headerMenu)
     let li = headerMenu.map((item, i)=> {
         return(
-            <SubMenu key={item} title={item}>
+            <SubMenu
+                key={item} 
+                title={item}>
                 <MenuItem key="1-1">Главное</MenuItem>
                 <MenuItem key="1-2">Самое главное</MenuItem>
                 <MenuItem key="1-3">Главнее быть не может</MenuItem>
@@ -40,6 +42,7 @@ const Header = () => {
                     triggerSubMenuAction="hover"
                     defaultActiveFirst= {false}
                     multiple={false}
+                    selectable={true}
                     >  
                     {li}
                     
