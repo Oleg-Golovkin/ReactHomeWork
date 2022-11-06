@@ -1,21 +1,42 @@
+.rc-menu
+    border: none
+    box-shadow: none
+    color: #ffffff
+    background-color: transparent
+.rc-menu-horizontal > .rc-menu-item, .rc-menu-horizontal > .rc-menu-submenu > .rc-menu-submenu-title
+    padding: 0px 0px 0px 0px
+    font-family: 'PF Din Text Cond Pro'
+
+.rc-menu-submenu .rc-menu 
+    background-color: transparent
+.rc-menu .rc-menu-submenu-active
+    background-color: transparent
+    color: red
+
+.rc-menu-item-active, .rc-menu-submenu-active > .rc-menu-submenu-title
+    background-color: transparent
+.rc-menu-submenu-selected
+    background-color: transparent
+
+
+.rc-menu-vertical > .rc-menu-item
+    padding: 0px 0px 0px 0px
+    font-family: 'PF Din Text Cond Pro'
+
+
 .header
-    height: 91px
+    height: 3000px
     background-color: #1c242a
-
-
 
     &__wrapper
         display: flex
         justify-content: space-between
         align-items: flex-end
 
-.header *
-    list-style: none
-
-// .header__menu
+    // .header__menu
     &__menu
 
-// .header__region
+    // .header__region
 
     &__region
 
@@ -24,8 +45,8 @@
     // .label-header__img
 
     &__img
-
         list-style: none
+
 .menu-header
     display: flex
     position: relative
@@ -40,27 +61,10 @@
     letter-spacing: 0.1em
     color: #ffffff
     list-style: none
-    font-family: 'PF Din Text Cond Pro'
-    &__item 
+    &__item
         padding: 0px 0px 0px 0px
         font-family: 'PF Din Text Cond Pro'
-        
 
-    
-    &__item-submenu
-        position: relative
-        transition: 1s all
-        position: absolute
-        list-style: none        
-        display: none 
-        
-
-    &__item-sub-submenu
-        transition: 1s all
-        position: absolute
-        list-style: none
-        display: none 
-        
 .region-header
     display: flex
     justify-content: space-between

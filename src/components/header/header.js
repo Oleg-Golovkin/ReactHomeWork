@@ -2,34 +2,47 @@ import {useSelector} from "react-redux";
 import iconlabel from '../../icons/iconlabel.png';
 import iconEarth from '../../icons/iconEarth.png';
 import iconUser from '../../icons/iconUser.png';
-
+import uniqid from 'uniqid';
 
 
 import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
-import './rc-menu.sass'
-import './header.sass'
 
+import 'rc-menu/assets/index.css';
+import 'rc-menu/assets/menu.sass';
+
+import './header.sass'
 
 
 
 const Header = () => {
     const headerMenu = useSelector(state=> state.headerSlice.headerMenu)
-    let li = headerMenu.map((item, i)=> {
+    let item = headerMenu.map((item, i)=> {
         return(
-            <SubMenu
-                className="menu-header__item"
-                key={item} 
+            <SubMenu                
+                key={uniqid()}
                 title={item}>
+                    <MenuItem                    
+                    key={uniqid()}>Главное
+                    </MenuItem>
                     <MenuItem 
-                    className="menu-header__item"
-                    key="1-1"
-                    >Главное</MenuItem>
+                    key={uniqid()}>Самое главное
+                    </MenuItem>
                     <MenuItem 
-                    className="menu-header__item"
-                    key="1-2">Самое главное</MenuItem>
-                    <MenuItem 
-                    className="menu-header__item"
-                    key="1-3">Главнее быть не может</MenuItem>
+                    key={uniqid()}>Главнее быть не может
+                    </MenuItem>
+                    <SubMenu
+                        key={uniqid()}
+                        title={i}>
+                        <MenuItem                        
+                        key={uniqid()}>Главное
+                        </MenuItem>
+                        <MenuItem 
+                        key={uniqid()}>Самое главное
+                        </MenuItem>
+                        <MenuItem 
+                        key={uniqid()}>Главнее быть не может
+                        </MenuItem>
+                    </SubMenu>
             </SubMenu> 
         )
        
@@ -42,17 +55,15 @@ const Header = () => {
                 <div className="header__lable label-header">
                     <img src={iconlabel} alt="Iconlabel" class="label-header__img"></img>
                 </div>  
-                {/* <ul className="header__menu menu-header liReset">
-                    {li}
-                </ul> */}
                 <Menu
+                    overflowedIndicator="..."             
                     className="header__menu menu-header"
                     mode="horizontal"
                     triggerSubMenuAction="click"
                     defaultActiveFirst= {false}
                     multiple={false}
                     selectable={true}>  
-                    {li}                    
+                    {item}                    
                 </Menu>
                 <div class="header__region region-header">
                     <img src={iconEarth} alt= "iconEarth" class="region-header__earth"></img>
