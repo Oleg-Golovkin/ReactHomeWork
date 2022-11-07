@@ -18,7 +18,7 @@ const Header = () => {
     const headerMenu = useSelector(state=> state.headerSlice.headerMenu)
     let item = headerMenu.map((item, i)=> {
         return(
-            <SubMenu                
+            <SubMenu  
                 key={uniqid()}
                 title={item}>
                     <MenuItem                    
@@ -56,7 +56,6 @@ const Header = () => {
                     <img src={iconlabel} alt="Iconlabel" class="label-header__img"></img>
                 </div>  
                 <Menu
-                    overflowedIndicator="..."             
                     className="header__menu menu-header"
                     mode="horizontal"
                     triggerSubMenuAction="click"
