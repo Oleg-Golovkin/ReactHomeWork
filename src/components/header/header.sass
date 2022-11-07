@@ -66,15 +66,16 @@
     color: #ffffff
     background-color: transparent
     border-bottom: none
-
+    >li.rc-menu-submenu-active
+        color: red
     > li
         border-bottom: none !important
         background-color: transparent !important
+    
         > div
             padding: 0px 0px 0px 0px !important
             background-color: transparent !important
             font-family: 'PF Din Text Cond Pro' !important
-
     &__sub
         padding: 0px 0px 0px 0px !important
         font-family: 'PF Din Text Cond Pro' !important
@@ -83,6 +84,8 @@
             border: none !important
             box-shadow: none !important
             color: white !important
+            > li.rc-menu-submenu-active
+                color: red
             > li
                 background-color: transparent !important
                 padding: 0px 0px 0px 0px !important
@@ -93,6 +96,10 @@
     &__item
         padding: 0px 0px 0px 0px !important
         background-color: transparent !important
+    &__item.rc-menu-item-active
+        color: red
+
+
 
 .region-header
     display: flex
