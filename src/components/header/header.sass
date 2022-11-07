@@ -1,33 +1,32 @@
-.rc-menu
-    border: none
-    box-shadow: none
-    color: #ffffff
-    background-color: transparent
-.rc-menu-horizontal > .rc-menu-item, .rc-menu-horizontal > .rc-menu-submenu > .rc-menu-submenu-title
-    padding: 0px 0px 0px 0px
-    font-family: 'PF Din Text Cond Pro'
-.rc-menu-submenu .rc-menu-submenu-vertical .rc-menu-submenu-active
-    color: white
+// .rc-menu
+//     border: none
+//     box-shadow: none
+//     color: #ffffff
+//     background-color: transparent
+// .rc-menu-horizontal > .rc-menu-item, .rc-menu-horizontal > .rc-menu-submenu > .rc-menu-submenu-title
+//     padding: 0px 0px 0px 0px
+//     font-family: 'PF Din Text Cond Pro'
+// .rc-menu-submenu .rc-menu-submenu-vertical .rc-menu-submenu-active
+//     color: white
 
-.rc-menu-submenu .rc-menu 
-    background-color: transparent
-.rc-menu .rc-menu-submenu-active
-    background-color: transparent
-    color: red
+// .rc-menu-submenu .rc-menu 
+//     background-color: transparent
+// .rc-menu .rc-menu-submenu-active
+//     background-color: transparent
+//     color: red
 
-.rc-menu-item-active, .rc-menu-submenu-active > .rc-menu-submenu-title
-    background-color: transparent
-.rc-menu-submenu-selected
-    background-color: transparent
+// .rc-menu-item-active, .rc-menu-submenu-active > .rc-menu-submenu-title
+//     background-color: transparent
+// .rc-menu-submenu-selected
+//     background-color: transparent
 
-.rc-menu-vertical > .rc-menu-item
-    padding: 0px 0px 0px 0px
-    font-family: 'PF Din Text Cond Pro'
-.rc-menu-item-selected
-    background-color: transparent
-.rc-menu-submenu-title > .rc-menu-submenu-active
-    color: blue
-
+// .rc-menu-vertical > .rc-menu-item
+//     padding: 0px 0px 0px 0px
+//     font-family: 'PF Din Text Cond Pro'
+// .rc-menu-item-selected
+//     background-color: transparent
+// .rc-menu-submenu-title > .rc-menu-submenu-active
+//     color: blue
 
 .header
     height: 3000px
@@ -65,10 +64,27 @@
     text-transform: uppercase
     letter-spacing: 0.1em
     color: #ffffff
-    list-style: none
-    &__item
-        padding: 0px 0px 0px 0px
-        font-family: 'PF Din Text Cond Pro'
+    background-color: transparent
+    border-bottom: none
+    li
+        border-bottom: none
+        div
+            padding: 0px 0px 0px 0px !important
+            font-family: 'PF Din Text Cond Pro'
+    &__sub
+        padding: 0px 0px 0px 0px !important
+        font-family: 'PF Din Text Cond Pro' !important
+        ul
+            background-color: transparent !important
+            border: none
+            box-shadow: none
+            color: none
+                
+    &__item, .rc-menu-submenu-active, .rc-menu-item-selected
+        padding: 0px 0px 0px 0px !important
+        background-color: transparent !important
+
+
 
 .region-header
     display: flex

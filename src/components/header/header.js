@@ -18,28 +18,36 @@ const Header = () => {
     const headerMenu = useSelector(state=> state.headerSlice.headerMenu)
     let item = headerMenu.map((item, i)=> {
         return(
-            <SubMenu  
+            <SubMenu 
+                popupClassName="menu-header__sub"
                 key={uniqid()}
                 title={item}>
-                    <MenuItem                    
+                    <MenuItem  
+                    className=" menu-header__item"                  
                     key={uniqid()}>Главное
                     </MenuItem>
                     <MenuItem 
+                    className=" menu-header__item"
                     key={uniqid()}>Самое главное
                     </MenuItem>
                     <MenuItem 
+                    className=" menu-header__item"
                     key={uniqid()}>Главнее быть не может
                     </MenuItem>
                     <SubMenu
+                        popupClassName="menu-header__sub"
                         key={uniqid()}
                         title={i}>
-                        <MenuItem                        
+                        <MenuItem
+                        className=" menu-header__item"
                         key={uniqid()}>Главное
                         </MenuItem>
                         <MenuItem 
+                        className=" menu-header__item"
                         key={uniqid()}>Самое главное
                         </MenuItem>
                         <MenuItem 
+                        className=" menu-header__item"
                         key={uniqid()}>Главнее быть не может
                         </MenuItem>
                     </SubMenu>
