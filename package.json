@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "css-animation": "^2.0.4",
+    "rc-dropdown": "^4.0.1",
     "rc-menu": "^9.7.1",
     "sass": "^1.55.0",
     "uniqid": "^5.4.0"
