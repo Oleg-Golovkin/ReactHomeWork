@@ -64,6 +64,7 @@ const Header = () => {
                     <img src={iconlabel} alt="Iconlabel" class="label-header__img"></img>
                 </div>  
                 <Menu
+                    defaultOpenKeys = {["0"]}
                     className="header__menu menu-header"
                     mode="horizontal"
                     triggerSubMenuAction="click"
