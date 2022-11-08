@@ -37,23 +37,6 @@ const Header = () => {
                     className=" menu-header__item"
                     key={uniqid()}>Главнее быть не может
                     </MenuItem>
-                    <SubMenu
-                        popupClassName="menu-header__sub"
-                        key={uniqid()}
-                        title={i}>
-                        <MenuItem
-                        className=" menu-header__item"
-                        key={uniqid()}>Главное
-                        </MenuItem>
-                        <MenuItem 
-                        className=" menu-header__item"
-                        key={uniqid()}>Самое главное
-                        </MenuItem>
-                        <MenuItem 
-                        className=" menu-header__item"
-                        key={uniqid()}>Главнее быть не может
-                        </MenuItem>
-                    </SubMenu>
             </SubMenu> 
         )
        
@@ -103,7 +86,7 @@ const Header = () => {
                         animation="slide-up"
                         
                     >
-                        <button style={{ width: 100 }}>{countriesSelected}</button>
+                        <button className="region-header__btn">{countriesSelected}</button>
                     </Dropdown>
     );
                     

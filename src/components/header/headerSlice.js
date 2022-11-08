@@ -15,7 +15,7 @@ const initialState = {
         "Канада",
         "Китай"
     ],
-    countriesSelected: "Выбор страны"
+    countriesSelected: "Выбор региона"
 }
 
 const headerSlice = createSlice({
