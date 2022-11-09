@@ -1,13 +1,14 @@
 import React from 'react';
-import Header from '../header/header';
+import Header from '../header/Header';
+import Auction from '../auction/Auction';
 
 function App() {
   return (
     <>
       <Header/>
       <main>
-      </main>
-      
+        <Auction/>
+      </main>   
     </>
   );
 }

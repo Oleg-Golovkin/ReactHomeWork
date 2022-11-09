@@ -41,17 +41,14 @@ const Header = () => {
         )
        
     })
-
     function  onSelect ({item}) {
         dispatch(onCountriesSelected(item.props.children[0]))
     }
-
     const contriesMenuItem = countriesAnyDropdown.map(item=> {
         return (
             <MenuItem key={uniqid()}>{item}</MenuItem>
         )
     })
-
     const menuDropdown = (
         <Menu onSelect={onSelect}
             style={{ width: 140 }}
