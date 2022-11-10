@@ -1,11 +1,17 @@
 .header
     height: 75px
     background-color: #1c242a
+    position: relative
+    @media (max-width: 576px)
+        height: 200px
 
     &__wrapper
         display: flex
         justify-content: space-between
         align-items: flex-end
+        width: 100%
+        @media (max-width: 576px)
+            flex-direction: column
 
     // .header__menu
     &__menu
@@ -15,11 +21,15 @@
     &__region
 
 .label-header
+    max-width: 145px
+    display: block
+    margin: 0 auto
 
     // .label-header__img
 
     &__img
-        list-style: none
+
+        // list-style: none
 
 .menu-header
     display: flex
@@ -41,7 +51,7 @@
     > li
         border-bottom: none !important
         background-color: transparent !important
-    
+
         > div
             padding: 0px 0px 0px 0px !important
             background-color: transparent !important
@@ -84,13 +94,16 @@
                 font-family: 'PF Din Text Cond Pro' !important
                 padding: 0px 0px 0px 0px !important
 
-
-
 .region-header
     display: flex
     justify-content: space-between
     align-items: flex-start
     width: 15.5%
+    @media (max-width: 576px)
+        position: absolute
+        left: 0
+        bottom: 0
+
     &__btn
         font-family: 'PF Din Text Cond Pro' !important
         padding: 0px 0px 0px 0px !important
@@ -121,8 +134,8 @@
             box-shadow: none !important
             color: white !important
         li.rc-menu-item-active
-            background-color: transparent !important 
-            color: red       
+            background-color: transparent !important
+            color: red
         > li
             background-color: transparent !important
             padding: 0px 0px 0px 0px !important
