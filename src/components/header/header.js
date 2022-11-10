@@ -7,9 +7,9 @@ import {onCountriesSelected} from "./headerSlice.js";
 import 'rc-menu/assets/index.css';
 import 'rc-menu/assets/menu.sass';
 import 'rc-dropdown/assets/index.css';
-import iconlabel from '../../icons/iconlabel.png';
-import iconEarth from '../../icons/iconEarth.png';
-import iconUser from '../../icons/iconUser.png';
+import iconlabel from '../../icons/header/iconlabel.png';
+import iconEarth from '../../icons/header/iconEarth.png';
+import iconUser from '../../icons/header/iconUser.png';
 import './header.sass'
 
 

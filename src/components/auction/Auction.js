@@ -11,9 +11,7 @@ const Auction = ()=> {
     return(
         <section className="auction">
             <div className="auction__content container">
-                <div className="auction__title-exclusive">
-                    Только эксклюзивные
-                </div>
+                <div className="auction__title-exclusive"></div>
                 <h2 className="auction__title-lots">
                     Лоты под аукцион и свободную продажу
                 </h2>
