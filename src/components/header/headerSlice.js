@@ -15,21 +15,28 @@ const initialState = {
         "Канада",
         "Китай"
     ],
-    countriesSelected: "Выбор региона"
+    countriesSelected: "Выбор региона",
+    modeMenu: "horizontal"
 }
 
 const headerSlice = createSlice({
 name: "on",
 initialState,
-reducers: {
-        onCountriesSelected: (state, action) =>  {
-            state.countriesSelected = action.payload
-        },
-    }
+reducers: 
+        {
+            onCountriesSelected: (state, action) =>  {
+                state.countriesSelected = action.payload
+            },
+            onChangeModeMenu: (state, action) =>  {
+                state.modeMenu = action.payload
+            },
+        
+        
+        }
     
 })
 
 const {actions, reducer} = headerSlice;
 
-export const {onHeaderMenuActive, onCountriesSelected} = actions;
+export const {onCountriesSelected, onChangeModeMenu} = actions;
 export default reducer

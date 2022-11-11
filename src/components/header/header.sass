@@ -1,12 +1,11 @@
 .header
     height: 75px
     background-color: #1c242a
-    padding: 0px 0px 0px 0px
+    padding: 21px 0px 0px 0px
     position: relative
     @media (max-width: 576px)
         height: 200px
         padding: 10px 0px 0px 0px
-
     &__wrapper
         display: flex
         justify-content: space-between
@@ -73,42 +72,48 @@
 .label-header
     max-width: 145px
     display: block
-    margin: 0 auto
+    @media (max-width: 576px)
+        margin: 0 auto
+    
 
-    // .label-header__img
-
-    &__img
-
-        // list-style: none
 
 .menu-header
-    display: flex
-    position: relative
-    margin: 0px 0px 0px 0px
-    justify-content: space-between
-    align-items: flex-end
-    font-size: 14px
-    width: 450px
-    line-height: 21px
-    font-weight: 400
-    text-transform: uppercase
-    letter-spacing: 0.1em
-    color: #ffffff
-    background-color: transparent
-    border-bottom: none
+    width: 47%
     @media (max-width: 576px)
-        margin: 87px 0px 0px 0px
+        display: block
+        position: fixed
+        width: 200px
+        top: 0
+        left: -200px
+        z-index: 2
+        transition: all 1s
+    &._active
+        left: 0
+    &__menu
+        position: relative
+        justify-content: space-between
+        align-items: flex-end
+        font-size: 14px
         width: 100%
-    >li.rc-menu-submenu-active
-        color: red
-    > li
-        border-bottom: none !important
-        background-color: transparent !important
-
-        > div
-            padding: 0px 0px 0px 0px !important
+        line-height: 21px
+        font-weight: 400
+        text-transform: uppercase
+        letter-spacing: 0.1em
+        color: #ffffff
+        background-color: transparent
+        border-bottom: none
+        @media (max-width: 576px)
+            margin: 87px 0px 0px 0px
+            width: 100%
+        >li.rc-menu-submenu-active
+            color: red
+        > li
+            border-bottom: none !important
             background-color: transparent !important
-            font-family: 'PF Din Text Cond Pro' !important
+            > div
+                padding: 0px 0px 0px 0px !important
+                background-color: transparent !important
+                font-family: 'PF Din Text Cond Pro' !important
     &__sub
         padding: 0px 0px 0px 0px !important
         font-family: 'PF Din Text Cond Pro' !important
@@ -146,4 +151,3 @@
                 background-color: transparent !important
                 font-family: 'PF Din Text Cond Pro' !important
                 padding: 0px 0px 0px 0px !important
-
