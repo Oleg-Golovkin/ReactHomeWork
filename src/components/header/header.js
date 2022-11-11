@@ -52,26 +52,45 @@ const Header = () => {
     function  onSelect ({item}) {
         dispatch(onCountriesSelected(item.props.children[0]))
     }
-    const menuDropdown = (
-        
-        <Menu onSelect={onSelect}
-            style={{ width: 140 }}
+    const menuDropdown = (  
+        <Menu 
+        onSelect={onSelect}
+        style={{ width: 140 }}
         >
             {contriesMenuItem}
         </Menu>
     );
+
+    const HeaderRegion =  () => {
+        return(
+        <div className="header__region region-header">
+            <img src={iconEarth} alt= "iconEarth" className="region-header__earth"></img>
+            <Dropdown
+                overlayClassName= "region-header__choice"
+                trigger={['click']}
+                overlay={menuDropdown}
+                animation="slide-up"
+                
+            >
+                <button className="region-header__btn">{countriesSelected}</button>
+            </Dropdown> 
+        </div>)
+    }
+    let headerRegionMaxWidth576 = null;
+
+
     const MediaQuery = window.matchMedia("(max-width: 576px)");
-    
     MediaQuery.addEventListener("change", (e) => media(e));
-    console.log(MediaQuery);
-    
     function media(e) {
     if (e.matches) {
         dispatch(onChangeModeMenu("vertical"))
+        headerRegionMaxWidth576 = HeaderRegion;
         } else {
         dispatch(onChangeModeMenu("horizontal"))
+        headerRegionMaxWidth576 = null
         }
     }
+
     
     useEffect(()=> {
         media(MediaQuery);
@@ -96,6 +115,7 @@ const Header = () => {
                         selectable={true}>  
                         {item}                    
                     </Menu>
+                    {headerRegionMaxWidth576}
                     <div class="menu-header__background">
                     <div class="hamburger hamburger--3dx">
                             <div class="hamburger-box">
@@ -105,20 +125,8 @@ const Header = () => {
                         <code>hamburger--3dx</code>
                     </div>
                 </div>
-                <div className="hamburger"></div>
-                
-                <div className="header__region region-header">
-                    <img src={iconEarth} alt= "iconEarth" className="region-header__earth"></img>
-                    <Dropdown
-                        overlayClassName= "region-header__choice"
-                        trigger={['click']}
-                        overlay={menuDropdown}
-                        animation="slide-up"
-                        
-                    >
-                        <button className="region-header__btn">{countriesSelected}</button>
-                    </Dropdown> 
-                </div>
+                <div className="hamburger"></div>               
+                <HeaderRegion/>
                 <div className="header__user">
                     <img src={iconUser} alt="iconUser" className="user__icon"/>
                 </div>
