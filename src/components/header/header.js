@@ -84,13 +84,9 @@ const Header = () => {
                         
                     >
                         <button className="region-header__btn">{countriesSelected}</button>
-                    </Dropdown>
-    );
-                    
-                    
-                    {/* <div className="region-header__choice">выбор региона</div> */}
+                    </Dropdown> 
                 </div>
-                <div className="user">
+                <div className="header__user">
                     <img src={iconUser} alt="iconUser" className="user__icon"/>
                 </div> 
             </header> 

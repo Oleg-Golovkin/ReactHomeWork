@@ -1,9 +1,11 @@
 .header
     height: 75px
     background-color: #1c242a
+    padding: 0px 0px 0px 0px
     position: relative
     @media (max-width: 576px)
         height: 200px
+        padding: 10px 0px 0px 0px
 
     &__wrapper
         display: flex
@@ -12,13 +14,61 @@
         width: 100%
         @media (max-width: 576px)
             flex-direction: column
+    &__user
+        @media (max-width: 576px)
+            position: absolute
+            top: 10px
+            right: 10px
 
-    // .header__menu
-    &__menu
+.region-header
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    width: 15.5%
+    @media (max-width: 576px)
+        position: absolute
+        left: 10px
+        top: 10px
 
-    // .header__region
+    &__btn
+        font-family: 'PF Din Text Cond Pro' !important
+        padding: 0px 0px 0px 0px !important
+        background-color: transparent !important
+        border: none
+        border-radius: 0
+        cursor: pointer
+        font-size: 14px
+        line-height: 21px
+        font-weight: 400
+        text-transform: uppercase
+        letter-spacing: 0.1em
+        color: #ffffff
 
-    &__region
+    // .region-header__earth
+
+    &__earth
+        width: 18px
+        height: 18px
+        border-radius: 0
+    // .region-header__choice
+
+    &__choice
+        font-family: 'PF Din Text Cond Pro'
+        > ul
+            background-color: transparent !important
+            border: none !important
+            box-shadow: none !important
+            color: white !important
+        li.rc-menu-item-active
+            background-color: transparent !important
+            color: red
+        > li
+            background-color: transparent !important
+            padding: 0px 0px 0px 0px !important
+            > div
+                background-color: transparent !important
+                font-family: 'PF Din Text Cond Pro' !important
+                padding: 0px 0px 0px 0px !important
 
 .label-header
     max-width: 145px
@@ -46,6 +96,9 @@
     color: #ffffff
     background-color: transparent
     border-bottom: none
+    @media (max-width: 576px)
+        margin: 87px 0px 0px 0px
+        width: 100%
     >li.rc-menu-submenu-active
         color: red
     > li
@@ -94,52 +147,3 @@
                 font-family: 'PF Din Text Cond Pro' !important
                 padding: 0px 0px 0px 0px !important
 
-.region-header
-    display: flex
-    justify-content: space-between
-    align-items: flex-start
-    width: 15.5%
-    @media (max-width: 576px)
-        position: absolute
-        left: 0
-        bottom: 0
-
-    &__btn
-        font-family: 'PF Din Text Cond Pro' !important
-        padding: 0px 0px 0px 0px !important
-        background-color: transparent !important
-        border: none
-        border-radius: 0
-        cursor: pointer
-        font-size: 14px
-        line-height: 21px
-        font-weight: 400
-        text-transform: uppercase
-        letter-spacing: 0.1em
-        color: #ffffff
-
-    // .region-header__earth
-
-    &__earth
-        width: 18px
-        height: 18px
-        border-radius: 0
-    // .region-header__choice
-
-    &__choice
-        font-family: 'PF Din Text Cond Pro'
-        > ul
-            background-color: transparent !important
-            border: none !important
-            box-shadow: none !important
-            color: white !important
-        li.rc-menu-item-active
-            background-color: transparent !important
-            color: red
-        > li
-            background-color: transparent !important
-            padding: 0px 0px 0px 0px !important
-            > div
-                background-color: transparent !important
-                font-family: 'PF Din Text Cond Pro' !important
-                padding: 0px 0px 0px 0px !important
