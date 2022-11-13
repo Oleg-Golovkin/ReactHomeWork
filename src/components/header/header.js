@@ -21,28 +21,28 @@ const Header = () => {
     const countriesAnyDropdown = useSelector(state=> state.headerSlice.countriesAnyDropdown)
     const countriesSelected = useSelector(state=> state.headerSlice.countriesSelected)
     const modeMenu = useSelector(state=> state.headerSlice.modeMenu)
-    const item = headerMenu.map((item, i)=> {
-        return(
-            <SubMenu 
-                popupClassName="menu-header__sub"
-                key={uniqid()}
-                title={item}>
-                    <MenuItem  
-                    className=" menu-header__item"                  
-                    key={uniqid()}>Главное
-                    </MenuItem>
-                    <MenuItem 
-                    className=" menu-header__item"
-                    key={uniqid()}>Самое главное
-                    </MenuItem>
-                    <MenuItem 
-                    className=" menu-header__item"
-                    key={uniqid()}>Главнее быть не может
-                    </MenuItem>
-            </SubMenu> 
-        )
-       
-    })  
+    
+    const subMenu = headerMenu.map((item, i)=> {
+            return(
+                <SubMenu 
+                    popupClassName="menu-header__sub"
+                    key={uniqid()}
+                    title={item}>
+                        <MenuItem  
+                        className=" menu-header__item"                  
+                        key={uniqid()}>Главное
+                        </MenuItem>
+                        <MenuItem 
+                        className=" menu-header__item"
+                        key={uniqid()}>Самое главное
+                        </MenuItem>
+                        <MenuItem 
+                        className=" menu-header__item"
+                        key={uniqid()}>Главнее быть не может
+                        </MenuItem>
+                </SubMenu> 
+            )
+        })
     
     const contriesMenuItem = countriesAnyDropdown.map(item=> {
         return (
@@ -60,7 +60,7 @@ const Header = () => {
             {contriesMenuItem}
         </Menu>
     );
-
+        
     const HeaderRegion =  () => {
         return(
         <div className="header__region region-header">
@@ -69,34 +69,31 @@ const Header = () => {
                 overlayClassName= "region-header__choice"
                 trigger={['click']}
                 overlay={menuDropdown}
-                animation="slide-up"
-                
+                animation="slide-up"                
             >
                 <button className="region-header__btn">{countriesSelected}</button>
             </Dropdown> 
         </div>)
     }
-    let headerRegionMaxWidth576 = null;
-
 
     const MediaQuery = window.matchMedia("(max-width: 576px)");
     MediaQuery.addEventListener("change", (e) => media(e));
     function media(e) {
     if (e.matches) {
         dispatch(onChangeModeMenu("vertical"))
-        headerRegionMaxWidth576 = HeaderRegion;
         } else {
         dispatch(onChangeModeMenu("horizontal"))
-        headerRegionMaxWidth576 = null
         }
     }
 
     
     useEffect(()=> {
         media(MediaQuery);
+        console.log(MediaQuery.matches);
+        console.log(!MediaQuery.matches);
 // eslint-disable-next-line   
-    }, [])
-
+    }, [MediaQuery])
+    
     return(
         <section className="header">
             <header
@@ -113,20 +110,20 @@ const Header = () => {
                         defaultActiveFirst= {false}
                         multiple={false}
                         selectable={true}>  
-                        {item}                    
+                        {subMenu}                    
                     </Menu>
-                    {headerRegionMaxWidth576}
+                    {MediaQuery.matches? <HeaderRegion/> : null}
                     <div class="menu-header__background">
+                    
+                    </div>
                     <div class="hamburger hamburger--3dx">
                             <div class="hamburger-box">
                             <div class="hamburger-inner"></div>
                             </div>
-                        </div>
-                        <code>hamburger--3dx</code>
                     </div>
                 </div>
                 <div className="hamburger"></div>               
-                <HeaderRegion/>
+                {!MediaQuery.matches? <HeaderRegion/> : null}
                 <div className="header__user">
                     <img src={iconUser} alt="iconUser" className="user__icon"/>
                 </div>
