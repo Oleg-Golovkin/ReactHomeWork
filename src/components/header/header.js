@@ -1,9 +1,8 @@
 import {useSelector, useDispatch} from "react-redux";
-import { useEffect } from "react";
 import uniqid from 'uniqid';
 import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import Dropdown from 'rc-dropdown';
-import {onCountriesSelected, onChangeModeMenu} from "./headerSlice.js";
+import {onCountriesSelected} from "./headerSlice.js";
 
 import 'rc-menu/assets/index.css';
 import 'rc-menu/assets/menu.sass';
@@ -20,7 +19,8 @@ const Header = () => {
     const headerMenu = useSelector(state=> state.headerSlice.headerMenu)
     const countriesAnyDropdown = useSelector(state=> state.headerSlice.countriesAnyDropdown)
     const countriesSelected = useSelector(state=> state.headerSlice.countriesSelected)
-    const modeMenu = useSelector(state=> state.headerSlice.modeMenu)
+    const media576px = useSelector(state=> state.mediaSlice.media576px)
+    const mediaMin577px = useSelector(state=> state.mediaSlice.mediaMin577px)
     
     const subMenu = headerMenu.map((item, i)=> {
             return(
@@ -49,17 +49,9 @@ const Header = () => {
             <MenuItem key={uniqid()}>{item}</MenuItem>
         )
     })
-    function  onSelect ({item}) {
+    function onSelect({item}) {
         dispatch(onCountriesSelected(item.props.children[0]))
-    }
-    const menuDropdown = (  
-        <Menu 
-        onSelect={onSelect}
-        style={{ width: 140 }}
-        >
-            {contriesMenuItem}
-        </Menu>
-    );
+    }   
         
     const HeaderRegion =  () => {
         return(
@@ -68,7 +60,14 @@ const Header = () => {
             <Dropdown
                 overlayClassName= "region-header__choice"
                 trigger={['click']}
-                overlay={menuDropdown}
+                overlay={
+                    <Menu 
+                        onSelect={onSelect}
+                        style={{ width: 140 }}
+                        >
+                            {contriesMenuItem}
+                    </Menu>
+                }
                 animation="slide-up"                
             >
                 <button className="region-header__btn">{countriesSelected}</button>
@@ -76,24 +75,6 @@ const Header = () => {
         </div>)
     }
 
-    const MediaQuery = window.matchMedia("(max-width: 576px)");
-    MediaQuery.addEventListener("change", (e) => media(e));
-    function media(e) {
-    if (e.matches) {
-        dispatch(onChangeModeMenu("vertical"))
-        } else {
-        dispatch(onChangeModeMenu("horizontal"))
-        }
-    }
-
-    
-    useEffect(()=> {
-        media(MediaQuery);
-        console.log(MediaQuery.matches);
-        console.log(!MediaQuery.matches);
-// eslint-disable-next-line   
-    }, [MediaQuery])
-    
     return(
         <section className="header">
             <header
@@ -105,14 +86,14 @@ const Header = () => {
                     <Menu
                         defaultOpenKeys = {["0"]}
                         className="menu-header__menu"
-                        mode={modeMenu}
+                        mode={mediaMin577px ? "horizontal" : "vertical"}
                         triggerSubMenuAction="click"
                         defaultActiveFirst= {false}
                         multiple={false}
                         selectable={true}>  
                         {subMenu}                    
                     </Menu>
-                    {MediaQuery.matches? <HeaderRegion/> : null}
+                    {media576px? <HeaderRegion/> : null}
                     <div class="menu-header__background">
                     
                     </div>
@@ -123,7 +104,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="hamburger"></div>               
-                {!MediaQuery.matches? <HeaderRegion/> : null}
+                {mediaMin577px? <HeaderRegion/> : null}
                 <div className="header__user">
                     <img src={iconUser} alt="iconUser" className="user__icon"/>
                 </div>
