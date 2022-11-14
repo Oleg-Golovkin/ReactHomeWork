@@ -1,8 +1,3 @@
-// import {useSelector, useDispatch} from "react-redux";
-// import uniqid from 'uniqid';
-
-
-// import background from './../../img/auction_backgraund.png';
 import titleExclusiv from './../../icons/auction/title_exclusiv.png'
 
 
@@ -14,7 +9,9 @@ const Auction = ()=> {
             <div className="auction__content container">
                 <img 
                     src={titleExclusiv} 
-                    className="auction__title-exclusive"></img>
+                    className="auction__title-exclusive"
+                    alt='auction__title-exclusive'>
+                </img>
                 <h2 className="auction__title-lots">
                     Лоты под аукцион и свободную продажу
                 </h2>

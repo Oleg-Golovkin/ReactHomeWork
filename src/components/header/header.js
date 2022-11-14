@@ -22,7 +22,7 @@ const Header = () => {
     const media576px = useSelector(state=> state.mediaSlice.media576px)
     const mediaMin577px = useSelector(state=> state.mediaSlice.mediaMin577px)
     
-    const subMenu = headerMenu.map((item, i)=> {
+    const subNavigationMenu = headerMenu.map((item, i)=> {
             return(
                 <SubMenu 
                     popupClassName="menu-header__sub"
@@ -53,7 +53,7 @@ const Header = () => {
         dispatch(onCountriesSelected(item.props.children[0]))
     }   
         
-    const HeaderRegion =  () => {
+    const HeaderRegionDropdown =  () => {
         return(
         <div className="header__region region-header">
             <img src={iconEarth} alt= "iconEarth" className="region-header__earth"></img>
@@ -91,27 +91,26 @@ const Header = () => {
                         defaultActiveFirst= {false}
                         multiple={false}
                         selectable={true}>  
-                        {subMenu}                    
+                        {subNavigationMenu}                    
                     </Menu>
-                    {media576px? <HeaderRegion/> : null}
-                    <div class="menu-header__background">
+                    {media576px? <HeaderRegionDropdown/> : null}
+                    <div className="menu-header__background">
                     
                     </div>
-                    <div class="hamburger hamburger--3dx">
-                            <div class="hamburger-box">
-                            <div class="hamburger-inner"></div>
+                    <div className="hamburger hamburger--3dx">
+                            <div className="hamburger-box">
+                            <div className="hamburger-inner"></div>
                             </div>
                     </div>
                 </div>
                 <div className="hamburger"></div>               
-                {mediaMin577px? <HeaderRegion/> : null}
+                {mediaMin577px? <HeaderRegionDropdown/> : null}
                 <div className="header__user">
                     <img src={iconUser} alt="iconUser" className="user__icon"/>
                 </div>
                 
             </header> 
-        </section>
-                
+        </section>           
     )
 }
 
