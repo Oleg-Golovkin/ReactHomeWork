@@ -43,6 +43,24 @@ const Header = () => {
                 </SubMenu> 
             )
         })
+
+    const MenuNavigation = () => {
+        return(
+            <div className="header__menu menu-header">
+                <Menu
+                    defaultOpenKeys = {["0"]}
+                    className="menu-header__menu"
+                    mode={mediaMin577px ? "horizontal" : "vertical"}
+                    triggerSubMenuAction="click"
+                    defaultActiveFirst= {false}
+                    multiple={false}
+                    selectable={true}>  
+                    {subNavigationMenu}                    
+                </Menu>
+                {media576px? <HeaderRegionDropdown/> : null}
+            </div>
+        )
+    }
     
     const contriesMenuItem = countriesAnyDropdown.map(item=> {
         return (
@@ -82,34 +100,13 @@ const Header = () => {
                 <div className="header__lable label-header">
                     <img src={iconlabel} alt="Iconlabel" className="label-header__img"></img>
                 </div> 
-                <div className="header__menu menu-header">
-                    <Menu
-                        defaultOpenKeys = {["0"]}
-                        className="menu-header__menu"
-                        mode={mediaMin577px ? "horizontal" : "vertical"}
-                        triggerSubMenuAction="click"
-                        defaultActiveFirst= {false}
-                        multiple={false}
-                        selectable={true}>  
-                        {subNavigationMenu}                    
-                    </Menu>
-                    {media576px? <HeaderRegionDropdown/> : null}
-                    <div className="menu-header__background">
-                    
-                    </div>
-                    <div className="hamburger hamburger--3dx">
-                            <div className="hamburger-box">
-                            <div className="hamburger-inner"></div>
-                            </div>
-                    </div>
-                </div>
-                <div className="hamburger"></div>               
+                {mediaMin577px? <MenuNavigation/> : null}
                 {mediaMin577px? <HeaderRegionDropdown/> : null}
                 <div className="header__user">
                     <img src={iconUser} alt="iconUser" className="user__icon"/>
-                </div>
-                
-            </header> 
+                </div>  
+            </header>
+            {media576px? <MenuNavigation/> : null}
         </section>           
     )
 }
