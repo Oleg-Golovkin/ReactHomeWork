@@ -43,13 +43,11 @@ const Header = () => {
                 </SubMenu> 
             )
         })
-
     const MenuNavigation = () => {
         return(
-            <div className="header__menu menu-header">
                 <Menu
                     defaultOpenKeys = {["0"]}
-                    className="menu-header__menu"
+                    className="header__menu menu-header"
                     mode={mediaMin577px ? "horizontal" : "vertical"}
                     triggerSubMenuAction="click"
                     defaultActiveFirst= {false}
@@ -57,10 +55,9 @@ const Header = () => {
                     selectable={true}>  
                     {subNavigationMenu}                    
                 </Menu>
-                {media576px? <HeaderRegionDropdown/> : null}
-            </div>
         )
     }
+    
     
     const contriesMenuItem = countriesAnyDropdown.map(item=> {
         return (
@@ -69,8 +66,7 @@ const Header = () => {
     })
     function onSelect({item}) {
         dispatch(onCountriesSelected(item.props.children[0]))
-    }   
-        
+    }        
     const HeaderRegionDropdown =  () => {
         return(
         <div className="header__region region-header">
@@ -106,7 +102,13 @@ const Header = () => {
                     <img src={iconUser} alt="iconUser" className="user__icon"/>
                 </div>  
             </header>
-            {media576px? <MenuNavigation/> : null}
+            <div className="menu-header menu-header_mobile">
+                {media576px? <MenuNavigation/> : null}
+                {media576px? <HeaderRegionDropdown/> : null}
+            </div>
+            <div class="menu-header_background"></div>
+            
+            
         </section>           
     )
 }
