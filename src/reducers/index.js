@@ -8,5 +8,6 @@ import { combineReducers } from 'redux'
 
 export default combineReducers({
     headerSlice,
-    mediaSlice
+    mediaSlice,
+    hamburgerSlice
 })

@@ -97,6 +97,31 @@
             padding: 0px 0px 0px 0px !important
             background-color: transparent !important
             font-family: 'PF Din Text Cond Pro' !important
+    &_mobile
+        display: block
+        position: fixed
+        top: 0  
+        width: 50% 
+        height: 150px
+        left: -250px
+        transition: all 1s
+    &_active-mobile
+            left: 0
+    &_background
+        display: block        
+        position: fixed
+        top: 0px
+        left: 0
+        width: 100%
+        height: 100vh
+        transition: all 0.5s
+        visibility: hidden
+        opacity: 0
+        z-index: 1
+    &_active-background
+        visibility: visible
+        opacity: 1
+
     &__sub
         padding: 0px 0px 0px 0px !important
         font-family: 'PF Din Text Cond Pro' !important
@@ -119,25 +144,7 @@
         background-color: transparent !important
     &__item.rc-menu-item-active
         color: red
-    &_mobile
-        display: block
-        position: fixed
-        top: 0  
-        width: 50% 
-        height: 150px
-        left: -200px
-        transition: all 1s
-    &_background
-        display: block        
-        position: fixed
-        top: 0px
-        left: 0
-        width: 100%
-        height: 100vh
-        transition: all 0.5s
-        visibility: hidden
-        opacity: 0
-        z-index: 1  
+    
 
 
 .rc-menu-submenu-popup

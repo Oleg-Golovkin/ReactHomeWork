@@ -4,13 +4,17 @@ import {onActiveClass} from './hamburgerSlice'
 
 const Hamburger = () => {
     const activeClass = useSelector(state=> state.hamburgerSlice.activeClass)
-    const dispatch = useDispatch(onActiveClass(!activeClass))
-    const clazz = `hamburger hamburger--3dx`
+    const dispatch = useDispatch()
+    const clazz = `hamburger hamburger--3dx ${activeClass? 'is-active' : ""}`
     return (
         <>
-            <div onClick={dispatch} class={clazz}>
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
+            <div
+                onClick={()=> dispatch(onActiveClass(!activeClass))}
+                className={clazz}>
+                <div className="hamburger-box">
+                    <div
+                        
+                        className="hamburger-inner"></div>
                 </div>
             </div>
         </>

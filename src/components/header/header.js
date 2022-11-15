@@ -3,6 +3,7 @@ import uniqid from 'uniqid';
 import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import Dropdown from 'rc-dropdown';
 import {onCountriesSelected} from "./headerSlice.js";
+import {onActiveClass} from '../hamburger/hamburgerSlice'
 
 import Hamburger from '../hamburger/Hamburger';
 
@@ -23,7 +24,8 @@ const Header = () => {
     const countriesSelected = useSelector(state=> state.headerSlice.countriesSelected)
     const media576px = useSelector(state=> state.mediaSlice.media576px)
     const mediaMin577px = useSelector(state=> state.mediaSlice.mediaMin577px)
-    
+    const activeClass = useSelector(state=> state.hamburgerSlice.activeClass)
+
     const subNavigationMenu = headerMenu.map((item, i)=> {
             return(
                 <SubMenu 
@@ -95,7 +97,6 @@ const Header = () => {
         <section className="header">
             <header
             className="header__wrapper container">
-                
                 <div className="header__lable label-header">
                     <img src={iconlabel} alt="Iconlabel" className="label-header__img"></img>
                 </div> 
@@ -108,7 +109,7 @@ const Header = () => {
                 : null}
             </header>
             <Hamburger/>
-            <div className="menu-header menu-header_mobile">
+            <div className={`menu-header_mobile ${activeClass ? 'menu-header_active-mobile' : ''}`}>
                 {media576px? <MenuNavigation/> : null}
                 {media576px?
                 <div className="header__user">
@@ -117,7 +118,9 @@ const Header = () => {
                 : null}
                 {media576px? <HeaderRegionDropdown/> : null}
             </div>
-            <div class="menu-header_background"></div>
+            <div
+            onClick={()=> dispatch(onActiveClass(!activeClass))}
+            className={`menu-header_background ${activeClass ? 'menu-header_active-background' : ''}`}></div>
             
             
         </section>           
