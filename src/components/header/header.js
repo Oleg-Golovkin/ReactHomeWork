@@ -4,6 +4,8 @@ import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import Dropdown from 'rc-dropdown';
 import {onCountriesSelected} from "./headerSlice.js";
 
+import Hamburger from '../hamburger/Hamburger';
+
 import 'rc-menu/assets/index.css';
 import 'rc-menu/assets/menu.sass';
 import 'rc-dropdown/assets/index.css';
@@ -93,17 +95,26 @@ const Header = () => {
         <section className="header">
             <header
             className="header__wrapper container">
+                
                 <div className="header__lable label-header">
                     <img src={iconlabel} alt="Iconlabel" className="label-header__img"></img>
                 </div> 
                 {mediaMin577px? <MenuNavigation/> : null}
                 {mediaMin577px? <HeaderRegionDropdown/> : null}
+                {mediaMin577px?
                 <div className="header__user">
-                    <img src={iconUser} alt="iconUser" className="user__icon"/>
-                </div>  
+                        <img src={iconUser} alt="iconUser" className="user__icon"/>
+                    </div> 
+                : null}
             </header>
+            <Hamburger/>
             <div className="menu-header menu-header_mobile">
                 {media576px? <MenuNavigation/> : null}
+                {media576px?
+                <div className="header__user">
+                        <img src={iconUser} alt="iconUser" className="user__icon"/>
+                    </div> 
+                : null}
                 {media576px? <HeaderRegionDropdown/> : null}
             </div>
             <div class="menu-header_background"></div>
