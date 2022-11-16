@@ -47,6 +47,7 @@ const Header = () => {
                 </SubMenu> 
             )
         })
+    const container = (() => document.body)
     const MenuNavigation = () => {
         return(
                 <Menu
@@ -56,7 +57,8 @@ const Header = () => {
                     triggerSubMenuAction="click"
                     defaultActiveFirst= {false}
                     multiple={false}
-                    selectable={true}>  
+                    selectable={true}
+                    getPopupContainer={container}>  
                     {subNavigationMenu}                    
                 </Menu>
         )
@@ -94,6 +96,8 @@ const Header = () => {
     }
 
     return(
+        <>
+        
         <section className="header">
             <header
             className="header__wrapper container">
@@ -108,7 +112,8 @@ const Header = () => {
                     </div> 
                 : null}
             </header>
-            <Hamburger/>
+        </section> 
+        <Hamburger/>
             <div className={`menu-header_mobile ${activeClass ? 'menu-header_active-mobile' : ''}`}>
                 {media576px? <MenuNavigation/> : null}
                 {media576px?
@@ -118,12 +123,10 @@ const Header = () => {
                 : null}
                 {media576px? <HeaderRegionDropdown/> : null}
             </div>
-            <div
+            {/* <div
             onClick={()=> dispatch(onActiveClass(!activeClass))}
-            className={`menu-header_background ${activeClass ? 'menu-header_active-background' : ''}`}></div>
-            
-            
-        </section>           
+            className={`menu-header_background ${activeClass ? 'menu-header_active-background' : ''}`}></div> */}
+        </>          
     )
 }
 

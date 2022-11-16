@@ -14,14 +14,16 @@
             flex-direction: column
     &__user
         @media (max-width: 576px)
-            margin: 0 auto
+            margin: 10px 0px 0px 0px
+        
 
 .region-header
     display: flex
     justify-content: space-between
     align-items: flex-start
     width: 15.5%
-    &_mobile
+    @media (max-width: 576px)
+        margin: 10px 0px 0px 0px        
         
     &__btn
         font-family: 'PF Din Text Cond Pro' !important
@@ -97,14 +99,17 @@
             padding: 0px 0px 0px 0px !important
             background-color: transparent !important
             font-family: 'PF Din Text Cond Pro' !important
+            @media (max-width: 576px)
+                padding: 10px 0px 0px 0px !important
     &_mobile
+        padding: 30px 30px
         display: block
         position: fixed
         top: 0  
-        width: 50% 
-        height: 150px
         left: -250px
+        background-color: black
         transition: all 1s
+        z-index: 2
     &_active-mobile
             left: 0
     &_background
@@ -148,6 +153,7 @@
 
 
 .rc-menu-submenu-popup
+    z-index: 2
     > ul
         background-color: transparent !important
         border: none !important
