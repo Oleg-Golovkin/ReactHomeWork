@@ -118,17 +118,20 @@ const Header = () => {
         <div className={`menu-header_mobile ${activeClass ? 'menu-header_active-mobile' : ''}`}>
             <div
                 onClick={()=> dispatch(onActiveClass(!activeClass))}
-                class="menu-header__close"></div>
+                class="menu-header__close">
+            </div>
             {media576px? <MenuNavigation/> : null}
-            {media576px?
-            <div className="header__user">
+            <div className="menu-header__wrapperForMobile">
+                {media576px?
+                <div className="header__user">
                     <img src={iconUser} alt="iconUser" className="user__icon"/>
                 </div> 
-            : null}
-            {media576px? <HeaderRegionDropdown/> : null}
+                : null}
+                {media576px? <HeaderRegionDropdown/> : null}
+            </div>
+            
         </div>
-        <div
-        onClick={()=> dispatch(onActiveClass(!activeClass))}
+        <div onClick={()=> dispatch(onActiveClass(!activeClass))}
         className={`menu-header_background ${activeClass ? 'menu-header_active-background' : ''}`}></div>
         </>          
     )

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../header/Header';
 import Auction from '../auction/Auction';
+import Lots from '../lots/Lots';
 import { useMediaQuery } from "react-responsive";
 import {changeMedia576px,
   changeMediaMin577px,
@@ -21,6 +22,7 @@ function App() {
       <Header/>
       <main>
         <Auction/>
+        <Lots/>
       </main>   
     </>
   );
