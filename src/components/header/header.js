@@ -47,7 +47,8 @@ const Header = () => {
                 </SubMenu> 
             )
         })
-    const container = (() => document.body)
+    
+    const container = (() => document.querySelector(".menu-header_mobile.menu-header_active-mobile"))
     const MenuNavigation = () => {
         return(
                 <Menu
@@ -114,18 +115,21 @@ const Header = () => {
             </header>
         </section> 
         <Hamburger/>
-            <div className={`menu-header_mobile ${activeClass ? 'menu-header_active-mobile' : ''}`}>
-                {media576px? <MenuNavigation/> : null}
-                {media576px?
-                <div className="header__user">
-                        <img src={iconUser} alt="iconUser" className="user__icon"/>
-                    </div> 
-                : null}
-                {media576px? <HeaderRegionDropdown/> : null}
-            </div>
-            {/* <div
-            onClick={()=> dispatch(onActiveClass(!activeClass))}
-            className={`menu-header_background ${activeClass ? 'menu-header_active-background' : ''}`}></div> */}
+        <div className={`menu-header_mobile ${activeClass ? 'menu-header_active-mobile' : ''}`}>
+            <div
+                onClick={()=> dispatch(onActiveClass(!activeClass))}
+                class="menu-header__close"></div>
+            {media576px? <MenuNavigation/> : null}
+            {media576px?
+            <div className="header__user">
+                    <img src={iconUser} alt="iconUser" className="user__icon"/>
+                </div> 
+            : null}
+            {media576px? <HeaderRegionDropdown/> : null}
+        </div>
+        <div
+        onClick={()=> dispatch(onActiveClass(!activeClass))}
+        className={`menu-header_background ${activeClass ? 'menu-header_active-background' : ''}`}></div>
         </>          
     )
 }
