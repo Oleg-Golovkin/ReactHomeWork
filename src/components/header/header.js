@@ -48,7 +48,9 @@ const Header = () => {
             )
         })
     
-    const container = (() => document.querySelector(".menu-header_mobile.menu-header_active-mobile"))
+    const containerMobile = (() => document.querySelector(".menu-header_mobile.menu-header_active-mobile"))
+    const containerDesktop = (() => document.querySelector(".header"))
+    
     const MenuNavigation = () => {
         return(
                 <Menu
@@ -59,7 +61,7 @@ const Header = () => {
                     defaultActiveFirst= {false}
                     multiple={false}
                     selectable={true}
-                    getPopupContainer={container}>  
+                    getPopupContainer={mediaMin577px ? containerDesktop : containerMobile}>  
                     {subNavigationMenu}                    
                 </Menu>
         )
@@ -108,7 +110,7 @@ const Header = () => {
                 {mediaMin577px? <MenuNavigation/> : null}
                 {mediaMin577px? <HeaderRegionDropdown/> : null}
                 {mediaMin577px?
-                <div className="header__user">
+                    <div className="header__user">
                         <img src={iconUser} alt="iconUser" className="user__icon"/>
                     </div> 
                 : null}

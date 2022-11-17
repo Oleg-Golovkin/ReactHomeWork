@@ -5,14 +5,13 @@ import './auction.sass'
 
 const Auction = ()=> {
     return(
-        <section className="auction">
-            <div className="auction__content container">
+        <section className="auction container">
                 <img 
                     src={titleExclusiv} 
-                    className="auction__title-exclusive"
-                    alt='auction__title-exclusive'>
+                    className="title auction__title "
+                    alt='auction__title'>
                 </img>
-                <h2 className="auction__title-lots">
+                <h2 className="sub-title auction__sub-title ">
                     Лоты под аукцион и свободную продажу
                 </h2>
                 <div className="auction__dsc">
@@ -24,7 +23,6 @@ const Auction = ()=> {
                 <button className="auction__btn-join">
                     Присоединиться
                 </button>
-            </div>
         </section>
     )
 }
