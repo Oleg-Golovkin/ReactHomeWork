@@ -1,11 +1,12 @@
 import populyarnye from './../../icons/lots/populyarnye.png'
 
+import Separator from "../separator/Separator"
 import './lots.sass'
 
 
 const Lots = () => {
     return(
-        <section className="lots">
+        <section className="lots container">
             <img 
                 src={populyarnye} 
                 className="title title_lots"
@@ -14,26 +15,7 @@ const Lots = () => {
             <h2 className="sub-title sub-title_lots">
                 лоты Под аукцион
             </h2>
-            <div class="lots__icons ">
-                <div class="lots__icon-wrapper">                
-                    <div class="lots__line"></div>
-                    <div class="lots__round"></div>
-                    <div class="lots__squareMin"></div>
-                    <div class="lots__squareBig"></div>
-                </div>
-
-                <div className="lots__times"></div>
-
-                <div class="lots__icon-wrapper">                
-                    <div class="lots__line"></div>
-                    <div class="lots__round"></div>
-                    <div class="lots__squareMin"></div>
-                    <div class="lots__squareBig"></div>
-                </div>
-                
-                
-            </div>
-                
+            <Separator/>                
         </section> 
     )
 }
