@@ -1,13 +1,14 @@
 .separator
   display: flex
+  justify-content: space-between
   max-width: 950px
-  margin: 0 auto
 
 
   // .separator__icon-wrapper
 
   &__icon-wrapper
     display: flex
+    width: 39%
     align-items: center
     justify-content: space-between
     &_left
@@ -17,7 +18,7 @@
 
   &__line
     display: block
-    width: 300px
+    width: 81%
     height: 1px
     background-color: #bb9c66
 
@@ -44,8 +45,14 @@
     width: 25px
     height: 25px
     background-image: url("../../icons/separator/squareBig.png")
+    @media (max-width: 576px)
+      display: none
 
 
   // .separator__times
 
   &__times
+    width: 55px
+    height: 58px
+    background: url("../../icons/separator/times.png") center center/contain no-repeat
+
