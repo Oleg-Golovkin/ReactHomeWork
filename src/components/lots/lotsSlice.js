@@ -3,7 +3,7 @@ import useTransform from '../../service/useTransform'
 
 
 const initialState = {
-    img: "d",
+    img: [],
     imgLoadingStatus: ''
 }
 

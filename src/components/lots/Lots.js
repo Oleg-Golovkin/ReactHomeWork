@@ -3,6 +3,7 @@ import popular from './../../icons/lots/popular.png'
 import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {reduxThunkImg} from './lotsSlice'
+import uniqid from 'uniqid'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid } from 'swiper';
@@ -17,15 +18,19 @@ const Lots = () => {
     
     useEffect(()=> {
         dispatch(reduxThunkImg())
+    // eslint-disable-next-line   
     }, [])
-    // const swiperSlide = this.props.dataSlide.map(({lable})=>{
-    //     return(
-    //         <SwiperSlide 
-    //             key={lable}>
-    //                 <img className="swiperSlide__img" src={lable} alt=""/>
-    //         </SwiperSlide>
-    //     )
-    // }) 
+    // console.log(img.map());
+    const swiperSlide = img.map(item =>{
+        return(
+            <SwiperSlide 
+                key={uniqid()}>
+                    <img src={item.item} alt=""/>
+            </SwiperSlide>
+        )
+    })
+
+    console.log(img[0]);
 
     return(
         <section className="lots container">
@@ -38,7 +43,7 @@ const Lots = () => {
                 лоты Под аукцион
             </h2>
             <Separator/> 
-            {/* <Swiper
+            <Swiper
                 spaceBetween={10}
                 slidesPerView={3}
                 onSlideChange={() => console.log('slide change')}
@@ -46,11 +51,8 @@ const Lots = () => {
                 modules={[Grid]}
                 grid = {{rows: 2,
                     fill: "row"}}>
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-            </Swiper> */}
+                {/* {swiperSlide} */}
+            </Swiper>
         </section> 
     )
 }
