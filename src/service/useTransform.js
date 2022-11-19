@@ -7,7 +7,6 @@ const useTransform = () => {
     const resPostAllCharacter = async () => {
         try{
             const data = await request(address)
-            // console.log(data.data.results.map(transformDataInServer));
 
             return data.data.results.map(transformDataInServer)
             
@@ -15,7 +14,7 @@ const useTransform = () => {
     }
 
     const transformDataInServer = (data) => {
-        return {img: data.thumbnail.path + "." + data.thumbnail.extension}
+        return data.thumbnail.path + "." + data.thumbnail.extension
     }
 
     return{resPostAllCharacter}

@@ -25,7 +25,7 @@ const Lots = () => {
         return(
             <SwiperSlide 
                 key={uniqid()}>
-                    <img src={item.item} alt=""/>
+                    <img src={item} alt=""/>
             </SwiperSlide>
         )
     })
@@ -44,14 +44,41 @@ const Lots = () => {
             </h2>
             <Separator/> 
             <Swiper
-                spaceBetween={10}
+                spaceBetween={100}
                 slidesPerView={3}
+                watchSlidesProgress= {true}
+                breakpoints = {{
+                    320: {
+                        slidesPerView: 1,
+                        grid: {
+                                rows: 1,
+                                fill: "row"
+                        },
+                    },
+                    // when window width is >= 480px
+                    632: {
+                        slidesPerView: 2,
+                        grid: {
+                                rows: 1,
+                                fill: "row"
+                        }, 
+                    },
+                    992: 
+                    {
+                        grid: {
+                                rows: 1,
+                                fill: "row",
+                        },
+                        slidesPerView: 3,
+                    },        
+                }}
+                rewind = {true}
                 onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
                 modules={[Grid]}
-                grid = {{rows: 2,
+                grid = {{rows: 1,
                     fill: "row"}}>
-                {/* {swiperSlide} */}
+                        
+                {swiperSlide}
             </Swiper>
         </section> 
     )
