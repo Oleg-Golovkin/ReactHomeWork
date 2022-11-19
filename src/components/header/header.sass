@@ -1,3 +1,4 @@
+@use 'sass:math' 
 .header
     height: 75px
     background-color: #1c242a
@@ -21,9 +22,11 @@
 
 .region-header
     display: flex
-    justify-content: space-between
     align-items: flex-start
-    width: 15.5%
+    justify-content: space-between
+    $resut: math.div(150,950) * 100%
+    width: $resut
+    // width: 140px
     @media (max-width: 576px)
         margin: 0 auto
         margin-top: 20px  
@@ -42,6 +45,7 @@
         text-transform: uppercase
         letter-spacing: 0.1em
         color: #ffffff
+        margin: 0 auto
 
     // .region-header__earth
 
@@ -125,6 +129,7 @@
     &_background
         display: block        
         position: fixed
+        
         top: 0px
         left: 0
         width: 100%
@@ -134,6 +139,7 @@
         opacity: 0
         z-index: 1
     &_active-background
+        overflow: hidden
         visibility: visible
         opacity: 1
         background-color: rgba(0, 0, 0, 0.7)
@@ -182,7 +188,6 @@
         display: flex
         align-items: center
         margin-top: 40px
-        
     
 
 

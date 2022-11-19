@@ -2,7 +2,9 @@ import Separator from "../separator/Separator"
 import popular from './../../icons/lots/popular.png'
 import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
-import {reduxThunkImg} from './lotsSlice'
+import {reduxThunkImg, onTimer} from './lotsSlice'
+import { useIdleTimer } from 'react-idle-timer' 
+
 import uniqid from 'uniqid'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,24 +15,71 @@ import './lots.sass'
 
 
 const Lots = () => {
+    const {
+        start,
+        reset,
+        activate,
+        pause,
+        resume,
+        isIdle,
+        isPrompted,
+        isLeader,
+        getTabId,
+        getRemainingTime,
+        getElapsedTime,
+        getLastIdleTime,
+        getLastActiveTime,
+        getTotalIdleTime,
+        getTotalActiveTime
+    } = useIdleTimer({
+        timeout: 1000 * 60 * 20,
+        promptTimeout: 0,
+        events: [
+        'mousemove',
+        'keydown',
+        'wheel',
+        'DOMMouseScroll',
+        'mousewheel',
+        'mousedown',
+        'touchstart',
+        'touchmove',
+        'MSPointerDown',
+        'MSPointerMove',
+        'visibilitychange'
+        ],
+        immediateEvents: [],
+        debounce: 0,
+        throttle: 0,
+        eventsThrottle: 200,
+        element: document,
+        startOnMount: true,
+        startManually: false,
+        stopOnIdle: false,
+        crossTab: false,
+        name: 'idle-timer',
+        syncTimers: 0,
+        leaderElection: false
+    })
+    const time = Math.floor((getElapsedTime() / 1000) % 60)
     const dispatch = useDispatch();
-    const img = useSelector((state)=> state.lotsSlice.img)
+    const lots = useSelector((state)=> state.lotsSlice.lots)
+    const timer = useSelector((state)=> state.lotsSlice.timer)
     
     useEffect(()=> {
-        dispatch(reduxThunkImg())
+        // dispatch(reduxThunkImg())
+        dispatch(onTimer(time))
     // eslint-disable-next-line   
-    }, [])
-    // console.log(img.map());
-    const swiperSlide = img.map(item =>{
+    }, [time])
+
+    const swiperSlide = lots.map(item =>{
         return(
             <SwiperSlide 
                 key={uniqid()}>
-                    <img src={item} alt=""/>
+                    <img src={item.img} alt=""/>
             </SwiperSlide>
         )
     })
 
-    console.log(img[0]);
 
     return(
         <section className="lots container">
@@ -40,7 +89,7 @@ const Lots = () => {
                 alt='title'>
             </img>
             <h2 className="sub-title sub-title_lots">
-                лоты Под аукцион
+                лоты Под аукцион {timer}
             </h2>
             <Separator/> 
             <Swiper

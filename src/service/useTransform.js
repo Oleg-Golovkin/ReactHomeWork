@@ -14,7 +14,10 @@ const useTransform = () => {
     }
 
     const transformDataInServer = (data) => {
-        return data.thumbnail.path + "." + data.thumbnail.extension
+        return {
+            img: data.thumbnail.path + "." + data.thumbnail.extension,
+            name: data.name
+        }
     }
 
     return{resPostAllCharacter}

@@ -83,10 +83,10 @@ const Header = () => {
             <Dropdown
                 overlayClassName= "region-header__choice"
                 trigger={['click']}
+                getPopupContainer = {()=>document.querySelector(".region-header__btn")}
                 overlay={
                     <Menu 
-                        onSelect={onSelect}
-                        style={{ width: 140 }}
+                        onSelect={onSelect}                        
                         >
                             {contriesMenuItem}
                     </Menu>

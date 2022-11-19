@@ -3,12 +3,13 @@ import useTransform from '../../service/useTransform'
 
 
 const initialState = {
-    img: [],
-    imgLoadingStatus: ''
+    lots: [],
+    imgLoadingStatus: '',
+    timer: 0
 }
 
 export const reduxThunkImg = createAsyncThunk(
-    "heroes/reduxThunkImg",
+    "on/reduxThunkImg",
     async () => {
         const {resPostAllCharacter} = useTransform();
         return await resPostAllCharacter();
@@ -18,6 +19,11 @@ export const reduxThunkImg = createAsyncThunk(
 const lotsSlice = createSlice({
 name: "on",
 initialState,
+reducers: {
+    onTimer: (state, action) =>  {
+        state.timer = action.payload
+    },
+},
 extraReducers: (builder) => {
     builder
         .addCase(reduxThunkImg.pending, state =>    
@@ -25,7 +31,7 @@ extraReducers: (builder) => {
 
         .addCase(reduxThunkImg.fulfilled, (state, action) => {
             state.imgLoadingStatus = 'idle';
-            state.img = action.payload;
+            state.lots = action.payload;
         })                            
         .addCase(reduxThunkImg.rejected, state => {
             state.imgLoadingStatus = 'error';
@@ -34,6 +40,7 @@ extraReducers: (builder) => {
     }
 })
 
-const {reducer} = lotsSlice;
+const {actions, reducer} = lotsSlice;
+export const {onTimer} = actions;
 
 export default reducer
