@@ -5,7 +5,11 @@ import useTransform from '../../service/useTransform'
 const initialState = {
     lots: [],
     imgLoadingStatus: '',
-    timer: 0
+    years: "",
+    days: "",
+    hours: "",
+    minutes: "",
+    seconds: "",
 }
 
 export const reduxThunkImg = createAsyncThunk(
@@ -19,11 +23,12 @@ export const reduxThunkImg = createAsyncThunk(
 const lotsSlice = createSlice({
 name: "on",
 initialState,
-reducers: {
-    onTimer: (state, action) =>  {
-        state.timer = action.payload
+reducers: 
+    {
+        onYears: (state, action) =>  {
+            state.years = action.payload
+        },
     },
-},
 extraReducers: (builder) => {
     builder
         .addCase(reduxThunkImg.pending, state =>    

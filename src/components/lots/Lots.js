@@ -1,9 +1,9 @@
 import Separator from "../separator/Separator"
+import Timer from "../timer/Timer"
 import popular from './../../icons/lots/popular.png'
 import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {reduxThunkImg, onTimer} from './lotsSlice'
-import { useIdleTimer } from 'react-idle-timer' 
 
 import uniqid from 'uniqid'
 // Import Swiper React components
@@ -15,67 +15,22 @@ import './lots.sass'
 
 
 const Lots = () => {
-    const {
-        start,
-        reset,
-        activate,
-        pause,
-        resume,
-        isIdle,
-        isPrompted,
-        isLeader,
-        getTabId,
-        getRemainingTime,
-        getElapsedTime,
-        getLastIdleTime,
-        getLastActiveTime,
-        getTotalIdleTime,
-        getTotalActiveTime
-    } = useIdleTimer({
-        timeout: 1000 * 60 * 20,
-        promptTimeout: 0,
-        events: [
-        'mousemove',
-        'keydown',
-        'wheel',
-        'DOMMouseScroll',
-        'mousewheel',
-        'mousedown',
-        'touchstart',
-        'touchmove',
-        'MSPointerDown',
-        'MSPointerMove',
-        'visibilitychange'
-        ],
-        immediateEvents: [],
-        debounce: 0,
-        throttle: 0,
-        eventsThrottle: 200,
-        element: document,
-        startOnMount: true,
-        startManually: false,
-        stopOnIdle: false,
-        crossTab: false,
-        name: 'idle-timer',
-        syncTimers: 0,
-        leaderElection: false
-    })
-    const time = Math.floor((getElapsedTime() / 1000) % 60)
+    
     const dispatch = useDispatch();
     const lots = useSelector((state)=> state.lotsSlice.lots)
     const timer = useSelector((state)=> state.lotsSlice.timer)
-    
+
     useEffect(()=> {
-        // dispatch(reduxThunkImg())
-        dispatch(onTimer(time))
+        dispatch(reduxThunkImg())
     // eslint-disable-next-line   
-    }, [time])
+    }, [])
 
     const swiperSlide = lots.map(item =>{
         return(
             <SwiperSlide 
                 key={uniqid()}>
                     <img src={item.img} alt=""/>
+                    
             </SwiperSlide>
         )
     })
@@ -129,6 +84,7 @@ const Lots = () => {
                         
                 {swiperSlide}
             </Swiper>
+            <Timer/>
         </section> 
     )
 }
