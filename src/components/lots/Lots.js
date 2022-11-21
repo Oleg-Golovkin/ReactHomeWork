@@ -21,7 +21,7 @@ const Lots = () => {
     const timer = useSelector((state)=> state.lotsSlice.timer)
 
     useEffect(()=> {
-        dispatch(reduxThunkImg())
+        // dispatch(reduxThunkImg())
     // eslint-disable-next-line   
     }, [])
 
