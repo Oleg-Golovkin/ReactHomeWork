@@ -10,14 +10,14 @@ import {onT,
     const Timer = ({deadline = "2022-12-07"}) => {
 
     const dispatch = useDispatch();
-    const t = useSelector((state)=> state.timerSlice.time.t)
+    // const t = useSelector((state)=> state.timerSlice.time.t)
     const days = useSelector((state)=> state.timerSlice.time.days)
     const hours = useSelector((state)=> state.timerSlice.time.hours)
     const minutes = useSelector((state)=> state.timerSlice.time.minutes)
     const seconds = useSelector((state)=> state.timerSlice.time.seconds)
 
     function time(endtime) {
-            dispatch(onT(Date.parse(endtime) - Date.parse(new Date()) - 10800000))
+            const t = Date.parse(endtime) - Date.parse(new Date()) - 10800000;
             dispatch(onDays(Math.floor((t / 1000 / 60 / 60 / 24) % 24)))
             dispatch(onHours(Math.floor((t / 1000 / 60 / 60) % 24)))
             dispatch(onMinutes(Math.floor((t / 1000 / 60) % 60)))
@@ -41,12 +41,15 @@ import {onT,
         time(endtime);
     }
 
+    
+
+
     useEffect(()=> {        
-        intervalKlock(deadline);
+        console.log('рендер');
         return(
             clearInterval(timerInterval)
         )
-    })
+    }, [])
 
     return (
         <div class="timer1" id="timer">
