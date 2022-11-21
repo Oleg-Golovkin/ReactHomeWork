@@ -1,54 +1,62 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {onT,
+import {
     onDays,
     onHours,
     onMinutes,
     onSeconds} from './timerSlice'
 
-    const Timer = ({deadline = "2022-12-07"}) => {
+const Timer = ({deadline = "2022-12-07"}) => {
 
     const dispatch = useDispatch();
-    // const t = useSelector((state)=> state.timerSlice.time.t)
     const days = useSelector((state)=> state.timerSlice.time.days)
     const hours = useSelector((state)=> state.timerSlice.time.hours)
     const minutes = useSelector((state)=> state.timerSlice.time.minutes)
     const seconds = useSelector((state)=> state.timerSlice.time.seconds)
 
-    function time(endtime) {
-            const t = Date.parse(endtime) - Date.parse(new Date()) - 10800000;
-            dispatch(onDays(Math.floor((t / 1000 / 60 / 60 / 24) % 24)))
-            dispatch(onHours(Math.floor((t / 1000 / 60 / 60) % 24)))
-            dispatch(onMinutes(Math.floor((t / 1000 / 60) % 60)))
-            dispatch(onSeconds(Math.floor((t / 1000) % 60)))
+    const time = (endtime)=> {
+            const t_s = Date.parse(endtime) - Date.parse(new Date()) - 10800000,
+                    days_s = Math.floor((t_s / 1000 / 60 / 60 / 24) % 24),
+                    hours_s = Math.floor((t_s / 1000 / 60 / 60) % 24),
+                    minutes_s = Math.floor((t_s / 1000 / 60) % 60),
+                    seconds_s = Math.floor((t_s / 1000) % 60); 
+            
+            dispatch(onDays(getTimeZero(days_s)))
+            dispatch(onHours(getTimeZero(hours_s)))
+            dispatch(onMinutes(getTimeZero(minutes_s)))
+            dispatch(onSeconds(getTimeZero(seconds_s)))
+        return t_s
     }
 
-    // function getTimeZero(num) {
-    //     // функция по добавлению нуля
-    //     // в таймере в тех случаях, когда цифра больше нуля, 
-    //     // но меньше 10
-    //     if (num > 0 && num < 10) {
-    //         return "0" + num;
-    //     } else {
-    //         return num;
-    //     }
-    // }
-
-
-    const timerInterval = setInterval(intervalKlock, 1000);
-    function intervalKlock(endtime) {
-        time(endtime);
+    function getTimeZero(num) {
+        // функция по добавлению нуля
+        // в таймере в тех случаях, когда цифра больше нуля, 
+        // но меньше 10
+        if (num > 0 && num < 10) {
+            return "0" + num;
+        } else {
+            return num;
+        }
     }
 
+    const setKlock = (endtime) => {
+        const interval = setInterval(intervalKlock, 1000); 
+        
+        function intervalKlock() {
+            time(endtime);
+            if(time(endtime)<= 0) {
+                clearInterval(interval)
+                dispatch(onDays("00"))
+                dispatch(onHours("00"))
+                dispatch(onMinutes("00"))
+                dispatch(onSeconds("00"))
+            }
+        }
+    }
     
-
-
-    useEffect(()=> {        
-        console.log('рендер');
-        return(
-            clearInterval(timerInterval)
-        )
+    useEffect(()=> {
+        setKlock(deadline)
     }, [])
 
     return (
