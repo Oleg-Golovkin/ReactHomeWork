@@ -4,12 +4,7 @@ import useTransform from '../../service/useTransform'
 
 const initialState = {
     lots: [],
-    imgLoadingStatus: '',
-    years: "",
-    days: "",
-    hours: "",
-    minutes: "",
-    seconds: "",
+    imgLoadingStatus: ''
 }
 
 export const reduxThunkImg = createAsyncThunk(

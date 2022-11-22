@@ -2,13 +2,19 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 const initialState = {
-    time: {
-        t: '',
-        days: '',
-        hours: '',
-        minutes: '',
-        seconds: ''
-    }
+    time: "",
+    deadline: [
+        "2022-12-07",
+        "2022-12-06",
+        "2022-12-05",
+        "2022-12-04",
+        "2022-12-03",
+        "2022-12-02",
+        "2022-12-01",
+        "2022-11-30",
+        "2022-12-31",
+        "2022-12-25",
+    ]
 }
 
 const timerSlice = createSlice({
@@ -16,30 +22,14 @@ name: "on",
 initialState,
 reducers: 
         {
-            onT: (state, action) =>  {
-                state.time.t = action.payload
-            },
-            onDays: (state, action) =>  {
-                state.time.days = action.payload
-            },
-            onHours: (state, action) =>  {
-                state.time.hours = action.payload
-            },
-            onMinutes: (state, action) =>  {
-                state.time.minutes = action.payload
-            },
-            onSeconds: (state, action) =>  {
-                state.time.seconds = action.payload
-            },
+            onTime: (state, action) =>  {
+                state.time = action.payload
+            }
         }
     
 })
 
 const {actions, reducer} = timerSlice;
 
-export const {onT,
-            onDays,
-            onHours,
-            onMinutes,
-            onSeconds} = actions;
+export const {onTime} = actions;
 export default reducer

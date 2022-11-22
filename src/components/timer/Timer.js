@@ -1,32 +1,32 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import '../timer/timer.sass'
+import {onTime} from './timerSlice'
 
-import {
-    onDays,
-    onHours,
-    onMinutes,
-    onSeconds} from './timerSlice'
 
-const Timer = ({deadline = "2022-12-07"}) => {
 
+
+const Timer = ({i}) => {
+    // console.log(deadline);
+    // const [deadline, setDeadline] = useState(deadline)
     const dispatch = useDispatch();
     const days = useSelector((state)=> state.timerSlice.time.days)
     const hours = useSelector((state)=> state.timerSlice.time.hours)
     const minutes = useSelector((state)=> state.timerSlice.time.minutes)
     const seconds = useSelector((state)=> state.timerSlice.time.seconds)
+    const deadline = useSelector((state)=> state.timerSlice.deadline)
 
-    const time = (endtime)=> {
-        const t_s = Date.parse(endtime) - Date.parse(new Date()) - 10800000,
-            days_s = Math.floor((t_s / 1000 / 60 / 60 / 24) % 24),
-            hours_s = Math.floor((t_s / 1000 / 60 / 60) % 24),
-            minutes_s = Math.floor((t_s / 1000 / 60) % 60),
-            seconds_s = Math.floor((t_s / 1000) % 60);
-
-            dispatch(onDays(getTimeZero(days_s)))
-            dispatch(onHours(getTimeZero(hours_s)))
-            dispatch(onMinutes(getTimeZero(minutes_s)))
-            dispatch(onSeconds(getTimeZero(seconds_s)))  
-        return t_s   
+    const time = async (endtime)=> {
+        const t = Date.parse(endtime) - Date.parse(new Date()) - 10800000;
+        const time = {
+            days: Math.floor((t / 1000 / 60 / 60 / 24) % 24),
+            hours: Math.floor((t / 1000 / 60 / 60) % 24),
+            minutes: Math.floor((t / 1000 / 60) % 60),
+            seconds: Math.floor((t / 1000) % 60)
+        }
+        dispatch(onTime(time));
+        return t   
     }
 
     function getTimeZero(num) {
@@ -47,40 +47,36 @@ const Timer = ({deadline = "2022-12-07"}) => {
             time(endtime);
             if(time(endtime)<= 0) {
                 clearInterval(interval)
-                dispatch(onDays("00"))
-                dispatch(onHours("00"))
-                dispatch(onMinutes("00"))
-                dispatch(onSeconds("00"))
+                dispatch(onTime(
+                    {
+                    days: "00",
+                    hours: "00",
+                    minutes: "00",
+                    seconds: "00"
+                    }
+                ))
             }
         }
     }
+
     useEffect(()=> {
-        setKlock(deadline)
+        setKlock(deadline[i])
     // eslint-disable-next-line  
     }, [])
 
     return (
-        <div class="timer1" id="timer">
-            <p>
-            {/* <h4>ДО ЗАВЕРШЕНИЯ АКЦИИ:</h4> */}
-            </p>
-            <div class="container1">
+        <div class="timer">
             <div class="numbers1">
-                <div><span id="days">{days}</span></div>
-                <div class="description1">Дней</div>
+                <div><span id="days">{getTimeZero(days)}:</span></div>
             </div>
             <div class="numbers1">
-                <div><span id="hours">{hours}</span></div>
-                <div class="description1">Часов</div>
+                <div><span id="hours">{getTimeZero(hours)}:</span></div>
             </div>
             <div class="numbers1">
-                <div><span id="minutes">{minutes}</span></div>
-                <div class="description1">Минут</div>
+                <div><span id="minutes">{getTimeZero(minutes)}:</span></div>
             </div>
             <div class="numbers1">
-                <div><span id="seconds">{seconds}</span></div>
-                <div class="description1">Секунд</div>
-            </div>
+                <div><span id="seconds">{getTimeZero(seconds)}</span></div>
             </div>
         </div>
     )

@@ -18,19 +18,17 @@ const Lots = () => {
     
     const dispatch = useDispatch();
     const lots = useSelector((state)=> state.lotsSlice.lots)
-    const timer = useSelector((state)=> state.lotsSlice.timer)
-
     useEffect(()=> {
         dispatch(reduxThunkImg())
     // eslint-disable-next-line   
     }, [])
 
-    const swiperSlide = lots.map(item =>{
+    const swiperSlide = lots.map((item, i) =>{
         return(
             <SwiperSlide 
                 key={uniqid()}>
                     <img src={item.img} alt=""/>
-                    
+                    <Timer i = {i}/>
             </SwiperSlide>
         )
     })
@@ -44,7 +42,7 @@ const Lots = () => {
                 alt='title'>
             </img>
             <h2 className="sub-title sub-title_lots">
-                лоты Под аукцион {timer}
+                лоты Под аукцион
             </h2>
             <Separator/> 
             <Swiper
@@ -83,8 +81,9 @@ const Lots = () => {
                     fill: "row"}}>
                         
                 {swiperSlide}
+                {/* <SwiperSlides/> */}
             </Swiper>
-            <Timer/>
+            
         </section> 
     )
 }
