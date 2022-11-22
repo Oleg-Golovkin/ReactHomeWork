@@ -17,7 +17,8 @@ import './lots.sass'
 const Lots = () => {
     
     const dispatch = useDispatch();
-    const lots = useSelector((state)=> state.lotsSlice.lots)
+    const lots = useSelector((state)=> state.lotsSlice.lots);
+    const deadline = useSelector((state)=> state.lotsSlice.deadline)
     useEffect(()=> {
         dispatch(reduxThunkImg())
     // eslint-disable-next-line   
@@ -28,7 +29,7 @@ const Lots = () => {
             <SwiperSlide 
                 key={uniqid()}>
                     <img src={item.img} alt=""/>
-                    <Timer i = {i}/>
+                    <Timer deadline = {deadline[i]}/>
             </SwiperSlide>
         )
     })
