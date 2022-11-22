@@ -16,17 +16,17 @@ const Timer = ({deadline = "2022-12-07"}) => {
     const seconds = useSelector((state)=> state.timerSlice.time.seconds)
 
     const time = (endtime)=> {
-            const t_s = Date.parse(endtime) - Date.parse(new Date()) - 10800000,
-                    days_s = Math.floor((t_s / 1000 / 60 / 60 / 24) % 24),
-                    hours_s = Math.floor((t_s / 1000 / 60 / 60) % 24),
-                    minutes_s = Math.floor((t_s / 1000 / 60) % 60),
-                    seconds_s = Math.floor((t_s / 1000) % 60); 
-            
+        const t_s = Date.parse(endtime) - Date.parse(new Date()) - 10800000,
+            days_s = Math.floor((t_s / 1000 / 60 / 60 / 24) % 24),
+            hours_s = Math.floor((t_s / 1000 / 60 / 60) % 24),
+            minutes_s = Math.floor((t_s / 1000 / 60) % 60),
+            seconds_s = Math.floor((t_s / 1000) % 60);
+
             dispatch(onDays(getTimeZero(days_s)))
             dispatch(onHours(getTimeZero(hours_s)))
             dispatch(onMinutes(getTimeZero(minutes_s)))
-            dispatch(onSeconds(getTimeZero(seconds_s)))
-        return t_s
+            dispatch(onSeconds(getTimeZero(seconds_s)))  
+        return t_s   
     }
 
     function getTimeZero(num) {
@@ -54,9 +54,9 @@ const Timer = ({deadline = "2022-12-07"}) => {
             }
         }
     }
-    
     useEffect(()=> {
         setKlock(deadline)
+    // eslint-disable-next-line  
     }, [])
 
     return (
