@@ -1,32 +1,26 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import '../timer/timer.sass'
-import {onTime} from './timerSlice'
 
 const Timer = ({deadline}) => {
-    const dispatch = useDispatch();
-    const days = useSelector((state)=> state.timerSlice.time.days);
-    const hours = useSelector((state)=> state.timerSlice.time.hours);
-    const minutes = useSelector((state)=> state.timerSlice.time.minutes);
-    const seconds = useSelector((state)=> state.timerSlice.time.seconds);
+    const initialState = 
+                    {t: "",
+                    days: "",
+                    hours: "",
+                    minutes: "",
+                    seconds: ""}
+    const [timer, setTimer] = useState(initialState)
 
     function time (endTime) {
-        // console.log(endTime);
-        const t = Date.parse(endTime) - Date.parse(new Date()) - 10800000;
-        const times = {
-                days: Math.floor((t / 1000 / 60 / 60 / 24) % 24),
-                hours: Math.floor((t / 1000 / 60 / 60) % 24),
-                minutes: Math.floor((t / 1000 / 60) % 60),
-                seconds: Math.floor((t / 1000) % 60)
-        }
-        dispatch(onTime(times));
-        return t
-    }
-    // time(deadline)
-    // const {t, times} = time()
-    // console.log(times.days);
-    
+        setTimer(timer =>  ({
+            ...timer, 
+            t: Date.parse(endTime) - Date.parse(new Date()) - 10800000,
+            days: Math.floor((timer.t / 1000 / 60 / 60 / 24) % 24),
+            hours: Math.floor((timer.t / 1000 / 60 / 60) % 24),
+            minutes: Math.floor((timer.t / 1000 / 60) % 60),
+            seconds: Math.floor((timer.t / 1000) % 60)
+        }))
+    }    
     
     function getTimeZero(num) {
         // функция по добавлению нуля
@@ -44,38 +38,37 @@ const Timer = ({deadline}) => {
         
         function intervalKlock() {
             time(endTime);
-            if(time(endTime)<= 0) {
+            if(time.t<= 0) {
                 clearInterval(interval)
-                dispatch(onTime(
-                    {
+                setTimer(timer =>  ({
+                    ...timer, 
+                    t: "00",
                     days: "00",
                     hours: "00",
                     minutes: "00",
                     seconds: "00"
-                    }
-                ))
+                }))
             }
         }
     }
-
     useEffect(()=> {
         setKlock(deadline)
     // eslint-disable-next-line  
     }, [])
 
     return (
-        <div class="timer">
+        <div onClick={time} class="timer">
             <div class="numbers1">
-                <div><span id="days">{getTimeZero(days)}:</span></div>
+                <div><span id="days">{timer.days}:</span></div>
             </div>
             <div class="numbers1">
-                <div><span id="hours">{getTimeZero(hours)}:</span></div>
+                <div><span id="hours">{getTimeZero(timer.hours)}:</span></div>
             </div>
             <div class="numbers1">
-                <div><span id="minutes">{getTimeZero(minutes)}:</span></div>
+                <div><span id="minutes">{getTimeZero(timer.minutes)}:</span></div>
             </div>
             <div class="numbers1">
-                <div><span id="seconds">{getTimeZero(seconds)}</span></div>
+                <div><span id="seconds">{getTimeZero(timer.seconds)}</span></div>
             </div>
         </div>
     )
