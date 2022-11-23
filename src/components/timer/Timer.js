@@ -12,7 +12,7 @@ const Timer = ({deadline}) => {
     const seconds = useSelector((state)=> state.timerSlice.time.seconds);
 
     function time (endTime) {
-        console.log(endTime);
+        // console.log(endTime);
         const t = Date.parse(endTime) - Date.parse(new Date()) - 10800000;
         const times = {
                 days: Math.floor((t / 1000 / 60 / 60 / 24) % 24),
@@ -20,11 +20,11 @@ const Timer = ({deadline}) => {
                 minutes: Math.floor((t / 1000 / 60) % 60),
                 seconds: Math.floor((t / 1000) % 60)
         }
-        // dispatch(onTime(times));
-        return {t, times}
+        dispatch(onTime(times));
+        return t
     }
-    time(deadline)
-    const {t, times} = time()
+    // time(deadline)
+    // const {t, times} = time()
     // console.log(times.days);
     
     
@@ -42,7 +42,7 @@ const Timer = ({deadline}) => {
     const setKlock = (endTime) => {
         const interval = setInterval(intervalKlock, 1000); 
         
-        function intervalKlock(endTime) {
+        function intervalKlock() {
             time(endTime);
             if(time(endTime)<= 0) {
                 clearInterval(interval)
@@ -66,16 +66,16 @@ const Timer = ({deadline}) => {
     return (
         <div class="timer">
             <div class="numbers1">
-                <div><span id="days">{getTimeZero(times.days)}:</span></div>
+                <div><span id="days">{getTimeZero(days)}:</span></div>
             </div>
             <div class="numbers1">
-                <div><span id="hours">{getTimeZero(times.hours)}:</span></div>
+                <div><span id="hours">{getTimeZero(hours)}:</span></div>
             </div>
             <div class="numbers1">
-                <div><span id="minutes">{getTimeZero(times.minutes)}:</span></div>
+                <div><span id="minutes">{getTimeZero(minutes)}:</span></div>
             </div>
             <div class="numbers1">
-                <div><span id="seconds">{getTimeZero(times.seconds)}</span></div>
+                <div><span id="seconds">{getTimeZero(seconds)}</span></div>
             </div>
         </div>
     )

@@ -29,7 +29,8 @@ const Lots = () => {
             <SwiperSlide 
                 key={uniqid()}>
                     <img src={item.img} alt=""/>
-                    <Timer deadline = {deadline[i]}/>
+                    {/* deadline = {deadline[i]} */}
+                    
             </SwiperSlide>
         )
     })
@@ -84,7 +85,8 @@ const Lots = () => {
                 {swiperSlide}
                 {/* <SwiperSlides/> */}
             </Swiper>
-            
+            <Timer deadline = {"2022-12-07"}/>
+            <Timer deadline = {"2022-11-27"}/>
         </section> 
     )
 }
