@@ -3,7 +3,7 @@ import Timer from "../timer/Timer"
 import popular from './../../icons/lots/popular.png'
 import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
-import {reduxThunkImg, onTimer} from './lotsSlice'
+import {reduxThunkImg} from './lotsSlice'
 
 import uniqid from 'uniqid'
 // Import Swiper React components
@@ -15,7 +15,6 @@ import './lots.sass'
 
 
 const Lots = () => {
-    
     const dispatch = useDispatch();
     const lots = useSelector((state)=> state.lotsSlice.lots);
     const deadline = useSelector((state)=> state.lotsSlice.deadline)
@@ -28,8 +27,15 @@ const Lots = () => {
         return(
             <SwiperSlide 
                 key={uniqid()}>
-                    <img src={item.img} alt=""/>
-                    <Timer deadline = {deadline[i]}/>
+                    <div className="swiper__lots-wrapper">
+                        <div class="swiper__lots-subWrapper">
+                            <Timer deadline = {deadline[i]}/>
+                            <img src={item.img} alt=""/>
+                        </div>
+                        <div className="swiper__lots-dsc">
+                        Arnold & Son Worldtimer discovery of antarctica
+                        </div>
+                    </div>
             </SwiperSlide>
         )
     })
@@ -84,7 +90,6 @@ const Lots = () => {
                 {swiperSlide}
                 {/* <SwiperSlides/> */}
             </Swiper>
-            
             
         </section> 
     )

@@ -57,7 +57,7 @@ const Timer = ({deadline}) => {
     }, [])
 
     return (
-        <div onClick={time} class="timer">
+        <div class="timer">
             <div class="numbers1">
                 <div><span id="days">{timer.days}:</span></div>
             </div>
