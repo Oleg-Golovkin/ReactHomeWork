@@ -12,18 +12,11 @@
 .swiper
     width: 100%
     margin-top: 50px
-    &__lots-wrapper
-        display: flex
-        flex-direction: column
-        width: 250px
-        height: 100%
-    &__lots-subWrapper
-        position: relative
-        width: 250px
-        height: 251px
-    &__lots-dsc
-        margin-top: 30px
-        z-index: 1
+
+.swiper-button-prev
+    // bottom: 0 
+    // top: auto !important
+.swiper-button-next
 
 .swiper-slide
     display: flex
@@ -31,3 +24,142 @@
     img
         width: 250px
         height: 251px
+    &__wrapper
+        display: flex
+        flex-direction: column
+        width: 250px
+        height: 100%
+    &__subWrapper
+        position: relative
+        width: 250px
+        height: 251px
+    &__dsc
+        text-align: center
+        margin-top: 30px
+        z-index: 1
+
+    &__evaluate
+        width: 100%
+        display: flex
+        justify-content: space-between
+        margin-top: 30px
+    &__btn
+        
+        margin: 0 auto
+        margin-top: 24px
+        font-family: 'PF Din Text Cond Pro'
+        font-size: 21px
+        line-height: 25px
+        font-weight: 500
+        text-transform: uppercase
+        color: #000000
+        width: 203px
+        height: 50px
+        border: 3px solid #bb9c66
+        background: white
+.evaluate-slide
+    // .evaluate-slide_views
+
+    &_views
+
+    // .evaluate-slide_vote
+
+    &_vote
+
+    // .evaluate-slide__block
+
+    &__block
+        width: 50px
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    // .evaluate-slide__block_views
+
+        &_views
+
+    // .evaluate-slide__icon
+
+    &__icon
+        width: 25px
+        height: 25px
+        display: block
+
+        // .evaluate-slide__icon_vies
+
+        &_vies
+            background: url('../../icons/lots/rectangle_eye.png') center center/cover no-repeat
+        // .evaluate-slide__icon_vote
+
+        &_vote
+            background: url('../../icons/lots/rectangle_vote.png') center center/cover no-repeat
+    // .evaluate-slide__num
+
+    &__num
+        margin-top: 8px
+        text-align: center
+        font-family: 'PT Sans'
+        font-size: 14px
+        line-height: 25px
+        font-weight: 400
+        color: #000000
+
+        // .evaluate-slide__num_views
+
+        &_views
+
+    // .evaluate-slide__line
+
+    &__line
+        margin-top: 6px
+        display: block
+        width: 50px
+        height: 1px
+        background-color: #bb9c66
+
+    // .evaluate-slide__main
+
+    &__main
+        // width: 137px
+        height: 102px
+
+    // .evaluate-slide__main-wrapper
+
+    &__main-wrapper
+        position: relative
+
+    // .evaluate-slide__title
+
+    &__title
+        font-family: 'PT Sans'
+        font-size: 14px
+        line-height: 25px
+        font-weight: 400
+        color: #000000
+        text-align: center
+
+    // .evaluate-slide__sum
+
+    &__sum
+        margin-top: 13px
+        font-family: 'Bravo RG'
+        font-size: 30px
+        line-height: 21px
+        font-weight: 400
+        color: #1c242a
+        text-align: center
+    &__sum-labble
+        margin-top: 10px
+        text-align: center
+
+    // .evaluate-slide__square-icon
+
+    &__square-icon
+        z-index: -1
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        display: block
+        width: 100px
+        height: 100px
+        background: url('../../icons/lots/ellipse.png') center center/cover no-repeat

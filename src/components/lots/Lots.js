@@ -4,11 +4,9 @@ import popular from './../../icons/lots/popular.png'
 import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {reduxThunkImg} from './lotsSlice'
-
 import uniqid from 'uniqid'
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Grid } from 'swiper';
+import { Grid, Navigation } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import './lots.sass'
@@ -27,18 +25,45 @@ const Lots = () => {
         return(
             <SwiperSlide 
                 key={uniqid()}>
-                    <div className="swiper__lots-wrapper">
-                        <div class="swiper__lots-subWrapper">
+                    <div className="swiper-slide__wrapper">
+                        <div className="swiper-slide__subWrapper">
                             <Timer deadline = {deadline[i]}/>
                             <img src={item.img} alt=""/>
                         </div>
-                        <div className="swiper__lots-dsc">
+                        <div className="swiper-slide__dsc">
                         Arnold & Son Worldtimer discovery of antarctica
                         </div>
+                        <div className="swiper-slide__evaluate evaluate-slide_views">
+                            <div className="evaluate-slide__block evaluate-slide__block_views">
+                                <div className="evaluate-slide__icon evaluate-slide__icon_vies"></div>
+                                <div className="evaluate-slide__num evaluate-slide__num_views">1 098</div>
+                                <div className="evaluate-slide__line evaluate-slide__line_vies"></div>                                
+                            </div>
+                            <div className="evaluate-slide__main">
+                                <div className="evaluate-slide__main-wrapper">  
+                                    <div className="evaluate-slide__square-icon"></div>                              
+                                    <div className="evaluate-slide__title">Текущая ставка</div>
+                                    <div className="evaluate-slide__sum">323 312</div>
+                                    <div class="evaluate-slide__sum-labble">&#8381;</div>
+                                </div>
+                            </div>
+                            <div className="evaluate-slide__block evaluate-slide_vote"> 
+                                <div className="evaluate-slide__icon evaluate-slide__icon_vote "></div>
+                                <div className="evaluate-slide__num evaluate-slide__num_vote">75</div>
+                                <div className="evaluate-slide__line evaluate-slide__line_vote"></div>                                   
+                            </div>
+                        </div>
+                        <button className="swiper-slide__btn">ПОДНЯТЬ СТАВКУ</button>
                     </div>
             </SwiperSlide>
         )
-    })
+    })  
+    
+    const navigation =
+            <>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </>
 
 
     return(
@@ -83,14 +108,18 @@ const Lots = () => {
                 }}
                 rewind = {true}
                 onSlideChange={() => console.log('slide change')}
-                modules={[Grid]}
+                modules={[Grid, Navigation]}
                 grid = {{rows: 1,
-                    fill: "row"}}>
+                    fill: "row"}}
+                navigation = {{
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                  }}
+                >
                         
                 {swiperSlide}
-                {/* <SwiperSlides/> */}
+                {navigation}
             </Swiper>
-            
         </section> 
     )
 }
