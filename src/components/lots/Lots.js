@@ -1,6 +1,5 @@
 import Separator from "../separator/Separator"
 import Timer from "../timer/Timer"
-import popular from './../../icons/lots/popular.png'
 import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {reduxThunkImg} from './lotsSlice'
@@ -10,6 +9,10 @@ import { Grid, Navigation } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import './lots.sass'
+
+import popular from './../../icons/lots/popular.png'
+import prev from './../../icons/lots/prev.png'
+import next from './../../icons/lots/next.png'
 
 
 const Lots = () => {
@@ -61,8 +64,16 @@ const Lots = () => {
     
     const navigation =
             <>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div className="swiper-button-prev swiper-button swiper-button_prev">
+                    <img className="swiper-button__img" src={prev} alt="prev" />
+                    <div class="swiper-button__line"></div>
+                    <div class="swiper-button__round"></div>
+                </div>
+                <div class="swiper-button-next swiper-button swiper-button_next">
+                    <img className="swiper-button__img" src={next} alt="next" />
+                    <div class="swiper-button__line"></div>
+                    <div class="swiper-button__round"></div>
+                </div>
             </>
 
 
