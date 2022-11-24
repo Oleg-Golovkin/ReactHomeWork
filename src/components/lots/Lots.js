@@ -65,14 +65,14 @@ const Lots = () => {
     const navigation =
             <>
                 <div className="swiper-button-prev swiper-button swiper-button_prev">
-                    <img className="swiper-button__img" src={prev} alt="prev" />
-                    <div class="swiper-button__line"></div>
-                    <div class="swiper-button__round"></div>
+                    <img className="swiper-button__img swiper-button__img_prev" src={prev} alt="prev" />
+                    <div className="swiper-button__line swiper-button__line_prev"></div>
+                    <div className="swiper-button__round swiper-button__round_prev"></div>
                 </div>
-                <div class="swiper-button-next swiper-button swiper-button_next">
-                    <img className="swiper-button__img" src={next} alt="next" />
-                    <div class="swiper-button__line"></div>
-                    <div class="swiper-button__round"></div>
+                <div className="swiper-button-next swiper-button swiper-button_next">
+                    <img className="swiper-button__img swiper-button__img_next" src={next} alt="next" />
+                    <div className="swiper-button__line swiper-button__line_next"></div>
+                    <div className="swiper-button__round swiper-button__round_next"></div>
                 </div>
             </>
 
