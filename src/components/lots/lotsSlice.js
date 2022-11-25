@@ -16,7 +16,8 @@ const initialState = {
         "2022-11-30",
         "2022-12-31",
         "2022-12-25",
-    ]
+    ],
+    activeSwiper: true
 }
 
 export const reduxThunkImg = createAsyncThunk(
@@ -31,9 +32,9 @@ const lotsSlice = createSlice({
 name: "on",
 initialState,
 reducers: 
-    {
-        onYears: (state, action) =>  {
-            state.years = action.payload
+    {        
+        onActiveSwiper: (state, action) =>  {
+            state.activeSwiper = action.payload
         },
     },
 extraReducers: (builder) => {
@@ -53,6 +54,6 @@ extraReducers: (builder) => {
 })
 
 const {actions, reducer} = lotsSlice;
-export const {onTimer} = actions;
+export const {onActiveSwiper} = actions;
 
 export default reducer

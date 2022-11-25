@@ -2,7 +2,7 @@ import Separator from "../separator/Separator"
 import Timer from "../timer/Timer"
 import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
-import {reduxThunkImg} from './lotsSlice'
+import {reduxThunkImg, onActiveSwiper} from './lotsSlice'
 import uniqid from 'uniqid'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Navigation } from 'swiper';
@@ -18,6 +18,7 @@ import next from './../../icons/lots/next.png'
 const Lots = () => {
     const dispatch = useDispatch();
     const lots = useSelector((state)=> state.lotsSlice.lots);
+    const activeSwiper = useSelector((state)=> state.lotsSlice.activeSwiper);
     const deadline = useSelector((state)=> state.lotsSlice.deadline)
     useEffect(()=> {
         dispatch(reduxThunkImg())
@@ -69,7 +70,7 @@ const Lots = () => {
                     <div className="swiper-button__line swiper-button__line_prev"></div>
                     <div className="swiper-button__round swiper-button__round_prev"></div>
                 </div>
-                <div class="swiper-button__title">Все cлоты</div>
+                <div onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} class="swiper-button__title">Все cлоты</div>
                                 
                 <div className="swiper-button-next swiper-button swiper-button_next">
                     <img className="swiper-button__img swiper-button__img_next" src={next} alt="next" />
@@ -77,20 +78,8 @@ const Lots = () => {
                     <div className="swiper-button__round swiper-button__round_next"></div>
                 </div>
             </div>
-
-
-    return(
-        <section className="lots container">
-            <img 
-                src={popular} 
-                className="title title_lots"
-                alt='title'>
-            </img>
-            <h2 className="sub-title sub-title_lots">
-                лоты Под аукцион
-            </h2>
-            <Separator/> 
-            <Swiper
+    const swiper = activeSwiper ? 
+        <Swiper
                 spaceBetween={100}
                 slidesPerView={3}
                 watchSlidesProgress= {true}
@@ -117,6 +106,7 @@ const Lots = () => {
                                 fill: "row",
                         },
                         slidesPerView: 3,
+                        
                     },        
                 }}
                 rewind = {true}
@@ -128,11 +118,42 @@ const Lots = () => {
                     nextEl: '.swiper-button_next',
                     prevEl: '.swiper-button_prev',
                 }}
+                // slideToClickedSlide = {true}
+                // loop = {true}
+                // direction = "vertical"
+                // enabled = {false}
+                // effect = {'cards'}
+                simulateTouch = {true}
                 >
                         
                 {swiperSlide}
                 {navigation}
-            </Swiper>
+        </Swiper>
+        : null
+    
+    const allLots = !activeSwiper ? 
+        <>
+            <div className="swiper-slide__all-slide">
+                {swiperSlide}
+                
+            </div>
+            {navigation}
+        </>
+        : null
+    
+    return(
+        <section className="lots container">
+            <img 
+                src={popular} 
+                className="title title_lots"
+                alt='title'>
+            </img>
+            <h2 className="sub-title sub-title_lots">
+                лоты Под аукцион
+            </h2>
+            <Separator/> 
+            {swiper}
+            {allLots}
         </section> 
     )
 }

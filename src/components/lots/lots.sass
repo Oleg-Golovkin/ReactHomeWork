@@ -7,7 +7,9 @@
 
 .title_lots
     margin: 0 auto
-
+.di
+    display: flex
+    flex-direction: row
 .sub-title
     margin-top: 27px
 
@@ -17,7 +19,7 @@
     margin-top: 50px
     @media (max-width: 400px)
         height: auto
-        
+
 .swiper-wrapper
     height: 530px !important
 
@@ -42,7 +44,7 @@
         @media (max-width: 597px)
             height: 71px
         @media (max-width: 400px)
-            display: none      
+            display: none
 
     &__title
         position: absolute
@@ -62,7 +64,7 @@
         @media (max-width: 597px)
             font-size: 15px
             padding: 24px 5px 24px 5px
-    
+
     // .swiper-button_next
 
     &_next
@@ -94,8 +96,6 @@
         border: 1px solid #bb9c66
         @media (max-width: 767px)
             display: none
-
-        
 
     // .swiper-button__round
 
@@ -132,7 +132,7 @@
         display: flex
         justify-content: space-between
         margin-top: 30px
-    
+
     &__btn
         margin: 0 auto
         margin-top: 24px
@@ -146,6 +146,17 @@
         height: 50px
         border: 3px solid #bb9c66
         background: white
+    &__all-slide
+        display: flex
+        // align-items: center
+        justify-content: center
+        flex-wrap: wrap
+
+        > .swiper-slide
+            padding: 10px 10px 10px 10px
+            flex-shrink: inherit
+            width: auto
+            height: auto
 
 .evaluate-slide
 
