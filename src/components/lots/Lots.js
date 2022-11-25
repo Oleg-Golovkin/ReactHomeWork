@@ -139,20 +139,22 @@ const Lots = () => {
                 </div>
             </CSSTransition>
     
+    const allLots = 
+            <CSSTransition 
+                    in={!activeSwiper} 
+                    timeout={300}         
+                    classNames="swiper-transition">
+                        <div className="swiper-transition swiper-slide__all-slide">
+                            <div className="swiper-slide__all-slide">
+                                {swiperSlide}                        
+                            </div>
+                            {navigation}
+                        </div>
+            </CSSTransition>
     
-    // const swiper = activeSwiper ? 
-        
-    //     : null
     
-    const allLots = !activeSwiper ? 
-        <>
-            <div className="swiper-slide__all-slide">
-                {swiperSlide}
-                
-            </div>
-            {navigation}
-        </>
-        : null
+    
+   
     
     return(
         <section className="lots container">
