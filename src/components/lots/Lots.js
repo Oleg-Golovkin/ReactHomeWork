@@ -6,6 +6,7 @@ import {reduxThunkImg, onActiveSwiper} from './lotsSlice'
 import uniqid from 'uniqid'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Navigation } from 'swiper';
+import { CSSTransition } from 'react-transition-group';
 // Import Swiper styles
 import 'swiper/css';
 import './lots.sass'
@@ -78,58 +79,70 @@ const Lots = () => {
                     <div className="swiper-button__round swiper-button__round_next"></div>
                 </div>
             </div>
-    const swiper = activeSwiper ? 
-        <Swiper
-                spaceBetween={100}
-                slidesPerView={3}
-                watchSlidesProgress= {true}
-                breakpoints = {{
-                    320: {
-                        slidesPerView: 1,
-                        grid: {
-                                rows: 1,
-                                fill: "row"
-                        },
-                    },
-                    // when window width is >= 480px
-                    632: {
-                        slidesPerView: 2,
-                        grid: {
-                                rows: 1,
-                                fill: "row"
-                        }, 
-                    },
-                    992: 
-                    {
-                        grid: {
-                                rows: 1,
-                                fill: "row",
-                        },
-                        slidesPerView: 3,
-                        
-                    },        
-                }}
-                rewind = {true}
-                onSlideChange={() => console.log('slide change')}
-                modules={[Grid, Navigation]}
-                grid = {{rows: 1,
-                    fill: "row"}}
-                navigation = {{
-                    nextEl: '.swiper-button_next',
-                    prevEl: '.swiper-button_prev',
-                }}
-                // slideToClickedSlide = {true}
-                // loop = {true}
-                // direction = "vertical"
-                // enabled = {false}
-                // effect = {'cards'}
-                simulateTouch = {true}
-                >
-                        
-                {swiperSlide}
-                {navigation}
-        </Swiper>
-        : null
+
+    const swiper = 
+            <CSSTransition 
+            in={activeSwiper} 
+            timeout={300}         
+            classNames="swiper-transition">
+                <div className="swiper-transition">
+                    <Swiper
+                        spaceBetween={100}
+                        slidesPerView={3}
+                        watchSlidesProgress= {true}
+                        breakpoints = {{
+                            320: {
+                                slidesPerView: 1,
+                                grid: {
+                                        rows: 1,
+                                        fill: "row"
+                                },
+                            },
+                            // when window width is >= 480px
+                            632: {
+                                slidesPerView: 2,
+                                grid: {
+                                        rows: 1,
+                                        fill: "row"
+                                }, 
+                            },
+                            992: 
+                            {
+                                grid: {
+                                        rows: 1,
+                                        fill: "row",
+                                },
+                                slidesPerView: 3,
+                                
+                            },        
+                        }}
+                        rewind = {true}
+                        onSlideChange={() => console.log('slide change')}
+                        modules={[Grid, Navigation]}
+                        grid = {{rows: 1,
+                            fill: "row"}}
+                        navigation = {{
+                            nextEl: '.swiper-button_next',
+                            prevEl: '.swiper-button_prev',
+                        }}
+                        // slideToClickedSlide = {true}
+                        // loop = {true}
+                        // direction = "vertical"
+                        // enabled = {false}
+                        // effect = {'cards'}
+                        simulateTouch = {true}
+                        >
+                                
+                        {swiperSlide}
+                        {navigation}
+                    </Swiper>
+                </div>
+            </CSSTransition>
+    
+    
+    // const swiper = activeSwiper ? 
+        
+    //     : null
     
     const allLots = !activeSwiper ? 
         <>

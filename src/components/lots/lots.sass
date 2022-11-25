@@ -247,3 +247,37 @@
         width: 100px
         height: 100px
         background: url('../../icons/lots/ellipse.png') center center/cover no-repeat
+
+.swiper-transition
+    opacity: 1
+    visibility: visible
+
+
+    &-enter
+        opacity: 1
+
+
+    &-enter-active
+        opacity: 1
+        visibility: visible
+        transition: all 300ms
+
+
+    &-enter-done
+        opacity: 1
+        visibility: visible
+        transition: all 300ms
+
+    &-exit
+        opacity: 1
+        visibility: visible
+
+
+    &-exit-active
+        opacity: 0
+        transition: all 300ms
+
+    &-exit-done
+        opacity: 0
+        transition: all 300ms
+        visibility: hidden
