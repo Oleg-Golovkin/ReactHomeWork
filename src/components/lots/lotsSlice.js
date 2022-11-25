@@ -39,8 +39,9 @@ reducers:
     },
 extraReducers: (builder) => {
     builder
-        .addCase(reduxThunkImg.pending, state =>    
-            {state.imgLoadingStatus = 'loading'})
+        .addCase(reduxThunkImg.pending, state => {
+            state.imgLoadingStatus = 'loading'
+        })
 
         .addCase(reduxThunkImg.fulfilled, (state, action) => {
             state.imgLoadingStatus = 'idle';

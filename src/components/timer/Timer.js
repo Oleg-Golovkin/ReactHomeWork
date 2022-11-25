@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import '../timer/timer.sass'
 
-const Timer = ({deadline}) => {
+const Timer = ({deadline = "2022-12-05"}) => {
     const initialState = 
                     {t: "",
                     days: "",

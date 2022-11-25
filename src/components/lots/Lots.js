@@ -7,19 +7,21 @@ import uniqid from 'uniqid'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Navigation } from 'swiper';
 import { CSSTransition } from 'react-transition-group';
-// Import Swiper styles
-import 'swiper/css';
-import './lots.sass'
+import Spinner from "../spinner/Spinner"
+
 
 import popular from './../../icons/lots/popular.png'
 import prev from './../../icons/lots/prev.png'
 import next from './../../icons/lots/next.png'
 
+import 'swiper/css';
+import './lots.sass'
 
 const Lots = () => {
     const dispatch = useDispatch();
     const lots = useSelector((state)=> state.lotsSlice.lots);
     const activeSwiper = useSelector((state)=> state.lotsSlice.activeSwiper);
+    const imgLoadingStatus = useSelector((state)=> state.lotsSlice.imgLoadingStatus);
     const deadline = useSelector((state)=> state.lotsSlice.deadline)
     useEffect(()=> {
         dispatch(reduxThunkImg())
@@ -63,16 +65,15 @@ const Lots = () => {
             </SwiperSlide>
         )
     })  
-    
     const navigation =
             <div className="swiper-button_wrapper">
-                <div className="swiper-button-prev swiper-button swiper-button_prev">
+                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button-prev swiper-button swiper-button_prev ">
                     <img className="swiper-button__img swiper-button__img_prev" src={prev} alt="prev" />
                     <div className="swiper-button__line swiper-button__line_prev"></div>
                     <div className="swiper-button__round swiper-button__round_prev"></div>
                 </div>
-                <div onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} class="swiper-button__title">Все cлоты</div>
-                <div className="swiper-button-next swiper-button swiper-button_next">
+                <div onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} class="swiper-button__title">{activeSwiper ? "Все слоты" : "Обратно"}</div>
+                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button-next swiper-button swiper-button_next">
                     <img className="swiper-button__img swiper-button__img_next" src={next} alt="next" />
                     <div className="swiper-button__line swiper-button__line_next"></div>
                     <div className="swiper-button__round swiper-button__round_next"></div>
@@ -82,7 +83,7 @@ const Lots = () => {
     const swiper = 
             <CSSTransition 
             in={activeSwiper} 
-            timeout={1000}         
+            timeout={300}         
             classNames="swiper-transition">
                 <div className="swiper-transition">
                     <Swiper
@@ -141,7 +142,7 @@ const Lots = () => {
     const allLots = 
             <CSSTransition 
                     in={!activeSwiper} 
-                    timeout={10000}         
+                    timeout={300}         
                     classNames="swiper-transition-all-slide">
                         <div className="swiper-transition-all-slide">
                             <div className="swiper-slide__all-slide">
@@ -151,10 +152,7 @@ const Lots = () => {
                         </div>
             </CSSTransition>
     
-    
-    
-   
-    
+    const spinner = imgLoadingStatus === "loading" ? <Spinner/> : null
     return(
         <section className="lots container">
             <img 
@@ -166,6 +164,7 @@ const Lots = () => {
                 лоты Под аукцион
             </h2>
             <Separator/> 
+            {spinner}
             {swiper}
             {allLots}
         </section> 
