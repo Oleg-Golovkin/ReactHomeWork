@@ -150,9 +150,7 @@
         display: flex
         justify-content: center
         flex-wrap: wrap
-        opacity: 0
-        visibility: hidden
-        position: absolute
+        
         > .swiper-slide
             padding: 10px 10px 10px 10px
             flex-shrink: inherit
@@ -250,25 +248,23 @@
         background: url('../../icons/lots/ellipse.png') center center/cover no-repeat
 
 .swiper-transition
-    opacity: 1
     visibility: visible
-
-
+    opacity: 1
+    
     &-enter
         opacity: 1
-
 
     &-enter-active
         opacity: 1
         visibility: visible
         transition: all 300ms
-
+        
 
     &-enter-done
         opacity: 1
         visibility: visible
         transition: all 300ms
-        
+           
 
     &-exit
         opacity: 1
@@ -284,3 +280,39 @@
         transition: all 300ms
         visibility: hidden
         position: absolute
+
+.swiper-transition-all-slide
+    visibility: visible
+    opacity: 0
+    
+    &-enter
+        opacity: 1
+
+    &-enter-active
+        opacity: 1
+        visibility: visible
+        transition: all 300ms
+        
+
+    &-enter-done
+        opacity: 1
+        visibility: visible
+        transition: all 300ms
+           
+
+    &-exit
+        opacity: 1
+        visibility: visible
+
+
+    &-exit-active
+        opacity: 0
+        transition: all 300ms
+
+    &-exit-done
+        opacity: 0
+        transition: all 300ms
+        visibility: hidden
+        position: absolute
+
+        

@@ -72,7 +72,6 @@ const Lots = () => {
                     <div className="swiper-button__round swiper-button__round_prev"></div>
                 </div>
                 <div onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} class="swiper-button__title">Все cлоты</div>
-                                
                 <div className="swiper-button-next swiper-button swiper-button_next">
                     <img className="swiper-button__img swiper-button__img_next" src={next} alt="next" />
                     <div className="swiper-button__line swiper-button__line_next"></div>
@@ -83,7 +82,7 @@ const Lots = () => {
     const swiper = 
             <CSSTransition 
             in={activeSwiper} 
-            timeout={300}         
+            timeout={1000}         
             classNames="swiper-transition">
                 <div className="swiper-transition">
                     <Swiper
@@ -142,9 +141,9 @@ const Lots = () => {
     const allLots = 
             <CSSTransition 
                     in={!activeSwiper} 
-                    timeout={300}         
-                    classNames="swiper-transition">
-                        <div className="swiper-transition swiper-slide__all-slide">
+                    timeout={10000}         
+                    classNames="swiper-transition-all-slide">
+                        <div className="swiper-transition-all-slide">
                             <div className="swiper-slide__all-slide">
                                 {swiperSlide}                        
                             </div>
