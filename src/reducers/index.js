@@ -2,6 +2,7 @@ import headerSlice from "../components/header/headerSlice";
 import mediaSlice from "../components/app/mediaSlice";
 import hamburgerSlice from "../components/hamburger/hamburgerSlice";
 import lotsSlice from "../components/lots/lotsSlice";
+import rangeSlice from "../components/range/rangeSlice";
 import { combineReducers } from 'redux'
 
 export default combineReducers({
@@ -9,4 +10,5 @@ export default combineReducers({
     mediaSlice,
     hamburgerSlice,
     lotsSlice,
+    rangeSlice,
 })

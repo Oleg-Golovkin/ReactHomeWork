@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../header/Header';
 import Auction from '../auction/Auction';
 import Lots from '../lots/Lots';
+import Range from '../range/Range'
 import { useMediaQuery } from "react-responsive";
 import {changeMedia576px,
   changeMediaMin577px,
@@ -23,6 +24,7 @@ function App() {
       <main>
         <Auction/>
         <Lots/>
+        <Range/>
       </main>   
     </>
   );

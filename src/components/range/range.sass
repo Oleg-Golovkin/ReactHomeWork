@@ -1,0 +1,119 @@
+.range
+    padding-top: 100px
+    // .range__items
+    &__items
+
+.items-range
+    display: grid
+
+    grid-template-columns: repeat(auto-fit, 250px)
+    grid-template-rows: repeat(auto-fit, 250px)
+    list-style: none
+    column-gap: 50px
+    row-gap: 25px
+    padding: 0px 0px 0px 0px
+    margin: 0 auto
+    justify-content: center
+    // .items-range__item
+    align-items: center
+    justify-items: center
+    &__item
+        padding-top: 128px
+        position: relative
+        display: flex
+        justify-content: center
+        width: 250px
+        height: 250px
+        span
+            display: block
+            text-align: center
+            font-family: 'PF Din Text Cond Pro'
+            font-size: 21px
+            line-height: 25px
+            font-weight: 500
+            text-transform: uppercase
+            letter-spacing: 0.1em
+            color: #ffff
+            &::before
+                content: ''
+                position: absolute
+                width: 75px
+                height: 73px               
+                top: 24px
+                left: 50%
+                transform: translateX(-50%)
+                
+            &::after
+                content: ''
+                position: absolute
+                width: 100px
+                height: 22px
+                right: auto
+                bottom: 39px
+                top: auto
+                left: 50%
+                transform: translateX(-50%)
+                background-image: url('../../icons/range/icon_1.png')
+        // .items-range__item_times
+
+        &_times
+            background-image: url('../../img/range/times.png')
+            span
+                &::before
+                    background-image: url('../../icons/range/times_.png')
+        // .items-range__item_jewelry
+
+        &_jewelry
+            background-image: url('../../img/range/jewelry.png')
+            span
+                &::before
+                    background-image: url('../../icons/range/jewelry_.png')
+        // .items-range__item_transport
+
+        &_transport
+            background-image: url('../../img/range/transport.png')
+            span
+                &::before
+                    background-image: url('../../icons/range/transport_.png')
+        // .items-range__item_accessories
+
+        &_accessories
+            background-image: url('../../img/range/accessories.png')
+            span
+                &::before
+                    background-image: url('../../icons/range/accessories_.png')
+        // .items-range__item_real-estate
+
+        &_real-estate
+            background-image: url('../../img/range/real_estate.png')
+            span
+                &::before
+                    background-image: url('../../icons/range/real_estate.png')
+        // .items-range__item_hi-Tech
+
+        &_hi-Tech
+            background-image: url('../../img/range/hi_Tech.png')
+            span
+                &::before
+                    background-image: url('../../icons/range/hi_Tech_.png')
+        // .items-range__item_clothes
+
+        &_clothes
+            background-image: url('../../img/range/clothes.png')
+            span
+                &::before
+                    background-image: url('../../icons/range/clothes_.png')
+        // .items-range__item_art
+
+        &_art
+            background-image: url('../../img/range/art.png')
+            span
+                &::before
+                    background-image: url('../../icons/range/art_.png')
+        // .items-range__item_food
+
+        &_food
+            background-image: url('../../img/range/food.png')
+            span
+                &::before
+                    background-image: url('../../icons/range/food_.png')
