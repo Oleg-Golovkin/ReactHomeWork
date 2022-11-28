@@ -9,8 +9,8 @@
     grid-template-columns: repeat(auto-fit, 250px)
     grid-template-rows: repeat(auto-fit, 250px)
     list-style: none
-    column-gap: 50px
-    row-gap: 25px
+    column-gap: 100px
+    row-gap: 50px
     padding: 0px 0px 0px 0px
     margin: 0 auto
     justify-content: center
@@ -38,11 +38,11 @@
                 content: ''
                 position: absolute
                 width: 75px
-                height: 73px               
+                height: 73px
                 top: 24px
                 left: 50%
                 transform: translateX(-50%)
-                
+
             &::after
                 content: ''
                 position: absolute
@@ -117,3 +117,40 @@
             span
                 &::before
                     background-image: url('../../icons/range/food_.png')
+
+.items-range
+
+    // .items-range__figure
+
+    &__figure
+
+.figure-range
+    position: absolute
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    height: 286px
+    right: -62px
+    top: -36px
+    // .figure-range__square
+
+    &__square
+        width: 24px
+        height: 24px
+        border: 2px solid #bb9c66
+        transform: rotate(45deg)
+    // .figure-range__line
+        
+    &__line
+        width: 2px
+        height: 100px
+        background-color: #bb9c66
+    // .figure-range__round
+
+    &__round
+        width: 10px
+        height: 10px
+        border-radius: 100%
+        background-color: #bb9c66
+        border: 1px solid #bb9c66
