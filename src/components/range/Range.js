@@ -1,10 +1,13 @@
 // import {useSelector} from "react-redux"
 import {useSelector} from "react-redux"
+import { useMediaQuery } from "react-responsive";
 import "./range.sass"
 
+
 const Range = () => {
-    const mediaMin766px = useSelector(state=> state.mediaSlice.mediaMin766px)
     const itemsRange = useSelector((state)=> state.rangeSlice.itemsRange )
+    const mediaMax950px = useMediaQuery({ query: '(max-width: 950px)' })
+    const mediaMin951px = useMediaQuery({ query: '(min-width: 951px)' })
     const FigureRange = () => {
             return (
                 <div  className="items-range__figure figure-range">
@@ -16,11 +19,9 @@ const Range = () => {
                 )
     }
     const Li = () => itemsRange.map(({name, clazz}, i)=> {
-        
-        // const figureRangeBlock = i % 2 === 0 && mediaMin766px ? <FigureRange/> : null
         return (
             <li className={`items-range__item items-range__item_${clazz}`}><span>{name}</span>
-                {mediaMin766px ? <FigureRange/> : i % 2 === 0 ? <FigureRange/> : null}
+                {mediaMax950px && i % 2 === 0 ? <FigureRange/> : mediaMin951px ? <FigureRange/> :  null}
             </li>
         )
     })
