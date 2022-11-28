@@ -4,18 +4,20 @@ import Auction from '../auction/Auction';
 import Lots from '../lots/Lots';
 import Range from '../range/Range'
 import { useMediaQuery } from "react-responsive";
-import {changeMedia576px,
-  changeMediaMin577px,
+import {changeMedia576px,  
   changeMedia767px,
-  changeMedia992px} from './mediaSlice'
+  changeMedia992px,
+  changeMediaMin577px,
+  changeMediaMin766px,} from './mediaSlice'
 import {useDispatch} from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
-  dispatch(changeMedia576px(useMediaQuery({ query: '(max-width: 576px)' })))
-  dispatch(changeMediaMin577px(useMediaQuery({ query: '(min-width: 577px)' })))
+  dispatch(changeMedia576px(useMediaQuery({ query: '(max-width: 576px)' })))  
   dispatch(changeMedia767px(useMediaQuery({ query: '(max-width: 767px)' })))
   dispatch(changeMedia992px(useMediaQuery({ query: '(max-width: 992px)' })))
+  dispatch(changeMediaMin577px(useMediaQuery({ query: '(min-width: 577px)' })))
+  dispatch(changeMediaMin766px(useMediaQuery({ query: '(min-width: 766px)' })))
 
 
   return (

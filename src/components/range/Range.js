@@ -1,85 +1,34 @@
 // import {useSelector} from "react-redux"
-
+import {useSelector} from "react-redux"
 import "./range.sass"
 
 const Range = () => {
-    
-    
+    const mediaMin766px = useSelector(state=> state.mediaSlice.mediaMin766px)
+    const itemsRange = useSelector((state)=> state.rangeSlice.itemsRange )
+    const FigureRange = () => {
+            return (
+                <div  className="items-range__figure figure-range">
+                    <div className="figure-range__square"></div>
+                    <div className="figure-range__line"></div>
+                    <div className="figure-range__round"></div>
+                    <div className="figure-range__line"></div>
+                </div>
+                )
+    }
+    const Li = () => itemsRange.map(({name, clazz}, i)=> {
+        
+        // const figureRangeBlock = i % 2 === 0 && mediaMin766px ? <FigureRange/> : null
+        return (
+            <li className={`items-range__item items-range__item_${clazz}`}><span>{name}</span>
+                {mediaMin766px ? <FigureRange/> : i % 2 === 0 ? <FigureRange/> : null}
+            </li>
+        )
+    })
+
     return (
         <section className="range container container_range">
             <ul className="range__items items-range">
-                <li className="items-range__item items-range__item_times"><span>Часы</span>
-                    <div className="items-range__figure figure-range">
-                        <div className="figure-range__square"></div>
-                        <div className="figure-range__line"></div>
-                        <div className="figure-range__round"></div>
-                        <div className="figure-range__line"></div>
-                    </div>
-                </li>
-                <li className="items-range__item items-range__item_jewelry"><span>Ювелирные изделия</span>
-                        <div className="items-range__figure figure-range">
-                            <div className="figure-range__square"></div>
-                            <div className="figure-range__line"></div>
-                            <div className="figure-range__round"></div>
-                            <div className="figure-range__line"></div>
-                        </div>
-                    </li>
-                <li className="items-range__item items-range__item_transport"><span>Автотранспорт и лодки</span>
-                        <div className="items-range__figure figure-range">
-                            <div className="figure-range__square"></div>
-                            <div className="figure-range__line"></div>
-                            <div className="figure-range__round"></div>
-                            <div className="figure-range__line"></div>
-                        </div>
-                    </li>
-                <li className="items-range__item items-range__item_accessories"><span>Аксуссуары</span>
-                        <div className="items-range__figure figure-range">
-                            <div className="figure-range__square"></div>
-                            <div className="figure-range__line"></div>
-                            <div className="figure-range__round"></div>
-                            <div className="figure-range__line"></div>
-                        </div>
-                    </li>
-                <li className="items-range__item items-range__item_real-estate"><span>Недвижимость</span>
-                        <div className="items-range__figure figure-range">
-                            <div className="figure-range__square"></div>
-                            <div className="figure-range__line"></div>
-                            <div className="figure-range__round"></div>
-                            <div className="figure-range__line"></div>
-                        </div>
-                    </li>
-                <li className="items-range__item items-range__item_hi-Tech"><span>Hi-Tech</span>
-                        <div className="items-range__figure figure-range">
-                            <div className="figure-range__square"></div>
-                            <div className="figure-range__line"></div>
-                            <div className="figure-range__round"></div>
-                            <div className="figure-range__line"></div>
-                        </div>
-                    </li>
-                <li className="items-range__item items-range__item_clothes"><span>Одежда и обувь</span>
-                        <div className="items-range__figure figure-range">
-                            <div className="figure-range__square"></div>
-                            <div className="figure-range__line"></div>
-                            <div className="figure-range__round"></div>
-                            <div className="figure-range__line"></div>
-                        </div>
-                    </li>
-                <li className="items-range__item items-range__item_art"><span>Предметы искусства</span>
-                        <div className="items-range__figure figure-range">
-                            <div className="figure-range__square"></div>
-                            <div className="figure-range__line"></div>
-                            <div className="figure-range__round"></div>
-                            <div className="figure-range__line"></div>
-                        </div>
-                    </li>
-                <li className="items-range__item items-range__item_food"><span>АЛкоголь и еда</span>
-                        <div className="items-range__figure figure-range">
-                            <div className="figure-range__square"></div>
-                            <div className="figure-range__line"></div>
-                            <div className="figure-range__round"></div>
-                            <div className="figure-range__line"></div>
-                        </div>
-                    </li>
+                <Li/>
             </ul> 
         </section>
     )
