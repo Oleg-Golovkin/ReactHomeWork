@@ -5,7 +5,8 @@ import './auction.sass'
 
 const Auction = ()=> {
     return(
-        <section className="auction container">
+        <section className="auction">
+            <div className="container">
                 <img 
                     src={titleExclusiv} 
                     className="title auction__title "
@@ -23,6 +24,7 @@ const Auction = ()=> {
                 <button className="auction__btn-join">
                     Присоединиться
                 </button>
+            </div>
         </section>
     )
 }

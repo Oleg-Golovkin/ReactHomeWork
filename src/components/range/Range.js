@@ -9,13 +9,15 @@ const Range = () => {
     const mediaMax950px = useMediaQuery({ query: '(max-width: 950px)' })
     const mediaMin951px = useMediaQuery({ query: '(min-width: 951px)' })
     const mediaMin600px = useMediaQuery({ query: '(min-width: 600px)' })
-    const FigureRange = () => {
+    const FigureRange = ({clazz}) => {
             return (
                 <div  className="items-range__figure figure-range">
                     <div className="figure-range__square"></div>
                     <div className="figure-range__line"></div>
                     <div className="figure-range__round"></div>
                     <div className="figure-range__line"></div>
+                    {clazz == "clothes"}
+                    <div className="figure-range__square"></div>
                 </div>
                 )
     }
@@ -27,15 +29,16 @@ const Range = () => {
             </div>
         )
     }
-    
+    // console.log(1 % );
 
     const Li = () => itemsRange.map(({name, clazz}, i)=> {
         const even = i % 2 === 0 
+        const three = i % 3 === 0
         return (
             <li className={`items-range__item items-range__item_${clazz}`}><span>{name}</span>
-                {mediaMin951px? <FigureRange/> : null}
+                {mediaMin951px ? <FigureRange clazz = {clazz}/> : null}
                 {mediaMin600px && mediaMax950px && even ? <FigureRange/> : null}
-                <FigureRound/>
+                {/* <FigureRound/> */}
             </li>
         )
     })
