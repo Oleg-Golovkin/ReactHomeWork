@@ -8,6 +8,7 @@ const Range = () => {
     const itemsRange = useSelector((state)=> state.rangeSlice.itemsRange )
     const mediaMax950px = useMediaQuery({ query: '(max-width: 950px)' })
     const mediaMin951px = useMediaQuery({ query: '(min-width: 951px)' })
+    const mediaMin600px = useMediaQuery({ query: '(min-width: 600px)' })
     const FigureRange = () => {
             return (
                 <div  className="items-range__figure figure-range">
@@ -18,13 +19,28 @@ const Range = () => {
                 </div>
                 )
     }
+
+    const FigureRound = () => {
+        return(
+            <div className="items-range__figure-round">
+                fsdf
+            </div>
+        )
+    }
+    
+
     const Li = () => itemsRange.map(({name, clazz}, i)=> {
+        const even = i % 2 === 0 
         return (
             <li className={`items-range__item items-range__item_${clazz}`}><span>{name}</span>
-                {mediaMax950px && i % 2 === 0 ? <FigureRange/> : mediaMin951px ? <FigureRange/> :  null}
+                {mediaMin951px? <FigureRange/> : null}
+                {mediaMin600px && mediaMax950px && even ? <FigureRange/> : null}
+                <FigureRound/>
             </li>
         )
     })
+
+    
 
     return (
         <section className="range container container_range">

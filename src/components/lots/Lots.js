@@ -23,6 +23,7 @@ const Lots = () => {
     const activeSwiper = useSelector((state)=> state.lotsSlice.activeSwiper);
     const imgLoadingStatus = useSelector((state)=> state.lotsSlice.imgLoadingStatus);
     const deadline = useSelector((state)=> state.lotsSlice.deadline)
+    
     useEffect(()=> {
         dispatch(reduxThunkImg())
     // eslint-disable-next-line   
