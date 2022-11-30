@@ -52,7 +52,7 @@ const Lots = () => {
                                     <div className="evaluate-slide__square-icon"></div>                              
                                     <div className="evaluate-slide__title">Текущая ставка</div>
                                     <div className="evaluate-slide__sum">323 312</div>
-                                    <div class="evaluate-slide__sum-labble">&#8381;</div>
+                                    <div className="evaluate-slide__sum-labble">&#8381;</div>
                                 </div>
                             </div>
                             <div className="evaluate-slide__block evaluate-slide_vote"> 
@@ -73,7 +73,7 @@ const Lots = () => {
                     <div className="swiper-button__line swiper-button__line_prev"></div>
                     <div className="swiper-button__round swiper-button__round_prev"></div>
                 </div>
-                <div onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} class="swiper-button__title">{activeSwiper ? "Все слоты" : "Обратно"}</div>
+                <div onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} className="swiper-button__title">{activeSwiper ? "Все слоты" : "Обратно"}</div>
                 <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button-next swiper-button swiper-button_next">
                     <img className="swiper-button__img swiper-button__img_next" src={next} alt="next" />
                     <div className="swiper-button__line swiper-button__line_next"></div>

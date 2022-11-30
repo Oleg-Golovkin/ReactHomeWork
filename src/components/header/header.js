@@ -120,7 +120,7 @@ const Header = () => {
         <div className={`menu-header_mobile ${activeClass ? 'menu-header_active-mobile' : ''}`}>
             <div
                 onClick={()=> dispatch(onActiveClass(!activeClass))}
-                class="menu-header__close">
+                className="menu-header__close">
             </div>
             {media576px? <MenuNavigation/> : null}
             <div className="menu-header__wrapperForMobile">

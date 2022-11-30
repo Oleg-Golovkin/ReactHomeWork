@@ -57,17 +57,17 @@ const Timer = ({deadline = "2022-12-05"}) => {
     }, [])
 
     return (
-        <div class="timer">
-            <div class="numbers1">
+        <div className="timer">
+            <div className="numbers1">
                 <div><span id="days">{timer.days}:</span></div>
             </div>
-            <div class="numbers1">
+            <div className="numbers1">
                 <div><span id="hours">{getTimeZero(timer.hours)}:</span></div>
             </div>
-            <div class="numbers1">
+            <div className="numbers1">
                 <div><span id="minutes">{getTimeZero(timer.minutes)}:</span></div>
             </div>
-            <div class="numbers1">
+            <div className="numbers1">
                 <div><span id="seconds">{getTimeZero(timer.seconds)}</span></div>
             </div>
         </div>
