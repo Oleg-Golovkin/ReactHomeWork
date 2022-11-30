@@ -8,7 +8,7 @@ const Range = () => {
     const itemsRange = useSelector((state)=> state.rangeSlice.itemsRange )
     const mediaMin766px = useSelector(state=> state.mediaSlice.mediaMin766px)
     const mediaMax950px = useMediaQuery({ query: '(max-width: 950px)' })
-    const mediaMin951px = useMediaQuery({ query: '(min-width: 951px)' })
+    const mediaMin950px = useMediaQuery({ query: '(min-width: 950px)' })
     const mediaMin768px = useMediaQuery({ query: '(min-width: 768px)' })
     const mediaMin600px = useMediaQuery({ query: '(min-width: 600px)' })
     
@@ -29,18 +29,17 @@ const Range = () => {
     const FigureRound = () => {
         return(
             <div className="items-range__figure-round">
-                fsdf
             </div>
         )
     }
-    // console.log(1 % );
 
     const Li = () => itemsRange.map(({name, clazz}, i)=> {
         const even = i % 2 === 0 
         return (
             <li className={`items-range__item items-range__item_${clazz}`}><span>{name}</span>
-                {mediaMin951px ? <FigureRange clazz = {clazz}/> : null}
-                {mediaMin768px && mediaMax950px && even ? <FigureRange clazz = {clazz}/> : null}
+                {mediaMin950px ? <FigureRange clazz = {clazz}/> : null}
+                {mediaMin768px && even ? <FigureRange clazz = {clazz}/> : null}
+                <FigureRound/>
             </li>
         )
     })
