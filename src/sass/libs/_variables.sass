@@ -1,3 +1,5 @@
+@use 'sass:math'
+
 // Для автоматического перевода rem em и pcr в пиксели
 @function pcr($pxOne, $pxTwo)
     $result: math.div($pxOne, $pxTwo) * 100%

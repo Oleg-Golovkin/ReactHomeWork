@@ -1,25 +1,35 @@
+@import "../../sass/libs/_variables.sass"
+
 .range
     padding-top: 100px
     // .range__items
     &__items
     &__wrapper-dsc
-        margin-top: 95px
+        padding-top: 95px
         display: flex
         width: 100%
         @media (max-width: 992px)
-            padding: 0px 40px 0px 40px
+            padding: 95px 40px 0 40px
     &__ornament
-        max-height: 100%
-        @media (max-width: 767px)
+        max-width: 100%
+        margin-right: 44px
+        @media (max-width: 992px)
             display: none
 
     &__dsc
         font-family: 'PT Sans'
-        font-size: 15px
-        line-height: 25px
+        font-size: rem(15)
+        line-height: em(25)
         font-weight: 400
         color: #333333
         text-align: justify
+        @media (max-width: 992px)
+            font-size: rem(20)
+        @media (max-width: 767px)
+            font-size: rem(22)
+            
+
+
 
 .items-range
     display: grid

@@ -252,6 +252,8 @@
     
     &-enter
         opacity: 0
+        transition: all 300ms
+
         
     &-enter-active
         opacity: 0
@@ -263,7 +265,8 @@
         transition: all 300ms
 
     &-exit
-        opacity: 1
+        opacity: 0
+        transition: all 300ms
 
     &-exit-active
         opacity: 0
@@ -271,19 +274,19 @@
     &-exit-done
         opacity: 0
         display: none
-        transition: all 300ms
 
 .swiper-transition-all-slide
     opacity: 0 
-    display: none   
-
+    transition: all 300ms 
+    display: none
+    
     &-enter
         opacity: 0
         display: block
+        transition: all 300ms
     &-enter-active
         opacity: 0
         transition: all 300ms
-        display: block
 
     &-enter-done
         opacity: 1
@@ -292,6 +295,7 @@
 
     &-exit
         opacity: 1
+        transition: all 300ms
 
     &-exit-active
         opacity: 0
