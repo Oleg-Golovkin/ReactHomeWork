@@ -1,10 +1,10 @@
 import "./separator.sass"
 
-const Separator = () => {
+const Separator = ({showLine} = true) => {
     return (
-        <div className="separator">
+        <div className="separator separator_services">
             <div className="separator__icon-wrapper">                
-                <div className="separator__line"></div>
+                {showLine ? <div className="separator__line"></div> : null}
                 <div className="separator__round"></div>
                 <div className="separator__squareMin"></div>
                 <div className="separator__squareBig"></div>
@@ -13,7 +13,7 @@ const Separator = () => {
             <div className="separator__times"></div>
 
             <div className="separator__icon-wrapper separator__icon-wrapper_left">                
-                <div className="separator__line"></div>
+                {showLine ? <div className="separator__line"></div> : null}
                 <div className="separator__round"></div>
                 <div className="separator__squareMin"></div>
                 <div className="separator__squareBig"></div>
