@@ -126,11 +126,7 @@ const Lots = () => {
                             nextEl: '.swiper-button_next',
                             prevEl: '.swiper-button_prev',
                         }}
-                        // slideToClickedSlide = {true}
-                        // loop = {true}
-                        // direction = "vertical"
-                        // enabled = {false}
-                        // effect = {'cards'}
+                       
                         simulateTouch = {true}
                         >
                                 
@@ -145,7 +141,7 @@ const Lots = () => {
                     in={!activeSwiper} 
                     timeout={300}         
                     classNames="swiper-transition-all-slide">
-                        <div>
+                        <div className="swiper-transition-all-slide">
                             <div className="swiper-slide__all-slide">
                                 {swiperSlide}                        
                             </div>

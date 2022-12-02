@@ -118,6 +118,7 @@
         flex-direction: column
         width: 250px
         height: 100%
+       
     &__subWrapper
         position: relative
         width: 250px
@@ -147,15 +148,16 @@
         border: 3px solid #bb9c66
         background: white
     &__all-slide
-        display: flex
-        justify-content: center
-        flex-wrap: wrap
-        
-        > .swiper-slide
-            padding: 10px 10px 10px 10px
-            flex-shrink: inherit
-            width: auto
-            height: auto
+            display: flex
+            justify-content: center
+            flex-direction: row
+            flex-wrap: wrap        
+            > .swiper-slide
+                padding: 10px 10px 10px 10px
+                flex-shrink: inherit
+                width: auto
+                height: auto
+    
 
 .evaluate-slide
 
