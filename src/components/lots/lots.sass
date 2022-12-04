@@ -32,7 +32,7 @@
     &::after
         display: none
     &_wrapper
-        display: flex 
+        display: flex
         justify-content: space-between
         align-items: center
         margin: 0 auto
@@ -118,7 +118,7 @@
         flex-direction: column
         width: 250px
         height: 100%
-       
+
     &__subWrapper
         position: relative
         width: 250px
@@ -148,16 +148,15 @@
         border: 3px solid #bb9c66
         background: white
     &__all-slide
-            display: flex
-            justify-content: center
-            flex-direction: row
-            flex-wrap: wrap        
-            > .swiper-slide
-                padding: 10px 10px 10px 10px
-                flex-shrink: inherit
-                width: auto
-                height: auto
-    
+        display: flex
+        justify-content: center
+        flex-direction: row
+        flex-wrap: wrap
+        > .swiper-slide
+            padding: 10px 10px 10px 10px
+            flex-shrink: inherit
+            width: auto
+            height: auto
 
 .evaluate-slide
 
@@ -253,11 +252,10 @@
     opacity: 1
     &-enter
         opacity: 0
-        transition: all 300ms  
+        transition: all 300ms
     &-enter-active
         opacity: 0
         transition: all 300ms
-        display: block
     &-enter-done
         opacity: 1
         transition: all 300ms
@@ -272,30 +270,32 @@
         display: none
 
 .swiper-transition-all-slide
-    opacity: 0 
-    transition: all 300ms 
+    opacity: 0
+    transform: translateX(-100%)
     position: absolute
+    
     &-enter
-        opacity: 0
-        display: block
-        transition: all 300ms
+        opacity: 0       
+        position: static
     &-enter-active
         opacity: 0
-        transition: all 300ms
-        position: relative
+        transform: translateX(0%)
+        position: static
     &-enter-done
-        opacity: 1
+        opacity: 1        
+        transform: translateX(0%)
+        position: static
         transition: all 300ms
-        position: relative
-        display: block
     &-exit
-        opacity: 0
+        opacity: 0       
+        transform: translateX(0%)
+        position: static
         transition: all 300ms
     &-exit-active
         opacity: 0
+        transform: translateX(0%)
         transition: all 300ms
     &-exit-done
         opacity: 0
         transition: all 300ms
         position: absolute
-        display: none
