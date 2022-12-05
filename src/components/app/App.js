@@ -4,6 +4,7 @@ import Auction from '../auction/Auction';
 import Lots from '../lots/Lots';
 import Range from '../range/Range'
 import Services from '../services/Services';
+import Interesting from "./../interesting/Interesting"
 import { useMediaQuery } from "react-responsive";
 import {changeMedia576px,  
   changeMedia767px,
@@ -29,6 +30,7 @@ function App() {
         <Lots/>
         <Range/>
         <Services/>
+        <Interesting/>
       </main>   
     </>
   );

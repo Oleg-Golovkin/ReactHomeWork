@@ -152,15 +152,10 @@ const Lots = () => {
     const spinner = imgLoadingStatus === "loading" ? <Spinner/> : null
     return(
         <section className="lots container">
-            <img 
-                src={popular} 
-                className="title title_lots"
-                alt='title'>
-            </img>
-            <h2 className="sub-title sub-title_lots">
-                лоты Под аукцион
-            </h2>
-            <Separator backgroundImage={'times'}/> 
+            <Separator 
+                subTitle = {"лоты Под аукцион"}
+                img = {popular}  
+                classSection={'lots'}/> 
             {spinner}
             {swiper}
             {allLots}

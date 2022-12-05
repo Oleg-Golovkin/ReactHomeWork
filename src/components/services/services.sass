@@ -1,51 +1,82 @@
 .services
     background-color: #1c242a
     padding: 60px 0 102px 0
-    // .services__dsc
-
-    &__dsc
-.title
-
-    // .title_services
-
-    &_services
-        margin: 0 auto
-        margin-top: 33px
-.sub-title
-
-    // .sub-title_services
-
-    &_services
-        font-size: 35px
-        font-weight: 500
-        color: #ffffff
+    // .services__dsc       
 
 .dsc-services
-
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-top: 74px
+    @media (max-width: 767px)
+        flex-direction: column
+        
     // .dsc-services__item
 
     &__item
-
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 250px
+        @media (max-width: 767px)
+            margin-top: 100px
+            &:first-child
+                margin-top: 0px
     // .dsc-services__wrapper-img
-
     &__wrapper-img
-
+        display: flex
+        justify-content: center
+        align-items: flex-start
+        width: 164px
+        height: 165px
     // .dsc-services__title
 
     &__title
-
+        margin-top: 45px
+        font-family: 'PF Din Text Cond Pro'
+        font-size: 21px
+        line-height: 25px
+        font-weight: 500
+        text-transform: uppercase
+        letter-spacing: 0.1em
+        color: #ffffff
     // .dsc-services__dsc
 
     &__dsc
+        margin-top: 41px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        font-family: 'PT Sans'
+        font-size: 15px
+        line-height: 25px
+        text-align: center
+        font-weight: 400
+        color: #bb9c66
 
     // .dsc-services__more-wrapper
 
     &__more-wrapper
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin-top: 45px
 
     // .dsc-services__line
 
     &__line
+        width: 50px
+        height: 1px
+        background-color: #bb9c66
 
     // .dsc-services__more
 
     &__more
+        font-family: 'PF Din Text Cond Pro'
+        font-size: 21px
+        line-height: 25px
+        font-weight: 500
+        text-transform: uppercase
+        letter-spacing: 0.1em
+        color: #ffffff

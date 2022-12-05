@@ -1,9 +1,22 @@
+.title
+  margin: 0 auto
+
+.sub-title
+  &_lots
+    margin-top: 27px
+  &_services
+    margin-top: 33px
+    font-size: 35px
+    font-weight: 500
+    color: #ffffff
+  &_interesting
+    margin-top: 25px
+
 .separator
   display: flex
   justify-content: space-between
   max-width: 950px
-
-
+  margin-top: 25px
   // .separator__icon-wrapper
 
   &__icon-wrapper
@@ -48,7 +61,6 @@
     @media (max-width: 576px)
       display: none
 
-
   // .separator__times
 
   &__сentral-icon
@@ -56,7 +68,9 @@
     height: 58px
     background-position: center center
     background-repeat: no-repeat
-    &_times
+    &_lots
       background-image: url(../../icons/separator/times.png)
     &_services
       background-image: url(../../icons/separator/services.png)
+    &_interesting
+      background-image: url(../../icons/separator/interesting.png)
