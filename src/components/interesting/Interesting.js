@@ -32,15 +32,20 @@ const Interesting = () => {
                 </div>
             </div>
 
-    const swiperSlide = quotes.map(({name, data, dsc}, i) =>{
+    const swiperSlide = quotes.map(({name, data, content}, i) =>{
         return(
             <SwiperSlide 
                 key={uniqid()}>
-                    <div className="swiper-slide__wrapper">
-                        <div className="swiper-slide__subWrapper">
-                            <img src={markTven} alt="markTven"/>
+                    <div className="swiper-slide__wrapper swiper-slide__wrapper_interesting">
+                            <div className="swiper-slide__img-wrapper swiper-slide__img-wrapper_interesting">
+                                <img src={markTven} alt="markTven"/>
+                            </div>
+                            <div className="swiper-slide__quotes-wrapper">
+                                <div className="swiper-slide__quotes-content">{content}</div>
+                                <div className="swiper-slide__quotes-name">{name}</div>
+                                <div className="swiper-slide__quotes-data">{data}</div>
+                            </div>
                         </div>
-                    </div>
             </SwiperSlide>
         )
     })
@@ -53,6 +58,7 @@ const Interesting = () => {
                     img = {title_interesting} 
                     classSection={'interesting'}/> 
                 <Swiper
+                    containerModifierClass="swiper_interesting"
                     spaceBetween={100}
                     slidesPerView={1}
                     watchSlidesProgress= {true}
