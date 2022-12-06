@@ -13,7 +13,7 @@ const Services = () => {
     return(
         <section className="services">
             <div className="container">
-                <div className="container">
+                <div className="container container_services">
                     <Separator 
                     subTitle = {"Услуги"}
                     classSection={"services"}

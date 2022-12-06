@@ -1,8 +1,12 @@
 import uniqid from 'uniqid'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Navigation } from 'swiper';
+import { useSelector } from 'react-redux';
+
 
 import Separator from "../separator/Separator"
+
+import markTven from './../../img/interesting/markTven.png'
 
 import title_interesting from './../../icons/interesting/title_interesting.png'
 import prev from './../../icons/lots/prev.png'
@@ -11,6 +15,7 @@ import next from './../../icons/lots/next.png'
 import "./interesting.sass"
 
 const Interesting = () => {
+    const quotes = useSelector((state)=> state.interestingSlice.quotes);
 
     const navigation =
             <div className="swiper-button_wrapper">
@@ -26,6 +31,20 @@ const Interesting = () => {
                     <div className="swiper-button__round swiper-button__round_next"></div>
                 </div>
             </div>
+
+    const swiperSlide = quotes.map(({name, data, dsc}, i) =>{
+        return(
+            <SwiperSlide 
+                key={uniqid()}>
+                    <div className="swiper-slide__wrapper">
+                        <div className="swiper-slide__subWrapper">
+                            <img src={markTven} alt="markTven"/>
+                        </div>
+                    </div>
+            </SwiperSlide>
+        )
+    })
+    
     return(
         <section className="interesting">
             <div className="container">
@@ -33,7 +52,55 @@ const Interesting = () => {
                     subTitle = {"Цитаты"} 
                     img = {title_interesting} 
                     classSection={'interesting'}/> 
+                <Swiper
+                    spaceBetween={100}
+                    slidesPerView={1}
+                    watchSlidesProgress= {true}
+                    // breakpoints = {{
+                    //     320: {
+                    //         slidesPerView: 1,
+                    //         grid: {
+                    //                 rows: 1,
+                    //                 fill: "row"
+                    //         },
+                    //     },
+                    //     // when window width is >= 480px
+                    //     632: {
+                    //         slidesPerView: 1,
+                    //         grid: {
+                    //                 rows: 1,
+                    //                 fill: "row"
+                    //         }, 
+                    //     },
+                    //     992: 
+                    //     {
+                    //         grid: {
+                    //                 rows: 1,
+                    //                 fill: "row",
+                    //         },
+                    //         slidesPerView: 3,
+                            
+                    //     },        
+                    // }}
+                    rewind = {true}
+                    onSlideChange={() => console.log('slide change')}
+                    modules={[Grid, Navigation]}
+                    grid = {{rows: 1,
+                        fill: "row"}}
+                    navigation = {{
+                        nextEl: '.swiper-button_next',
+                        prevEl: '.swiper-button_prev',
+                    }}
+                    
+                    simulateTouch = {true}
+                    >
+                            
+                    {swiperSlide}
+                    {navigation}
+                </Swiper>
             </div>
+
+            
             
             
         </section> 
