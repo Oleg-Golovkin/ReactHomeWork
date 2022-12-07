@@ -5,24 +5,20 @@
     flex-direction: column
     padding: 85px 0px 0px 0px
 
-
 .di
     display: flex
     flex-direction: row
 
+.swiper_lots-initialized
+    width: 100%
+    height: 694px
+    margin-top: 50px
+    @media (max-width: 400px)
+        height: auto
+    .swiper-wrapper
+        height: 530px
 
-.swiper
-    &_lots-initialized
-        width: 100%
-        height: 694px
-        margin-top: 50px
-        @media (max-width: 400px)
-            height: auto
-
-.swiper_lots-initialized .swiper-wrapper
-    height: 530px
-
-.swiper-button
+.swiper-lost-button
     justify-content: space-between !important
     position: relative
     $resut: math.div(125,400) * 100%
@@ -272,21 +268,21 @@
     opacity: 0
     transform: translateX(-100%)
     position: absolute
-    
+
     &-enter
-        opacity: 0       
+        opacity: 0
         position: static
     &-enter-active
         opacity: 0
         transform: translateX(0%)
         position: static
     &-enter-done
-        opacity: 1        
+        opacity: 1
         transform: translateX(0%)
         position: static
         transition: all 300ms
     &-exit
-        opacity: 0       
+        opacity: 0
         transform: translateX(0%)
         position: static
         transition: all 300ms

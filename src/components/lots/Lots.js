@@ -67,16 +67,16 @@ const Lots = () => {
         )
     })  
     const navigation =
-            <div className="swiper-button_wrapper">
-                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button-prev swiper-button swiper-button_prev ">
-                    <img className="swiper-button__img swiper-button__img_prev" src={prev} alt="prev" />
-                    <div className="swiper-button__line swiper-button__line_prev"></div>
-                    <div className="swiper-button__round swiper-button__round_prev"></div>
+            <div className="swiper-button swiper-button_lost">
+                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button swiper-button_lost swiper-button-prev swiper-button-prev_prev ">
+                    <img className="swiper-button__img swiper-button__img_lost swiper-lost-button__img_prev" src={prev} alt="prev" />
+                    <div className="swiper-lost-button__line swiper-lost-button__line_prev"></div>
+                    <div className="swiper-lost-button__round swiper-lost-button__round_prev"></div>
                 </div>
                 <div onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} className="swiper-button__title">{activeSwiper ? "Все слоты" : "Обратно"}</div>
-                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button-next swiper-button swiper-button_next">
-                    <img className="swiper-button__img swiper-button__img_next" src={next} alt="next" />
-                    <div className="swiper-button__line swiper-button__line_next"></div>
+                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button swiper-lost-button_next">
+                    <img className="swiper-lost-button__img swiper-lost-button__img_next" src={next} alt="next" />
+                    <div className="swiper-lost-button__line swiper-button__line_next"></div>
                     <div className="swiper-button__round swiper-button__round_next"></div>
                 </div>
             </div>
@@ -89,7 +89,6 @@ const Lots = () => {
                 <div className="swiper-transition">
                     <Swiper
                         containerModifierClass="swiper_lots-"
-                        // wrapperClass = {'swiper-wrapper_lots'}
                         spaceBetween={100}
                         slidesPerView={3}
                         watchSlidesProgress= {true}
@@ -125,8 +124,8 @@ const Lots = () => {
                         grid = {{rows: 1,
                             fill: "row"}}
                         navigation = {{
-                            nextEl: '.swiper-button_next',
-                            prevEl: '.swiper-button_prev',
+                            nextEl: '.swiper-lost-button_next',
+                            prevEl: '.swiper-lost-button_prev',
                         }}
                        
                         simulateTouch = {true}
