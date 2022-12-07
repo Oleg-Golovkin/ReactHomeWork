@@ -89,7 +89,7 @@ const Lots = () => {
                 <div className="swiper-transition">
                     <Swiper
                         containerModifierClass="swiper_lots-"
-
+                        // wrapperClass = {'swiper-wrapper_lots'}
                         spaceBetween={100}
                         slidesPerView={3}
                         watchSlidesProgress= {true}
