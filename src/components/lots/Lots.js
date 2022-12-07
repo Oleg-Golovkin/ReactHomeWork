@@ -88,6 +88,8 @@ const Lots = () => {
             classNames="swiper-transition">
                 <div className="swiper-transition">
                     <Swiper
+                        containerModifierClass="swiper_lots-"
+
                         spaceBetween={100}
                         slidesPerView={3}
                         watchSlidesProgress= {true}

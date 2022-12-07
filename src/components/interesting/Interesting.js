@@ -58,7 +58,7 @@ const Interesting = () => {
                     img = {title_interesting} 
                     classSection={'interesting'}/> 
                 <Swiper
-                    containerModifierClass="swiper_interesting"
+                    containerModifierClass="swiper_interesting-"
                     spaceBetween={100}
                     slidesPerView={1}
                     watchSlidesProgress= {true}
