@@ -9,8 +9,8 @@ import Separator from "../separator/Separator"
 import markTven from './../../img/interesting/markTven.png'
 
 import title_interesting from './../../icons/interesting/title_interesting.png'
-import prev from './../../icons/lots/prev.png'
-import next from './../../icons/lots/next.png'
+import arrow from './../../icons/interesting/arrow.png'
+
 
 import "./interesting.sass"
 import 'swiper/css';
@@ -24,7 +24,7 @@ const Interesting = () => {
                 <div className="swiper-button__line swiper-button__line_interesting swiper-button__line_prev"></div>
                 <div className="swiper-button__round swiper-button__round_interesting swiper-button__round_prev"></div>
             </div>
-            <div className="swiper-button__title">Все слоты</div>
+            <div className="swiper-button__title swiper-button__title_interesting"><img src={arrow} alt="arrow"/></div>
             <div className="swiper-button__wrapper swiper-button__wrapper_next swiper-button__wrapper_interesting">
                 <div className="swiper-button__line swiper-button__line_interesting swiper-button__line_next"></div>
                 <div className="swiper-button__round swiper-button__round_interesting swiper-button__round_next"></div>
@@ -35,7 +35,7 @@ const Interesting = () => {
         return(
             <SwiperSlide 
                 key={uniqid()}>
-                    <div className="swiper-slide-subWrapper swiper-slide-subWrapper_interesting">
+                    <div className="swiper-slide__subWrapper swiper-slide__subWrapper_interesting">
                         <div className="swiper-slide__img-wrapper swiper-slide__img-wrapper_interesting">
                             <img src={markTven} alt="markTven"/>
                         </div>

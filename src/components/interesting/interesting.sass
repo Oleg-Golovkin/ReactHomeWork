@@ -5,50 +5,121 @@
     height: 380px
     .swiper-wrapper
         height: auto
-        .swiper-slide-subWrapper_interesting
+        .swiper-slide
+            &__subWrapper_interesting
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                align-items: center
+                width: 785px
+                height: 250px
+
+            &__img-wrapper
+                &_interesting
+                    width: 204px
+                    height: 260px
+                    img
+                        width: 100%
+                        height: 100%
+            // .swiper-slide__quotes-wrapper
+
+            &__quotes-wrapper
+                max-width: 515px
+                max-height: 125px
+            // .swiper-slide__quotes-content
+
+            &__quotes-content
+                font-family: 'PT Sans'
+                font-size: 25px
+                line-height: 30px
+                font-weight: 400
+                font-style: italic
+                text-transform: uppercase
+                color: #000000
+            // .swiper-slide__quotes-name
+
+            &__quotes-name
+                font-size: 15px
+                line-height: 25px
+                font-style: normal
+                text-transform: none
+                color: #1c242a
+                margin-top: 40px
+            // .swiper-slide__quotes-data
+
+            &__quotes-data
+                font-size: 15px
+                line-height: 25px
+                font-style: normal
+                text-transform: none
+                color: #1c242a
+
+.swiper-button
+
+    // .swiper-button_interesting
+
+    &_interesting
+        margin-top: 0
+        align-items: center
+        position: relative
+        
+
+    // .swiper-button__wrapper
+
+    &__wrapper
+
+    // .swiper-button__wrapper_prev
+
+        &_prev
+
+    // .swiper-button__wrapper_interesting
+
+    &_interesting
+
+    // .swiper-button__wrapper_next
+
+        &_next
+
+    // .swiper-button__line
+
+    &__line
+
+        // .swiper-button__line_interesting
+
+        &_interesting
+
+        // .swiper-button__line_prev
+
+        &_prev
+
+        // .swiper-button__line_next
+
+        &_next
+
+    // .swiper-button__round
+
+    &__round
+
+        // .swiper-button__round_interesting
+
+        &_interesting
+
+        // .swiper-button__round_prev
+
+        &_prev
+
+        // .swiper-button__round_next
+
+        &_next
+
+    // .swiper-button__title
+
+    &__title
+        &_interesting
+            padding: 0
+            width: 50px
+            height: 50px
+            top: auto
             display: flex
-            flex-direction: row
-            justify-content: space-between
             align-items: center
-            width: 785px
-            height: 250px
-
-    
-        &__img-wrapper
-            &_interesting
-                width: 204px
-                height: 260px
-                img
-                    width: 100%
-                    height: 100%
-        // .swiper-slide__quotes-wrapper
-
-        &__quotes-wrapper
-            max-width: 515px
-            max-height: 125px
-        // .swiper-slide__quotes-content
-
-        &__quotes-content
-            font-family: 'PT Sans'
-            font-size: 25px
-            line-height: 30px
-            font-weight: 400
-            font-style: italic
-            text-transform: uppercase
-            color: #000000
-        // .swiper-slide__quotes-name
-
-        &__quotes-name
-            font-size: 15px
-            line-height: 25px
-            font-style: normal
-            text-transform: none
-            color: #1c242a
-        // .swiper-slide__quotes-data
-
-        &__quotes-data
-            font-size: 15px
-            line-height: 25px
-            font-style: normal
-            text-transform: none
-            color: #1c242a
+            justify-content: center

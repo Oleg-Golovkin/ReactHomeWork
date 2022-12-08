@@ -26,16 +26,12 @@
     margin-top: 48px
     $resut: math.div(400,950) * 100%
     width: $resut
-    // width: 800px
     height: 100px
     position: relative
     @media (max-width: 768px)
         height: 78px
     @media (max-width: 400px)
         display: none
-    &_interesting
-        margin-top: 0px
-
     &__wrapper
         display: flex
         flex-direction: row
@@ -95,7 +91,8 @@
         border: 1px solid #bb9c66
         @media (max-width: 992px)
             display: none
-
+    &__img_lots
+        position: absolute
 .swiper-slide
     display: flex
     justify-content: center
