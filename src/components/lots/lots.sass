@@ -19,29 +19,31 @@
         height: 530px
 
 .swiper-button
-    &_lots
-        display: flex
-        justify-content: space-between
-        align-items: center
-        margin: 0 auto
-        margin-top: 48px
-        $resut: math.div(400,950) * 100%
-        // width: $resut
-        width: 400px
-        height: 100px
-        position: relative
-        @media (max-width: 768px)
-            height: 78px
-        @media (max-width: 400px)
-            display: none
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 0 auto
+    margin-top: 48px
+    $resut: math.div(400,950) * 100%
+    width: $resut
+    // width: 800px
+    height: 100px
+    position: relative
+    @media (max-width: 768px)
+        height: 78px
+    @media (max-width: 400px)
+        display: none
+    &_interesting
+        margin-top: 0px
 
     &__wrapper
+        display: flex
         flex-direction: row
         justify-content: space-between
+        align-items: center
         position: relative
         $resut: math.div(125,400) * 100%
-        // width: $resut
-        width: 300px
+        width: $resut
         bottom: 0
         &::after
             display: none
@@ -66,33 +68,19 @@
         @media (max-width: 768px)
             font-size: 15px
             padding: 24px 5px 24px 5px
-
-    // .swiper-button_next
-
     
-
-    // .swiper-button__img
-
-    &__img
-        position: absolute
-
-        // .swiper-button__img_prev
 
         &_prev
             left: 0
-        // .swiper-button__img_next
 
         &_next
             right: 0
             left: auto
 
-    // .swiper-button__line
-
     &__line
         display: block
         $resut: math.div(107,125) * 100%
         width: $resut
-        // width: 107px
         height: 1px
         border: 1px solid #bb9c66
         @media (max-width: 767px)

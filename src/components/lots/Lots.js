@@ -73,7 +73,12 @@ const Lots = () => {
                     <div className="swiper-button__line swiper-button__line_lots swiper-button__line_prev"></div>
                     <div className="swiper-button__round swiper-button__round_lots swiper-button__round_prev"></div>
                 </div>
-                <div onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} className="swiper-button__title">{activeSwiper ? "Все слоты" : "Обратно"}</div>
+                <div 
+                    onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} 
+                    className="swiper-button__title"
+                    style={activeSwiper ? undefined : {padding: '43px 20px 42px 20px'}}
+                    >{activeSwiper ? "Все слоты" : "Обратно"}
+                </div>
                 <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button__wrapper swiper-button__wrapper_next swiper-button__wrapper_lots">
                     <img className="swiper-button__img swiper-button__img_lots swiper-button__img_next" src={next} alt="next" />
                     <div className="swiper-button__line swiper-button__line_lots swiper-button__line_next"></div>

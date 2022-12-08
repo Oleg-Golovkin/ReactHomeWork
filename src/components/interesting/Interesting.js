@@ -13,39 +13,39 @@ import prev from './../../icons/lots/prev.png'
 import next from './../../icons/lots/next.png'
 
 import "./interesting.sass"
+import 'swiper/css';
 
 const Interesting = () => {
     const quotes = useSelector((state)=> state.interestingSlice.quotes);
 
     const navigation =
-            <div className="swiper-button_wrapper">
-                <div className="swiper-button-prev swiper-button swiper-button_prev ">
-                    <img className="swiper-button__img swiper-button__img_prev" src={prev} alt="prev" />
-                    <div className="swiper-button__line swiper-button__line_prev"></div>
-                    <div className="swiper-button__round swiper-button__round_prev"></div>
-                </div>
-                <div className="swiper-button__title">"Все слоты"</div>
-                <div className="swiper-button-next swiper-button swiper-button_next">
-                    <img className="swiper-button__img swiper-button__img_next" src={next} alt="next" />
-                    <div className="swiper-button__line swiper-button__line_next"></div>
-                    <div className="swiper-button__round swiper-button__round_next"></div>
-                </div>
+        <div className="swiper-button swiper-button_interesting">
+            <div className="swiper-button__wrapper swiper-button__wrapper_prev swiper-button__wrapper_interesting">
+                <div className="swiper-button__line swiper-button__line_interesting swiper-button__line_prev"></div>
+                <div className="swiper-button__round swiper-button__round_interesting swiper-button__round_prev"></div>
             </div>
+            <div className="swiper-button__title">Все слоты</div>
+            <div className="swiper-button__wrapper swiper-button__wrapper_next swiper-button__wrapper_interesting">
+                <div className="swiper-button__line swiper-button__line_interesting swiper-button__line_next"></div>
+                <div className="swiper-button__round swiper-button__round_interesting swiper-button__round_next"></div>
+            </div>
+        </div>
 
     const swiperSlide = quotes.map(({name, data, content}, i) =>{
         return(
             <SwiperSlide 
                 key={uniqid()}>
-                    <div className="swiper-slide__wrapper swiper-slide__wrapper_interesting">
-                            <div className="swiper-slide__img-wrapper swiper-slide__img-wrapper_interesting">
-                                <img src={markTven} alt="markTven"/>
+                            <div className="swiper-slide-subWrapper swiper-slide-subWrapper_interesting">
+                                <div className="swiper-slide__img-wrapper swiper-slide__img-wrapper_interesting">
+                                    <img src={markTven} alt="markTven"/>
+                                </div>
+                                <div className="swiper-slide__quotes-wrapper">
+                                    <div className="swiper-slide__quotes-content">{content}</div>
+                                    <div className="swiper-slide__quotes-name">{name}</div>
+                                    <div className="swiper-slide__quotes-data">{data}</div>
+                                </div>
                             </div>
-                            <div className="swiper-slide__quotes-wrapper">
-                                <div className="swiper-slide__quotes-content">{content}</div>
-                                <div className="swiper-slide__quotes-name">{name}</div>
-                                <div className="swiper-slide__quotes-data">{data}</div>
-                            </div>
-                        </div>
+                           
             </SwiperSlide>
         )
     })
@@ -94,8 +94,8 @@ const Interesting = () => {
                     grid = {{rows: 1,
                         fill: "row"}}
                     navigation = {{
-                        nextEl: '.swiper-button_next',
-                        prevEl: '.swiper-button_prev',
+                        nextEl: '.swiper-button__wrapper_next ',
+                        prevEl: '.swiper-button__wrapper_prev',
                     }}
                     
                     simulateTouch = {true}
