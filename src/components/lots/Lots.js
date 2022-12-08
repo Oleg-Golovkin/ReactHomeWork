@@ -67,17 +67,17 @@ const Lots = () => {
         )
     })  
     const navigation =
-            <div className="swiper-button swiper-button_lost">
-                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button swiper-button_lost swiper-button-prev swiper-button-prev_prev ">
-                    <img className="swiper-button__img swiper-button__img_lost swiper-lost-button__img_prev" src={prev} alt="prev" />
-                    <div className="swiper-lost-button__line swiper-lost-button__line_prev"></div>
-                    <div className="swiper-lost-button__round swiper-lost-button__round_prev"></div>
+            <div className="swiper-button swiper-button_lots">
+                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button__wrapper swiper-button__wrapper_prev swiper-button__wrapper_lots">
+                    <img className="swiper-button__img swiper-button__img_lots swiper-button__img_prev" src={prev} alt="prev" />
+                    <div className="swiper-button__line swiper-button__line_lots swiper-button__line_prev"></div>
+                    <div className="swiper-button__round swiper-button__round_lots swiper-button__round_prev"></div>
                 </div>
                 <div onClick={()=> dispatch(onActiveSwiper(!activeSwiper))} className="swiper-button__title">{activeSwiper ? "Все слоты" : "Обратно"}</div>
-                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button swiper-lost-button_next">
-                    <img className="swiper-lost-button__img swiper-lost-button__img_next" src={next} alt="next" />
-                    <div className="swiper-lost-button__line swiper-button__line_next"></div>
-                    <div className="swiper-button__round swiper-button__round_next"></div>
+                <div style={{display: activeSwiper ? "flex" : "none"}} className="swiper-button__wrapper swiper-button__wrapper_next swiper-button__wrapper_lots">
+                    <img className="swiper-button__img swiper-button__img_lots swiper-button__img_next" src={next} alt="next" />
+                    <div className="swiper-button__line swiper-button__line_lots swiper-button__line_next"></div>
+                    <div className="swiper-button__round swiper-button__round_lots swiper-button__round_next"></div>
                 </div>
             </div>
 
@@ -124,8 +124,8 @@ const Lots = () => {
                         grid = {{rows: 1,
                             fill: "row"}}
                         navigation = {{
-                            nextEl: '.swiper-lost-button_next',
-                            prevEl: '.swiper-lost-button_prev',
+                            nextEl: '.swiper-button__wrapper_next',
+                            prevEl: '.swiper-button__wrapper_prev',
                         }}
                        
                         simulateTouch = {true}

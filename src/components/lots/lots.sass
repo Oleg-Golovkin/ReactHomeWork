@@ -18,28 +18,35 @@
     .swiper-wrapper
         height: 530px
 
-.swiper-lost-button
-    justify-content: space-between !important
-    position: relative
-    $resut: math.div(125,400) * 100%
-    width: $resut !important
-    bottom: 0
-    &::after
-        display: none
-    &_wrapper
+.swiper-button
+    &_lots
         display: flex
         justify-content: space-between
         align-items: center
         margin: 0 auto
         margin-top: 48px
         $resut: math.div(400,950) * 100%
-        width: $resut
+        // width: $resut
+        width: 400px
         height: 100px
         position: relative
         @media (max-width: 768px)
             height: 78px
         @media (max-width: 400px)
             display: none
+
+    &__wrapper
+        flex-direction: row
+        justify-content: space-between
+        position: relative
+        $resut: math.div(125,400) * 100%
+        // width: $resut
+        width: 300px
+        bottom: 0
+        &::after
+            display: none
+        &_next
+            flex-direction: row-reverse
 
     &__title
         position: absolute
@@ -62,8 +69,7 @@
 
     // .swiper-button_next
 
-    &_next
-        flex-direction: row-reverse
+    
 
     // .swiper-button__img
 
