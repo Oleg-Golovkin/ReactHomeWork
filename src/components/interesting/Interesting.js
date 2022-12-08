@@ -35,17 +35,16 @@ const Interesting = () => {
         return(
             <SwiperSlide 
                 key={uniqid()}>
-                            <div className="swiper-slide-subWrapper swiper-slide-subWrapper_interesting">
-                                <div className="swiper-slide__img-wrapper swiper-slide__img-wrapper_interesting">
-                                    <img src={markTven} alt="markTven"/>
-                                </div>
-                                <div className="swiper-slide__quotes-wrapper">
-                                    <div className="swiper-slide__quotes-content">{content}</div>
-                                    <div className="swiper-slide__quotes-name">{name}</div>
-                                    <div className="swiper-slide__quotes-data">{data}</div>
-                                </div>
-                            </div>
-                           
+                    <div className="swiper-slide-subWrapper swiper-slide-subWrapper_interesting">
+                        <div className="swiper-slide__img-wrapper swiper-slide__img-wrapper_interesting">
+                            <img src={markTven} alt="markTven"/>
+                        </div>
+                        <div className="swiper-slide__quotes-wrapper">
+                            <div className="swiper-slide__quotes-content">{content}</div>
+                            <div className="swiper-slide__quotes-name">{name}</div>
+                            <div className="swiper-slide__quotes-data">{data}</div>
+                        </div>
+                    </div>
             </SwiperSlide>
         )
     })
@@ -89,7 +88,6 @@ const Interesting = () => {
                     //     },        
                     // }}
                     rewind = {true}
-                    onSlideChange={() => console.log('slide change')}
                     modules={[Grid, Navigation]}
                     grid = {{rows: 1,
                         fill: "row"}}
@@ -97,10 +95,8 @@ const Interesting = () => {
                         nextEl: '.swiper-button__wrapper_next ',
                         prevEl: '.swiper-button__wrapper_prev',
                     }}
-                    
                     simulateTouch = {true}
-                    >
-                            
+                    >     
                     {swiperSlide}
                     {navigation}
                 </Swiper>
