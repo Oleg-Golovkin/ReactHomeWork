@@ -42,7 +42,7 @@
   "devDependencies": {
     "css-animation": "^2.0.4",
     "rc-dropdown": "^4.0.1",
-    "rc-menu": "^9.7.1",
+    "rc-menu": "^9.8.1",
     "react-idle-timer": "^5.4.2",
     "react-responsive": "^9.0.0",
     "sass": "^1.55.0",

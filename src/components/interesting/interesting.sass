@@ -13,7 +13,8 @@
                 justify-content: space-between
                 align-items: center
                 width: 785px
-                height: 250px
+                min-height: 250px
+                height: auto
                 @media (max-width: 767px)
                     flex-direction: column
 
@@ -28,7 +29,11 @@
 
             &__quotes-wrapper
                 max-width: 515px
-                max-height: 125px
+                min-height: 125px
+                @media (max-width: 767px)
+                    display: flex
+                    flex-direction: column
+                    align-items: center
             // .swiper-slide__quotes-content
 
             &__quotes-content

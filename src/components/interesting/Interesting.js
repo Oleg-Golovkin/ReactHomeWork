@@ -61,32 +61,6 @@ const Interesting = () => {
                     spaceBetween={100}
                     slidesPerView={1}
                     watchSlidesProgress= {true}
-                    // breakpoints = {{
-                    //     320: {
-                    //         slidesPerView: 1,
-                    //         grid: {
-                    //                 rows: 1,
-                    //                 fill: "row"
-                    //         },
-                    //     },
-                    //     // when window width is >= 480px
-                    //     632: {
-                    //         slidesPerView: 1,
-                    //         grid: {
-                    //                 rows: 1,
-                    //                 fill: "row"
-                    //         }, 
-                    //     },
-                    //     992: 
-                    //     {
-                    //         grid: {
-                    //                 rows: 1,
-                    //                 fill: "row",
-                    //         },
-                    //         slidesPerView: 3,
-                            
-                    //     },        
-                    // }}
                     rewind = {true}
                     modules={[Grid, Navigation]}
                     grid = {{rows: 1,
