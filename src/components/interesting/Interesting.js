@@ -78,7 +78,17 @@ const Interesting = () => {
             <div className="interesting__news-event news-event">
                 <div className="news-event__wrapper">
                     <div className="news-event__title-wrapper news-event__title-wrapper_news">Новости</div>
-                    <button className="news-event__title _btn-reset">Уникальный лакшери аукцион</button>
+                    <button className="news-event__title _btn-reset">Уникальный лакшери аукцион здесь вы можете найти</button>
+                    <div className="news-event__content">Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit. At veritatis fuga cum animi fugit est numquam explicabo 
+                    dolorum perferendis tenetur, officia harum, voluptate dolores similique
+                    non laborum odit consequatur odio!</div>
+                    <button className="news-event__title _btn-reset">Уникальный лакшери аукцион здесь вы можете найти</button>
+                    <div className="news-event__content">Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit. At veritatis fuga cum animi fugit est numquam explicabo 
+                    dolorum perferendis tenetur, officia harum, voluptate dolores similique
+                    non laborum odit consequatur odio!</div>
+                    <button className="news-event__title _btn-reset">Уникальный лакшери аукцион здесь вы можете найти</button>
                     <div className="news-event__content">Lorem ipsum dolor sit amet,
                     consectetur adipisicing elit. At veritatis fuga cum animi fugit est numquam explicabo 
                     dolorum perferendis tenetur, officia harum, voluptate dolores similique

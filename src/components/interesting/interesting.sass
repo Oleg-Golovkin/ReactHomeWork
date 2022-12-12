@@ -1,3 +1,4 @@
+@use 'sass:math'
 .interesting
     padding: 64px 0 75px 0
 
@@ -137,9 +138,14 @@
 
 .news-event
     margin-top: 75px
+    display: flex
+    justify-content: space-between
+    align-items: center
+
     // .news-event__wrapper
 
     &__wrapper
+        width: math.div(415, 950) * 100%
 
     // .news-event__title-wrapper
 
@@ -158,6 +164,7 @@
     // .news-event__title
 
     &__title
+        position: relative
         margin-top: 58px
         text-decoration: underline
         font-family: 'PT Sans'
@@ -169,6 +176,8 @@
         font-weight: 700
         text-decoration: underline
         color: #333333
+        
+
 
     // .news-event__content
 
