@@ -1,4 +1,6 @@
 @use 'sass:math'
+@import "../../sass/libs/variables"
+
 .interesting
     padding: 64px 0 75px 0
 
@@ -137,55 +139,59 @@
     &__news-event
 
 .news-event
-    margin-top: 75px
+    padding-top: 75px
     display: flex
     justify-content: space-between
+    flex-wrap: wrap
     align-items: center
-
-    // .news-event__wrapper
-
-    &__wrapper
-        width: math.div(415, 950) * 100%
-
-    // .news-event__title-wrapper
-
-    &__title-wrapper
-        &_news
-            background: url("../../icons/interesting/news.png") left no-repeat
-            padding-left: 35px
-            font-family: 'PF Din Text Cond Pro'
-            font-size: 35px
-            line-height: 25px
-            font-weight: 500
-            text-transform: uppercase
-            letter-spacing: 0.1em
-            color: #000000
-
-    // .news-event__title
-
-    &__title
-        position: relative
-        margin-top: 58px
-        text-decoration: underline
-        font-family: 'PT Sans'
-        font-size: 12px
-        line-height: 25px
-        fbont-weight: 400
-        color: #bb9c66
-        font-size: 15px
-        font-weight: 700
-        text-decoration: underline
-        color: #333333
-        
-
-
-    // .news-event__content
-
-    &__content
+    $width-news-event: 905
+    width: math.div($width-news-event, $maxWidthContainer) * 100%
+    
+    &__data
         font-family: 'PT Sans'
         font-size: 12px
         line-height: 25px
         font-weight: 400
         color: #bb9c66
+
+    // .news-event__wrapper
+    &__wrapper
+        width: math.div(415, $width-news-event) * 100%
+
+    &__subWrapper
+        margin-top: 40px
+        font-family: 'PT Sans'
+    // .news-event__title-wrapper
+
+    &__title-wrapper
+        padding-left: 35px
+        font-family: 'PF Din Text Cond Pro'
+        font-size: 35px
+        line-height: 25px
+        font-weight: 500
+        text-transform: uppercase
+        letter-spacing: 0.1em
+        color: #000000
+        &_news
+            background: url("../../icons/interesting/news.png") left no-repeat
+        &_events
+            background: url("../../icons/interesting/events.png") left no-repeat
+        &_subscription
+            margin-top: 57px
+            background: url("../../icons/interesting/subscription.png") left no-repeat
+
+    // .news-event__title
+
+    &__title
+        position: relative
+        text-decoration: underline
+        font-size: 15px
+        font-weight: 700
+        text-decoration: underline
+        color: #333333
+
+    // .news-event__content
+
+    &__content
         font-size: 15px
         color: #333333

@@ -17,6 +17,9 @@ import 'swiper/css';
 
 const Interesting = () => {
     const quotes = useSelector((state)=> state.interestingSlice.quotes);
+    const news = useSelector((state)=> state.interestingSlice.news);
+    const events = useSelector((state)=> state.interestingSlice.events);
+    const subscription = useSelector((state)=> state.interestingSlice.subscription);
 
     const navigation =
         <div className="swiper-button swiper-button_interesting">
@@ -48,7 +51,37 @@ const Interesting = () => {
             </SwiperSlide>
         )
     })
-    
+
+    const News = () => news.map(({data, title, dsc}) => {
+        const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
+        return (
+            <div key={uniqid()} className = "news-event__subWrapper">
+                <div className="news-event__data">{data}</div>
+                <button className="news-event__title _btn-reset">{title}</button>
+                <div className="news-event__content">{description}</div>
+            </div>
+            
+        )
+    })
+    const Events = () => events.map(({title, dsc}) => {
+        const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
+        return (
+            <div key={uniqid()} className = "news-event__subWrapper">
+                <button className="news-event__title _btn-reset">{title}</button>
+                <div className="news-event__content">{description}</div>
+            </div>
+            
+        )
+    })    
+    const Subscription = () => subscription.map(({dsc}) => {
+        const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
+        return (
+            <div key={uniqid()} className = "news-event__subWrapper">
+                <div className="news-event__content">{description}</div>
+            </div>
+            
+        )
+    })    
     return(
         <section className="interesting">
             <div className="container">
@@ -74,29 +107,21 @@ const Interesting = () => {
                     {swiperSlide}
                     {navigation}
                 </Swiper>
-                
-            <div className="interesting__news-event news-event">
-                <div className="news-event__wrapper">
-                    <div className="news-event__title-wrapper news-event__title-wrapper_news">Новости</div>
-                    <button className="news-event__title _btn-reset">Уникальный лакшери аукцион здесь вы можете найти</button>
-                    <div className="news-event__content">Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. At veritatis fuga cum animi fugit est numquam explicabo 
-                    dolorum perferendis tenetur, officia harum, voluptate dolores similique
-                    non laborum odit consequatur odio!</div>
-                    <button className="news-event__title _btn-reset">Уникальный лакшери аукцион здесь вы можете найти</button>
-                    <div className="news-event__content">Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. At veritatis fuga cum animi fugit est numquam explicabo 
-                    dolorum perferendis tenetur, officia harum, voluptate dolores similique
-                    non laborum odit consequatur odio!</div>
-                    <button className="news-event__title _btn-reset">Уникальный лакшери аукцион здесь вы можете найти</button>
-                    <div className="news-event__content">Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. At veritatis fuga cum animi fugit est numquam explicabo 
-                    dolorum perferendis tenetur, officia harum, voluptate dolores similique
-                    non laborum odit consequatur odio!</div>
-                </div>                
-            </div>
-            
-            
+                <div className="interesting__news-event news-event">
+                    <div className="news-event__wrapper">
+                        <div className="news-event__title-wrapper news-event__title-wrapper_news">Новости</div>
+                        <News/>
+                    </div>                
+                    <div className="news-event__wrapper">
+                        <div className="news-event__title-wrapper news-event__title-wrapper_events">События</div>
+                        <Events/>
+                    </div>
+                    <div className="news-event__wrapper">
+                        <div className="news-event__title-wrapper news-event__title-wrapper_subscription">Подписка</div>
+                        <Subscription/>
+                    </div>
+                                    
+                </div>
             </div>
         </section> 
     )
