@@ -116,9 +116,9 @@ const Interesting = () => {
                     <div className="news-event__wrapper sending">
                         <form action="#" className="sending__form">
                             <input className="sending__input" type="text" />
-                            <input className="sending__btn" type="button" />
-                        </form>
-                    </div>             
+                            <button className=" sending__btn _btn-reset " type="button" name='button'><span>OK</span></button>
+                        </form> 
+                    </div>
                 </div>
             </div>
         </section> 
