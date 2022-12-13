@@ -1,5 +1,6 @@
 @use 'sass:math'
 @import "../../sass/libs/variables"
+$width-news-event: 905
 
 .interesting
     padding: 64px 0 75px 0
@@ -144,9 +145,8 @@
     justify-content: space-between
     flex-wrap: wrap
     align-items: center
-    $width-news-event: 905
     width: math.div($width-news-event, $maxWidthContainer) * 100%
-    
+
     &__data
         font-family: 'PT Sans'
         font-size: 12px
@@ -195,3 +195,22 @@
     &__content
         font-size: 15px
         color: #333333
+.sending
+
+    // .sending__form
+
+    &__form
+        display: flex
+        justify-content: space-around
+        width: 100%
+        height: 50px
+        border: 3px solid #bb9c66
+    // .sending__input
+
+    &__input
+        width: math.div($width-news-event, 350 ) * 100%
+        height: 32px
+        border-left: 1px solid black
+    // .sending__btn
+
+    &__btn

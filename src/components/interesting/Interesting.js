@@ -52,36 +52,29 @@ const Interesting = () => {
         )
     })
 
-    const News = () => news.map(({data, title, dsc}) => {
-        const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
+    const Element = ({data = null, title = null, dsc = null}) => {
         return (
             <div key={uniqid()} className = "news-event__subWrapper">
                 <div className="news-event__data">{data}</div>
                 <button className="news-event__title _btn-reset">{title}</button>
-                <div className="news-event__content">{description}</div>
-            </div>
-            
+                <div className="news-event__content">{dsc}</div>
+            </div>            
         )
+    }
+    const News = () => news.map(({data, title, dsc}) => {
+        const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
+        return <Element data = {data} title = {title} dsc = {description}/>
     })
+
     const Events = () => events.map(({title, dsc}) => {
         const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
-        return (
-            <div key={uniqid()} className = "news-event__subWrapper">
-                <button className="news-event__title _btn-reset">{title}</button>
-                <div className="news-event__content">{description}</div>
-            </div>
-            
-        )
+        return <Element title = {title} dsc = {description}/>
     })    
     const Subscription = () => subscription.map(({dsc}) => {
         const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
-        return (
-            <div key={uniqid()} className = "news-event__subWrapper">
-                <div className="news-event__content">{description}</div>
-            </div>
-            
-        )
+        return <Element dsc = {description}/>
     })    
+
     return(
         <section className="interesting">
             <div className="container">
@@ -119,8 +112,13 @@ const Interesting = () => {
                     <div className="news-event__wrapper">
                         <div className="news-event__title-wrapper news-event__title-wrapper_subscription">Подписка</div>
                         <Subscription/>
-                    </div>
-                                    
+                    </div>             
+                    <div className="news-event__wrapper sending">
+                        <form action="#" className="sending__form">
+                            <input className="sending__input" type="text" />
+                            <input className="sending__btn" type="button" />
+                        </form>
+                    </div>             
                 </div>
             </div>
         </section> 
