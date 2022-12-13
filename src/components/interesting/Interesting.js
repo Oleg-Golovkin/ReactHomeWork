@@ -63,16 +63,16 @@ const Interesting = () => {
     }
     const News = () => news.map(({data, title, dsc}) => {
         const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
-        return <Element data = {data} title = {title} dsc = {description}/>
+        return <Element key={uniqid()} data = {data} title = {title} dsc = {description}/>
     })
 
     const Events = () => events.map(({title, dsc}) => {
         const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
-        return <Element title = {title} dsc = {description}/>
+        return <Element key={uniqid()} title = {title} dsc = {description}/>
     })    
     const Subscription = () => subscription.map(({dsc}) => {
         const description = dsc.length > 200 ? dsc.substring(0, 200) + "..." : dsc
-        return <Element dsc = {description}/>
+        return <Element key={uniqid()} dsc = {description}/>
     })    
 
     return(
@@ -101,19 +101,19 @@ const Interesting = () => {
                     {navigation}
                 </Swiper>
                 <div className="interesting__news-event news-event">
-                    <div className="news-event__wrapper">
-                        <div className="news-event__title-wrapper news-event__title-wrapper_news">Новости</div>
+                    <div key={uniqid()} className="news-event__wrapper">
+                        <div  className="news-event__title-wrapper news-event__title-wrapper_news">Новости</div>
                         <News/>
                     </div>                
-                    <div className="news-event__wrapper">
-                        <div className="news-event__title-wrapper news-event__title-wrapper_events">События</div>
+                    <div key={uniqid()} className="news-event__wrapper">
+                        <div  className="news-event__title-wrapper news-event__title-wrapper_events">События</div>
                         <Events/>
                     </div>
-                    <div className="news-event__wrapper">
-                        <div className="news-event__title-wrapper news-event__title-wrapper_subscription">Подписка</div>
+                    <div key={uniqid()} className="news-event__wrapper">
+                        <div  className="news-event__title-wrapper news-event__title-wrapper_subscription">Подписка</div>
                         <Subscription/>
                     </div>             
-                    <div className="news-event__wrapper sending">
+                    <div key={uniqid()} className="news-event__wrapper sending">
                         <form action="#" className="sending__form">
                             <input className="sending__input" type="text" />
                             <button className=" sending__btn _btn-reset " type="button" name='button'><span>OK</span></button>
