@@ -1,6 +1,4 @@
-import { createSlice, createAsyncThunk  } from '@reduxjs/toolkit';
-import useTransform from '../../service/useTransform'
-
+import { createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
     quotes: [

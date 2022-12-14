@@ -5,6 +5,7 @@ import Lots from '../lots/Lots';
 import Range from '../range/Range'
 import Services from '../services/Services';
 import Interesting from "./../interesting/Interesting"
+import Footer from "./../footer/footer"
 import { useMediaQuery } from "react-responsive";
 import {changeMedia576px,  
   changeMedia767px,
@@ -31,7 +32,10 @@ function App() {
         <Range/>
         <Services/>
         <Interesting/>
-      </main>   
+      </main>
+      <footer>
+        <Footer/>
+      </footer>   
     </>
   );
 }

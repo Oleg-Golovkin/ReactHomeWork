@@ -3,6 +3,7 @@ import mediaSlice from "../components/app/mediaSlice";
 import hamburgerSlice from "../components/hamburger/hamburgerSlice";
 import lotsSlice from "../components/lots/lotsSlice";
 import rangeSlice from "../components/range/rangeSlice";
+import footerSlice from "../components/footer/footerSlice";
 import interestingSlice from "../components/interesting/interestingSlice";
 import { combineReducers } from 'redux'
 
@@ -13,4 +14,5 @@ export default combineReducers({
     lotsSlice,
     rangeSlice,
     interestingSlice,
+    footerSlice
 })
