@@ -5,7 +5,7 @@ import Lots from '../lots/Lots';
 import Range from '../range/Range'
 import Services from '../services/Services';
 import Interesting from "./../interesting/Interesting"
-import Footer from "./../footer/footer"
+import Footer from "./../footer/Footer"
 import { useMediaQuery } from "react-responsive";
 import {changeMedia576px,  
   changeMedia767px,

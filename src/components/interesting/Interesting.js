@@ -77,7 +77,7 @@ const Interesting = () => {
 
     return(
         <section className="interesting">
-            <div className="container">
+            <div className="container container_interesting">
                 <Separator 
                     subTitle = {"Цитаты"} 
                     img = {title_interesting} 

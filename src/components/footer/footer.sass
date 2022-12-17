@@ -1,5 +1,5 @@
 .footer
-    padding: 51px 0px 0px 0px
+    padding: 51px 0px 58px 0px
     min-height: 177px
     background-color: #1c242a
 
@@ -7,6 +7,11 @@
         display: flex
         align-items: flex-start
         justify-content: space-between
+        @media (max-width: 767px)
+            flex-direction: column
+            align-items: center
+            
+
     // .footer__lable
 
     &__lable
@@ -29,6 +34,9 @@
         img
             width: 100%
             height: 100%
+        @media (max-width: 883px)
+            display: none
+            
 
     // .label-footer__protection
 
@@ -39,6 +47,8 @@
         font-weight: 400
         color: #bb9c66
         margin-top: 27px
+        @media (max-width: 883px)
+            display: none
 .nav-footer
     height: 40px
     width: 472px
@@ -47,6 +57,9 @@
     flex-wrap: wrap
     margin: 0
     padding: 6px 0px 0px 0px
+    @media (max-width: 767px)
+        // flex-wrap: wrap-reverse
+            
 
     &__item
         font-family: 'PF Din Text Cond Pro'
@@ -61,8 +74,11 @@
 .feedback-footer
     display: flex
     flex-direction: column
+    @media (max-width: 767px)
+        align-items: center
+        margin-top: 30px
+        
     // .feedback-footer__tel
-
     &__tel
         text-decoration: none
         font-family: 'BravoRG'
@@ -76,6 +92,7 @@
             font-family: 'BravoRG'
             font-size: 25px
             line-height: 25px
+        
 
     // .feedback-footer__feedback
 
@@ -92,3 +109,5 @@
             line-height: 21px
             font-weight: 400
             color: #bb9c66
+        
+
