@@ -16,8 +16,22 @@ const initialState = {
         "2022-11-30",
         "2022-12-31",
         "2022-12-25",
+    ],    
+    activeSwiper: true,
+    slideContent: [
+        {dsc: `Arnold & Son Worldtimer discovery of antarctica`,
+        sum: "323 312"},
+        {dsc: `Arnold & Son Worldtimer discovery of antarctica`,
+        sum: "323 312"},
+        {dsc: `Arnold & Son Worldtimer discovery of antarctica`,
+        sum: "323 312"},
+        {dsc: `Arnold & Son Worldtimer discovery of antarctica`,
+        sum: "323 312"},
+        {dsc: `Arnold & Son Worldtimer discovery of antarctica`,
+        sum: "323 312"},
+        {dsc: `Arnold & Son Worldtimer discovery of antarctica`,
+        sum: "323 312"},
     ],
-    activeSwiper: true
 }
 
 export const reduxThunkImg = createAsyncThunk(

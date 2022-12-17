@@ -13,33 +13,35 @@ import Spinner from "../spinner/Spinner"
 import popular from './../../icons/lots/popular.png'
 import prev from './../../icons/lots/prev.png'
 import next from './../../icons/lots/next.png'
+import clock from './../../img/lots/clock.png'
 
 import 'swiper/css';
 import './lots.sass'
 
 const Lots = () => {
     const dispatch = useDispatch();
-    const lots = useSelector((state)=> state.lotsSlice.lots);
+    // const lots = useSelector((state)=> state.lotsSlice.lots);
     const activeSwiper = useSelector((state)=> state.lotsSlice.activeSwiper);
     const imgLoadingStatus = useSelector((state)=> state.lotsSlice.imgLoadingStatus);
     const deadline = useSelector((state)=> state.lotsSlice.deadline)
+    const slideContent = useSelector((state)=> state.lotsSlice.slideContent)
     
     useEffect(()=> {
         dispatch(reduxThunkImg())
     // eslint-disable-next-line   
     }, [])
 
-    const swiperSlide = lots.map((item, i) =>{
+    const swiperSlide = slideContent.map(({dsc, sum}, i) =>{
         return(
             <SwiperSlide 
                 key={uniqid()}>
                     <div className="swiper-slide__wrapper">
                         <div className="swiper-slide__subWrapper">
                             <Timer deadline = {deadline[i]}/>
-                            <img src={item.img} alt=""/>
+                            <img src={clock} alt="closk"/>
                         </div>
                         <div className="swiper-slide__dsc">
-                        Arnold & Son Worldtimer discovery of antarctica
+                        {dsc}
                         </div>
                         <div className="swiper-slide__evaluate evaluate-slide_views">
                             <div className="evaluate-slide__block evaluate-slide__block_views">
@@ -51,7 +53,7 @@ const Lots = () => {
                                 <div className="evaluate-slide__main-wrapper">  
                                     <div className="evaluate-slide__square-icon"></div>                              
                                     <div className="evaluate-slide__title">Текущая ставка</div>
-                                    <div className="evaluate-slide__sum">323 312</div>
+                                    <div className="evaluate-slide__sum">{sum}</div>
                                     <div className="evaluate-slide__sum-labble">&#8381;</div>
                                 </div>
                             </div>
