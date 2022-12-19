@@ -17,15 +17,15 @@
 
     // .footer__lable
 
-    &__lable
+    // &__lable
 
-    // .footer__nav
+    // // .footer__nav
 
-    &__nav
+    // &__nav
 
-    // .footer__feedback
+    // // .footer__feedback
 
-    &__feedback
+    // &__feedback
 
 .label-footer
 
@@ -58,22 +58,22 @@
     list-style: none
     display: flex
     flex-wrap: wrap
+    
     margin: 0
     padding: 6px 0px 0px 0px
     @media (max-width: 767px)
-        // flex-wrap: wrap-reverse
-            
+        justify-content: center
 
     &__item
         font-family: 'PF Din Text Cond Pro'
         font-size: 14px
-        line-height: 25px
+        line-height: math.div(25, 14) + em
         font-weight: 500
         text-transform: uppercase
         letter-spacing: 0.1em
         color: #ffffff
         padding-right: em(13)
-        @media (max-width: 576px)
+        @media (max-width: 767px)
             font-size: 20px
 
 .feedback-footer
