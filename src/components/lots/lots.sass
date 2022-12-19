@@ -24,8 +24,7 @@
     align-items: center
     margin: 0 auto
     margin-top: 48px
-    $resut: math.div(400,950) * 100%
-    width: $resut
+    width: calc((400 / 950) * 100%)    
     height: 100px
     position: relative
     @media (max-width: 768px)
@@ -38,8 +37,7 @@
         justify-content: space-between
         align-items: center
         position: relative
-        $resut: math.div(125,400) * 100%
-        width: $resut
+        width: calc((125 / 400) * 100%)
         bottom: 0
         &::after
             display: none
