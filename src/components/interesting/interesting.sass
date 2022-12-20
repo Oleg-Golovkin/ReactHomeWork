@@ -96,16 +96,22 @@ $width-news-event: 905
     &__data
         font-family: 'PT Sans'
         font-size: calc(12em / 16)
-        line-height: 25px
+        line-height: calc(25em / 12)
         font-weight: 400
         color: #bb9c66
 
     // .news-event__wrapper
     &__wrapper
+        display: flex
+        flex-direction: column
         font-size: 16px
-        width: math.div(415, $width-news-event) * 100%
+        width: calc(415 / $width-news-event) * 100%
+        @media (max-width: 767px)
+            font-size: 20px
         @media (max-width: 576px)
+            align-items: center
             width: auto
+            font-size: 30px
     &__subWrapper
         margin-top: 40px
         font-family: 'PT Sans'
@@ -122,15 +128,13 @@ $width-news-event: 905
         text-transform: uppercase
         letter-spacing: 0.1em
         color: #000000
-        @media (max-width: 576px)
-            display: block
-            max-width: 180px
-            margin: 0 auto
             
         &_news
             background: url("../../icons/interesting/news.png") left no-repeat
         &_events
             background: url("../../icons/interesting/events.png") left no-repeat
+            @media (max-width: 576px)
+                margin-top: 57px
         &_subscription
             margin-top: 57px
             background: url("../../icons/interesting/subscription.png") left no-repeat
