@@ -88,7 +88,6 @@ $width-news-event: 905
     display: flex
     justify-content: space-between
     flex-wrap: wrap
-    align-items: center
     width: math.div($width-news-event, $maxWidthContainer) * 100%
     @media (max-width: 576px)
         flex-direction: column
@@ -96,13 +95,14 @@ $width-news-event: 905
 
     &__data
         font-family: 'PT Sans'
-        font-size: 12px
+        font-size: calc(12em / 16)
         line-height: 25px
         font-weight: 400
         color: #bb9c66
 
     // .news-event__wrapper
     &__wrapper
+        font-size: 16px
         width: math.div(415, $width-news-event) * 100%
         @media (max-width: 576px)
             width: auto
@@ -116,8 +116,8 @@ $width-news-event: 905
     &__title-wrapper
         padding-left: 35px
         font-family: 'PF Din Text Cond Pro'
-        font-size: 35px
-        line-height: 25px
+        font-size: calc(35em / 16)
+        line-height: calc(25em / 35)
         font-weight: 500
         text-transform: uppercase
         letter-spacing: 0.1em
@@ -126,11 +126,11 @@ $width-news-event: 905
             display: block
             max-width: 180px
             margin: 0 auto
+            
         &_news
             background: url("../../icons/interesting/news.png") left no-repeat
         &_events
             background: url("../../icons/interesting/events.png") left no-repeat
-            margin-top: 57px
         &_subscription
             margin-top: 57px
             background: url("../../icons/interesting/subscription.png") left no-repeat
@@ -140,13 +140,13 @@ $width-news-event: 905
     &__title
         position: relative
         text-decoration: underline
-        font-size: 15px
+        font-size: calc(15em / 16)
         font-weight: 700
         text-decoration: underline
         color: #333333
 
     &__content
-        font-size: 15px
+        font-size: calc(15em / 16)
         color: #333333
         @media (max-width: 576px)
             text-align: justify
