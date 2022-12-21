@@ -55,8 +55,12 @@ const Interesting = () => {
     const Element = ({data = null, title = null, dsc = null}) => {
         return (
             <div key={uniqid()} className = "news-event__subWrapper">
-                <div className="news-event__data">{data}</div>
-                <button className="news-event__title _btn-reset">{title}</button>
+                <div 
+                style= {{display: `${data? "block" : "none"}`}} 
+                className="news-event__data">{data}</div>
+                <button 
+                style= {{display: `${data? "block" : "none"}`}} 
+                className="news-event__title _btn-reset">{title}</button>
                 <div className="news-event__content">{dsc}</div>
             </div>            
         )
