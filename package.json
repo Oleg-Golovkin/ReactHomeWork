@@ -45,6 +45,7 @@
     "rc-menu": "^9.8.1",
     "react-idle-timer": "^5.4.2",
     "react-responsive": "^9.0.0",
+    "react-scroll-parallax": "^3.3.2",
     "sass": "^1.55.0",
     "swiper": "^8.4.4",
     "uniqid": "^5.4.0"

@@ -38,7 +38,7 @@ const Lots = () => {
                     <div className="swiper-slide__wrapper">
                         <div className="swiper-slide__subWrapper">
                             <Timer deadline = {deadline[i]}/>
-                            <img src={clock} alt="closk"/>
+                            <img  src={clock} alt="closk"/>
                         </div>
                         <div className="swiper-slide__dsc">
                         {dsc}
@@ -159,7 +159,7 @@ const Lots = () => {
     
     const spinner = imgLoadingStatus === "loading" ? <Spinner/> : null
     return(
-        <section className="lots container">
+        <sectio id='auction' className="lots container">
             <Separator 
                 subTitle = {"лоты Под аукцион"}
                 img = {popular}  
@@ -167,7 +167,7 @@ const Lots = () => {
             {spinner}
             {swiper}
             {allLots}
-        </section> 
+        </sectio> 
     )
 }
 

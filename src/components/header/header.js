@@ -34,7 +34,7 @@ const Header = () => {
                     title={item}>
                         <MenuItem  
                         className=" menu-header__item"                  
-                        key={uniqid()}>Главное
+                        key={uniqid()}><a href="#auction">Главное</a>
                         </MenuItem>
                         <MenuItem 
                         className=" menu-header__item"
